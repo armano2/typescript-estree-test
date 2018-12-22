@@ -5,7 +5,7 @@ import { parse } from 'typescript-estree/dist/parser';
 
 const errors = new Map<string, string[]>();
 
-glob('projects/**/*.ts', {
+glob('projects/**/*.{ts,tsx}', {
   cwd: __dirname,
   absolute: true
 })
@@ -18,7 +18,8 @@ glob('projects/**/*.ts', {
       });
       try {
         parse(content, {
-          errorOnUnknownASTType: true
+          errorOnUnknownASTType: true,
+          jsx: path.extname(file) === '.tsx',
         });
       } catch (e) {
         const filePath = path.normalize(path.relative(__dirname, file));

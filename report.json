@@ -468,6 +468,8 @@
         "projects\\terminus\\terminus-terminal\\src\\pathDrop.ts",
         "projects\\terminus\\terminus-terminal\\src\\services\\terminal.service.ts",
         "projects\\terminus\\terminus-terminal\\src\\shells\\wsl.ts",
+        "projects\\ts-app\\dev\\utils\\debounce.ts",
+        "projects\\ts-app\\web\\api\\api.ts",
         "projects\\typeorm\\src\\cache\\QueryResultCacheFactory.ts",
         "projects\\typeorm\\src\\commands\\CacheClearCommand.ts",
         "projects\\typeorm\\src\\commands\\MigrationGenerateCommand.ts",
@@ -589,7 +591,9 @@
         "projects\\typeorm\\test\\integration\\sample2-one-to-one.ts",
         "projects\\typeorm\\test\\integration\\sample3-many-to-one.ts",
         "projects\\typeorm\\test\\integration\\sample4-many-to-many.ts",
-        "projects\\typeorm\\test\\other-issues\\preventing-injection\\preventing-injection.ts"
+        "projects\\typeorm\\test\\other-issues\\preventing-injection\\preventing-injection.ts",
+        "projects\\vue-tsx-support\\test\\tsc\\basic\\componentFactory.tsx",
+        "projects\\vue-tsx-support\\test\\tsc\\basic\\test.tsx"
       ]
     },
     {
@@ -616,7 +620,8 @@
         "projects\\terminus\\terminus-core\\src\\services\\hostApp.service.ts",
         "projects\\terminus\\terminus-terminal\\src\\components\\appearanceSettingsTab.component.ts",
         "projects\\terminus\\terminus-terminal\\src\\frontends\\xtermFrontend.ts",
-        "projects\\terminus\\terminus-terminal\\src\\services\\sessions.service.ts"
+        "projects\\terminus\\terminus-terminal\\src\\services\\sessions.service.ts",
+        "projects\\ts-app\\dev\\steps\\start-docker.ts"
       ]
     },
     {
@@ -1222,7 +1227,8 @@
         "projects\\typeorm\\test\\functional\\entity-schema\\uniques\\uniques-basic.ts",
         "projects\\typeorm\\test\\functional\\query-runner\\create-table.ts",
         "projects\\typeorm\\test\\functional\\schema-builder\\add-column.ts",
-        "projects\\typeorm\\test\\github-issues\\1623\\issue-1623.ts"
+        "projects\\typeorm\\test\\github-issues\\1623\\issue-1623.ts",
+        "projects\\typescript-collections\\src\\lib\\LinkedDictionary.ts"
       ]
     },
     {
@@ -1256,7 +1262,10 @@
         "projects\\typeorm\\src\\persistence\\EntityPersistExecutor.ts",
         "projects\\typeorm\\src\\persistence\\SubjectExecutor.ts",
         "projects\\typeorm\\src\\util\\ObjectUtils.ts",
-        "projects\\typeorm\\test\\utils\\test-utils.ts"
+        "projects\\typeorm\\test\\utils\\test-utils.ts",
+        "projects\\typescript-collections\\src\\test\\bsTreeKVTest.ts",
+        "projects\\vue-tsx-support\\src\\api.ts",
+        "projects\\vue-tsx-support\\types\\base.d.ts"
       ]
     },
     {
@@ -1360,7 +1369,8 @@
         "projects\\typeorm\\src\\metadata-args\\RelationCountMetadataArgs.ts",
         "projects\\typeorm\\src\\metadata-args\\RelationIdMetadataArgs.ts",
         "projects\\typeorm\\src\\metadata-args\\TableMetadataArgs.ts",
-        "projects\\typeorm\\src\\metadata-args\\UniqueMetadataArgs.ts"
+        "projects\\typeorm\\src\\metadata-args\\UniqueMetadataArgs.ts",
+        "projects\\vue-tsx-support\\types\\builtin-components.d.ts"
       ]
     },
     {
@@ -1411,7 +1421,8 @@
         "projects\\native-script\\tns-platform-declarations\\android\\android-support-26.d.ts",
         "projects\\native-script\\tns-platform-declarations\\android\\android-support-28.d.ts",
         "projects\\native-script\\tns-platform-declarations\\ios\\interop.d.ts",
-        "projects\\typeorm\\src\\driver\\mongodb\\typings.ts"
+        "projects\\typeorm\\src\\driver\\mongodb\\typings.ts",
+        "projects\\typescript-collections\\src\\lib\\util.ts"
       ]
     },
     {
@@ -1430,7 +1441,8 @@
     {
       "message": "Unknown AST_NODE_TYPE: \"TSConditionalType\"",
       "files": [
-        "projects\\angular\\packages\\upgrade\\src\\common\\angular1.ts"
+        "projects\\angular\\packages\\upgrade\\src\\common\\angular1.ts",
+        "projects\\vue-tsx-support\\src\\modifiers.ts"
       ]
     },
     {
