@@ -10,7 +10,9 @@ glob('projects/**/*.ts', {
   absolute: true
 })
   .then(files => {
-    for (const file of files) {
+    console.log(`generating reports for ${files.length} files.`);
+
+    files.forEach(file => {
       const content = fs.readFileSync(file, {
         encoding: 'utf-8'
       });
@@ -27,11 +29,12 @@ glob('projects/**/*.ts', {
           errors.set(e.message, [filePath]);
         }
       }
-    }
+    });
 
+    const err = Array.from(errors);
     const toReport = {
-      messages: Array.from(errors).map(item => item[0]),
-      details: Array.from(errors).map(item => {
+      messages: err.map(item => item[0]),
+      details: err.map(item => {
         return {
           message: item[0],
           files: item[1]
@@ -39,9 +42,12 @@ glob('projects/**/*.ts', {
       })
     };
 
-    fs.writeFileSync('./messages.json', JSON.stringify(toReport.messages, null, 2));
+    fs.writeFileSync(
+      './messages.json',
+      JSON.stringify(toReport.messages, null, 2)
+    );
     fs.writeFileSync('./report.json', JSON.stringify(toReport, null, 2));
-    console.log('report saved.');
+    console.log('reports saved.');
   })
   .catch(e => {
     throw e;
