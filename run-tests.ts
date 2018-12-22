@@ -39,6 +39,7 @@ glob('projects/**/*.ts', {
       })
     };
 
+    fs.writeFileSync('./messages.json', JSON.stringify(toReport.messages, null, 2));
     fs.writeFileSync('./report.json', JSON.stringify(toReport, null, 2));
     console.log('report saved.');
   })

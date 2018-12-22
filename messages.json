@@ -1,0 +1,13 @@
+[
+  "Unknown AST_NODE_TYPE: \"TSAsExpression\"",
+  "Unknown AST_NODE_TYPE: \"TSImportEqualsDeclaration\"",
+  "Unknown AST_NODE_TYPE: \"TSTupleType\"",
+  "Unknown AST_NODE_TYPE: \"TSTypeQuery\"",
+  "Unknown AST_NODE_TYPE: \"TSTypeAssertionExpression\"",
+  "Unknown AST_NODE_TYPE: \"TSIntersectionType\"",
+  "Unknown AST_NODE_TYPE: \"TSParenthesizedType\"",
+  "Unknown AST_NODE_TYPE: \"TSCallSignature\"",
+  "Unknown AST_NODE_TYPE: \"TSMappedType\"",
+  "Unknown AST_NODE_TYPE: \"TSConditionalType\"",
+  "Unknown AST_NODE_TYPE: \"TSThisType\""
+]

@@ -453,6 +453,21 @@
         "projects\\native-script\\tns-core-modules\\ui\\editable-text-base\\editable-text-base.android.ts",
         "projects\\native-script\\tns-core-modules\\ui\\frame\\frame-common.ts",
         "projects\\native-script\\tns-core-modules\\ui\\tab-view\\tab-view-common.ts",
+        "projects\\terminus\\app\\src\\entry.preload.ts",
+        "projects\\terminus\\app\\src\\entry.ts",
+        "projects\\terminus\\app\\src\\plugins.ts",
+        "projects\\terminus\\terminus-community-color-schemes\\src\\colorSchemes.ts",
+        "projects\\terminus\\terminus-core\\src\\components\\tabHeader.component.ts",
+        "projects\\terminus\\terminus-plugin-manager\\src\\services\\pluginManager.service.ts",
+        "projects\\terminus\\terminus-ssh\\src\\services\\ssh.service.ts",
+        "projects\\terminus\\terminus-terminal\\src\\colorSchemes.ts",
+        "projects\\terminus\\terminus-terminal\\src\\components\\colorPicker.component.ts",
+        "projects\\terminus\\terminus-terminal\\src\\components\\environmentEditor.component.ts",
+        "projects\\terminus\\terminus-terminal\\src\\components\\terminalTab.component.ts",
+        "projects\\terminus\\terminus-terminal\\src\\index.ts",
+        "projects\\terminus\\terminus-terminal\\src\\pathDrop.ts",
+        "projects\\terminus\\terminus-terminal\\src\\services\\terminal.service.ts",
+        "projects\\terminus\\terminus-terminal\\src\\shells\\wsl.ts",
         "projects\\typeorm\\src\\cache\\QueryResultCacheFactory.ts",
         "projects\\typeorm\\src\\commands\\CacheClearCommand.ts",
         "projects\\typeorm\\src\\commands\\MigrationGenerateCommand.ts",
@@ -594,7 +609,14 @@
         "projects\\native-script\\tns-core-modules\\ui\\layouts\\flexbox-layout\\flexbox-layout.ios.ts",
         "projects\\native-script\\tns-core-modules\\ui\\time-picker\\time-picker.ios.ts",
         "projects\\native-script\\tns-core-modules\\ui\\utils.ios.ts",
-        "projects\\native-script\\tns-platform-declarations\\android\\android-declarations.d.ts"
+        "projects\\native-script\\tns-platform-declarations\\android\\android-declarations.d.ts",
+        "projects\\terminus\\app\\lib\\index.ts",
+        "projects\\terminus\\app\\lib\\window.ts",
+        "projects\\terminus\\terminus-core\\src\\services\\homeBase.service.ts",
+        "projects\\terminus\\terminus-core\\src\\services\\hostApp.service.ts",
+        "projects\\terminus\\terminus-terminal\\src\\components\\appearanceSettingsTab.component.ts",
+        "projects\\terminus\\terminus-terminal\\src\\frontends\\xtermFrontend.ts",
+        "projects\\terminus\\terminus-terminal\\src\\services\\sessions.service.ts"
       ]
     },
     {
@@ -705,7 +727,8 @@
         "projects\\native-script\\tns-platform-declarations\\ios\\objc-x86_64\\objc!Social.d.ts",
         "projects\\native-script\\tns-platform-declarations\\ios\\objc-x86_64\\objc!SpriteKit.d.ts",
         "projects\\native-script\\tns-platform-declarations\\ios\\objc-x86_64\\objc!TNSWidgets.d.ts",
-        "projects\\native-script\\tns-platform-declarations\\ios\\objc-x86_64\\objc!WatchKit.d.ts"
+        "projects\\native-script\\tns-platform-declarations\\ios\\objc-x86_64\\objc!WatchKit.d.ts",
+        "projects\\terminus\\terminus-core\\src\\services\\electron.service.ts"
       ]
     },
     {
@@ -1364,6 +1387,7 @@
         "projects\\angular\\packages\\core\\test\\reflection\\reflector_spec.ts",
         "projects\\angular\\packages\\forms\\src\\directives\\validators.ts",
         "projects\\angular\\tools\\public_api_guard\\forms\\forms.d.ts",
+        "projects\\monaco-editor\\monaco.d.ts",
         "projects\\native-script\\tns-core-modules\\module.d.ts",
         "projects\\native-script\\tns-core-modules\\tns-core-modules.d.ts",
         "projects\\native-script\\tns-core-modules\\ui\\core\\dependency-observable\\dependency-observable.d.ts",

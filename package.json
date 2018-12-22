@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "update": "ts-node run-tests.ts"
+    "update": "node -r ts-node/register run-tests.ts"
   },
   "author": "",
   "license": "ISC",
