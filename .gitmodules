@@ -1,0 +1,30 @@
+[submodule "angular"]
+  path = projects/angular
+  url = https://github.com/angular/angular.git
+[submodule "monaco-editor"]
+  path = projects/monaco-editor
+  url = https://github.com/Microsoft/monaco-editor.git
+[submodule "native-script"]
+  path = projects/native-script
+  url = https://github.com/NativeScript/NativeScript.git
+[submodule "react-server-example-tsx"]
+  path = projects/react-server-example-tsx
+  url = https://github.com/styfle/react-server-example-tsx.git
+[submodule "socket-io-typescript-chat"]
+  path = projects/socket-io-typescript-chat
+  url = https://github.com/luixaviles/socket-io-typescript-chat.git
+[submodule "terminus"]
+  path = projects/terminus
+  url = https://github.com/Eugeny/terminus.git
+[submodule "ts-app"]
+  path = projects/ts-app
+  url = https://github.com/lukeautry/ts-app.git
+[submodule "typeorm"]
+  path = projects/typeorm
+  url = https://github.com/typeorm/typeorm.git
+[submodule "typescript-collections"]
+  path = projects/typescript-collections
+  url = https://github.com/basarat/typescript-collections.git
+[submodule "vue-tsx-support"]
+  path = projects/vue-tsx-support
+  url = https://github.com/wonderful-panda/vue-tsx-support.git
