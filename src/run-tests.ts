@@ -16,11 +16,13 @@ readFixtures((file: string, content: string, isTsx: boolean) => {
       .normalize(path.relative(__dirname, file))
       .replace(/\\/g, '/');
 
-    const error = errors.get(e.message);
-    if (error) {
-      error.push(filePath);
-    } else {
-      errors.set(e.message, [filePath]);
+    if (e.message.startsWith('Unknown AST_NODE_TYPE')) {
+      const error = errors.get(e.message);
+      if (error) {
+        error.push(filePath);
+      } else {
+        errors.set(e.message, [filePath]);
+      }
     }
   }
 }).then(() => {
