@@ -1,10 +1,6 @@
 [
-  "Unknown AST_NODE_TYPE: \"TSImportEqualsDeclaration\"",
   "Unknown AST_NODE_TYPE: \"TSCallSignature\"",
-  "Unknown AST_NODE_TYPE: \"TSNamespaceExportDeclaration\"",
-  "Unknown AST_NODE_TYPE: \"TSAsExpression\"",
   "Unknown AST_NODE_TYPE: \"TSTypeAssertionExpression\"",
-  "Unknown AST_NODE_TYPE: \"TSThisType\"",
-  "Unknown AST_NODE_TYPE: \"TSInferType\"",
+  "Unknown AST_NODE_TYPE: \"TSNamespaceExportDeclaration\"",
   "Unknown AST_NODE_TYPE: \"TSJSDocNullableType\""
 ]

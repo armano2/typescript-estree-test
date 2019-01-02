@@ -104,10 +104,10 @@ ts-node@^7.0.1:
     source-map-support "^0.5.6"
     yn "^2.0.0"
 
-typescript-estree@^8.1.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/typescript-estree/-/typescript-estree-8.1.0.tgz#95a59c50bb02276c03bac7d22c7b4704fd85fe4d"
-  integrity sha512-O7rvu+HmWhodSCC9lJp8o6gNMNaaaFp78edF2jthStt6/ZUChqFUGIacnVDZ/LKj0v5SvSuSapCc9MBQR5x7sA==
+typescript-estree@9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/typescript-estree/-/typescript-estree-9.0.0.tgz#779bea78b7173e0b62257e61ac6503f254b4c742"
+  integrity sha512-Sny5/vx2vIIh+0bZ0Gk6vMrsGtTMIOIn8/Wyqh3Cmp9hbWognsouBovofFkjQiFNWdovz0r2svohQFhNtQIbhQ==
   dependencies:
     lodash.unescape "4.0.1"
     semver "5.5.0"
