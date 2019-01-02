@@ -1,31 +1,36 @@
-import { parse } from 'typescript-estree/dist/parser';
-import { readFixtures } from './read-fixtures';
+import { readFixtures, readFixture } from './read-fixtures';
+import { parseTsEstree } from './parser';
 import * as path from 'path';
 import * as fs from 'fs';
 
 const errors = new Map<string, string[]>();
 
-readFixtures((file: string, content: string, isTsx: boolean) => {
-  try {
-    parse(content, {
-      errorOnUnknownASTType: true,
-      jsx: isTsx
-    });
-  } catch (e) {
-    const filePath = path
-      .normalize(path.relative(__dirname, file))
-      .replace(/\\/g, '/');
+const files = readFixtures();
 
-    if (e.message.startsWith('Unknown AST_NODE_TYPE')) {
-      const error = errors.get(e.message);
-      if (error) {
-        error.push(filePath);
-      } else {
-        errors.set(e.message, [filePath]);
+const promises = [];
+for (const file of files) {
+  promises.push(
+    readFixture(file).then(({ file, content, isTsx }) => {
+      const tsCode = parseTsEstree(content, isTsx);
+      if (tsCode.parseError) {
+        const filePath = path
+          .normalize(path.relative(__dirname, file))
+          .replace(/\\/g, '/');
+
+        if (tsCode.parseError.startsWith('Unknown AST_NODE_TYPE')) {
+          const error = errors.get(tsCode.parseError);
+          if (error) {
+            error.push(filePath);
+          } else {
+            errors.set(tsCode.parseError, [filePath]);
+          }
+        }
       }
-    }
-  }
-}).then(() => {
+    })
+  );
+}
+
+Promise.all(promises).then(() => {
   const err = Array.from(errors);
   const toReport = {
     messages: err.map(item => item[0]),
