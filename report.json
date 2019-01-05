@@ -1,35 +1,8 @@
 {
   "messages": [
-    "Unknown AST_NODE_TYPE: \"TSNamespaceExportDeclaration\"",
     "Unknown AST_NODE_TYPE: \"TSJSDocNullableType\""
   ],
   "details": [
-    {
-      "message": "Unknown AST_NODE_TYPE: \"TSNamespaceExportDeclaration\"",
-      "files": [
-        "../compiler/ambientExportDefaultErrors.ts",
-        "../compiler/exportAsNamespace.d.ts",
-        "../compiler/exportAsNamespaceConflict.ts",
-        "../compiler/exportAsNamespace_augment.ts",
-        "../compiler/importShouldNotBeElidedInDeclarationEmit.ts",
-        "../compiler/jsdocReferenceGlobalTypeInCommonJs.ts",
-        "../compiler/reactTransitiveImportHasValidDeclaration.ts",
-        "../compiler/umdGlobalConflict.ts",
-        "../compiler/umdGlobalAugmentationNoCrash.ts",
-        "../conformance/externalModules/umd-augmentation-1.ts",
-        "../conformance/externalModules/umd-augmentation-2.ts",
-        "../conformance/externalModules/umd-augmentation-4.ts",
-        "../conformance/externalModules/umd-augmentation-3.ts",
-        "../conformance/externalModules/umd1.ts",
-        "../conformance/externalModules/umd2.ts",
-        "../conformance/externalModules/umd4.ts",
-        "../conformance/externalModules/umd3.ts",
-        "../conformance/externalModules/umd5.ts",
-        "../conformance/externalModules/umd6.ts",
-        "../conformance/externalModules/umd7.ts",
-        "../conformance/externalModules/umd8.ts"
-      ]
-    },
     {
       "message": "Unknown AST_NODE_TYPE: \"TSJSDocNullableType\"",
       "files": [
