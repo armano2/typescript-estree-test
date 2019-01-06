@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tsc",
     "update": "node -r ts-node/register ./src/run-tests.ts",
+    "generate-spec": "node -r ts-node/register ./src/generate-spec.ts",
     "test": "yarn build & mocha dist/*.spec.js"
   },
   "author": "",

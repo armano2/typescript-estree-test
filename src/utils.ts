@@ -25,6 +25,8 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 // THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+import { ESTreeNode } from "typescript-estree/dist/temp-types-based-on-js-source";
+
 export function isPlainObject(obj: any) {
   return Object.prototype.toString.call(obj) === '[object Object]';
 }
@@ -179,4 +181,34 @@ export function removeFromProgramNode(ast: any) {
   delete ast.range;
   delete ast.sourceType; // we can ignore sourceType here
   return ast;
+}
+
+export function traverse(
+  root: any,
+  cb: (node: ESTreeNode, parent?: ESTreeNode) => void
+) {
+  function visit(node: ESTreeNode, parent?: ESTreeNode) {
+    if (!node || typeof node.type !== 'string') {
+      return;
+    }
+
+    for (const prop in node) {
+      if (node.hasOwnProperty(prop)) {
+        const child = (node as any)[prop];
+
+        if (Array.isArray(child)) {
+          for (const el of child) {
+            visit(el, node);
+          }
+        } else if (isPlainObject(child)) {
+          visit(child, node);
+        }
+      }
+    }
+
+    cb(node, parent);
+  }
+
+  visit(root);
+  return root;
 }
