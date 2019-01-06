@@ -24,6 +24,6 @@
     "tiny-glob": "^0.2.6",
     "ts-node": "^7.0.1",
     "typescript": "~3.2.1",
-    "typescript-estree": "13.5.0"
+    "typescript-estree": "13.5.1"
   }
 }
