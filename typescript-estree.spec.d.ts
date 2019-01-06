@@ -1,45 +1,45 @@
 export interface ArrayExpression {
   type: 'ArrayExpression';
   elements: Array<
-    | Identifier
-    | Literal
     | ArrayExpression
-    | ObjectExpression
-    | FunctionExpression
-    | NewExpression
-    | CallExpression
+    | ArrowFunctionExpression
     | AssignmentExpression
+    | AwaitExpression
     | BigIntLiteral
     | BinaryExpression
-    | UpdateExpression
-    | null
-    | SpreadElement
+    | CallExpression
+    | FunctionExpression
+    | Identifier
+    | Literal
     | MemberExpression
-    | TSTypeAssertion
-    | ArrowFunctionExpression
-    | ThisExpression
-    | AwaitExpression
-    | UnaryExpression
+    | NewExpression
+    | ObjectExpression
     | SequenceExpression
+    | SpreadElement
     | TemplateLiteral
+    | ThisExpression
+    | UnaryExpression
+    | UpdateExpression
+    | TSTypeAssertion
+    | null
   >;
 }
 
 export interface ArrayPattern {
   type: 'ArrayPattern';
   elements: Array<
-    | Identifier
-    | null
-    | AssignmentExpression
-    | RestElement
-    | ArrayPattern
-    | Literal
-    | ObjectPattern
-    | ObjectExpression
-    | AssignmentPattern
-    | MemberExpression
     | ArrayExpression
+    | ArrayPattern
+    | AssignmentExpression
+    | AssignmentPattern
+    | Identifier
+    | Literal
+    | MemberExpression
+    | ObjectExpression
+    | ObjectPattern
+    | RestElement
     | SpreadElement
+    | null
   >;
   typeAnnotation?: TSTypeAnnotation;
   optional?: boolean;
@@ -50,40 +50,40 @@ export interface ArrowFunctionExpression {
   generator: boolean;
   id: null;
   params: Array<
+    | ArrayPattern
+    | AssignmentPattern
     | Identifier
     | ObjectPattern
-    | TSParameterProperty
-    | ArrayPattern
     | RestElement
-    | AssignmentPattern
+    | TSParameterProperty
   >;
   body:
-    | BlockStatement
-    | MemberExpression
-    | Identifier
-    | Literal
-    | CallExpression
-    | ConditionalExpression
-    | LogicalExpression
     | ArrayExpression
-    | ObjectExpression
-    | BinaryExpression
-    | TSTypeAssertion
-    | FunctionExpression
-    | JSXElement
-    | AssignmentExpression
-    | NewExpression
-    | ThisExpression
     | ArrowFunctionExpression
-    | TSAsExpression
-    | UnaryExpression
-    | TemplateLiteral
-    | ClassExpression
-    | UpdateExpression
+    | AssignmentExpression
     | AwaitExpression
+    | BinaryExpression
+    | BlockStatement
+    | CallExpression
+    | ClassExpression
+    | ConditionalExpression
+    | FunctionExpression
+    | Identifier
+    | JSXElement
+    | Literal
+    | LogicalExpression
+    | MemberExpression
     | MetaProperty
+    | NewExpression
+    | ObjectExpression
+    | SequenceExpression
+    | TemplateLiteral
+    | ThisExpression
+    | UnaryExpression
+    | UpdateExpression
     | YieldExpression
-    | SequenceExpression;
+    | TSAsExpression
+    | TSTypeAssertion;
   async: boolean;
   expression: boolean;
   returnType?: TSTypeAnnotation;
@@ -93,94 +93,94 @@ export interface ArrowFunctionExpression {
 export interface AssignmentExpression {
   type: 'AssignmentExpression';
   operator:
-    | '='
-    | '+='
-    | '-='
-    | '*='
-    | '/='
     | '%='
     | '&='
-    | '|='
+    | '**='
+    | '*='
+    | '+='
+    | '-='
+    | '/='
     | '<<='
+    | '='
     | '>>='
     | '>>>='
     | '^='
-    | '**=';
+    | '|=';
   left:
-    | MemberExpression
-    | Identifier
     | ArrayPattern
-    | SequenceExpression
+    | CallExpression
+    | Identifier
+    | Literal
+    | MemberExpression
+    | MetaProperty
     | NewExpression
     | ObjectPattern
-    | MetaProperty
-    | CallExpression
-    | Literal;
+    | SequenceExpression;
   right:
-    | Literal
-    | BinaryExpression
-    | Identifier
-    | ArrowFunctionExpression
-    | CallExpression
-    | ObjectExpression
-    | FunctionExpression
-    | MemberExpression
-    | NewExpression
     | ArrayExpression
-    | LogicalExpression
+    | ArrowFunctionExpression
     | AssignmentExpression
-    | UnaryExpression
     | AwaitExpression
-    | ClassExpression
-    | SequenceExpression
-    | TSTypeAssertion
-    | ConditionalExpression
-    | TSAsExpression
-    | ThisExpression
     | BigIntLiteral
-    | UpdateExpression
-    | YieldExpression
+    | BinaryExpression
+    | CallExpression
+    | ClassExpression
+    | ConditionalExpression
+    | FunctionExpression
+    | Identifier
+    | JSXElement
+    | Literal
+    | LogicalExpression
+    | MemberExpression
     | MetaProperty
+    | NewExpression
+    | ObjectExpression
+    | SequenceExpression
     | TaggedTemplateExpression
     | TemplateLiteral
-    | JSXElement;
+    | ThisExpression
+    | UnaryExpression
+    | UpdateExpression
+    | YieldExpression
+    | TSAsExpression
+    | TSTypeAssertion;
 }
 
 export interface AssignmentPattern {
   type: 'AssignmentPattern';
-  left: Identifier | ArrayPattern | ObjectPattern;
+  left: ArrayPattern | Identifier | ObjectPattern;
   right:
-    | Literal
-    | Identifier
-    | ClassExpression
-    | FunctionExpression
-    | ObjectExpression
     | ArrayExpression
-    | NewExpression
     | ArrowFunctionExpression
-    | ConditionalExpression
     | AwaitExpression
-    | YieldExpression
-    | CallExpression
-    | MemberExpression
     | BinaryExpression
+    | CallExpression
+    | ClassExpression
+    | ConditionalExpression
+    | FunctionExpression
+    | Identifier
+    | Literal
+    | MemberExpression
+    | NewExpression
+    | ObjectExpression
     | TemplateLiteral
-    | TSTypeAssertion
+    | ThisExpression
     | UnaryExpression
-    | ThisExpression;
+    | YieldExpression
+    | TSTypeAssertion;
 }
 
 export interface AwaitExpression {
   type: 'AwaitExpression';
   argument:
-    | Literal
+    | AwaitExpression
     | CallExpression
     | Identifier
-    | UnaryExpression
-    | AwaitExpression
+    | Literal
     | MemberExpression
     | NewExpression
-    | ThisExpression;
+    | ThisExpression
+    | UnaryExpression;
 }
 
 export interface BigIntLiteral {
@@ -192,107 +192,107 @@ export interface BigIntLiteral {
 export interface BinaryExpression {
   type: 'BinaryExpression';
   operator:
-    | '+'
-    | '>'
-    | '==='
+    | '!='
     | '!=='
-    | '=='
-    | '<='
-    | '>='
-    | '-'
-    | '<'
-    | '*'
-    | '/'
-    | '|'
-    | '>>'
-    | 'in'
-    | '&'
-    | '>>>'
-    | '<<'
-    | '**'
     | '%'
-    | 'instanceof'
+    | '&'
+    | '*'
+    | '**'
+    | '+'
+    | '-'
+    | '/'
+    | '<'
+    | '<<'
+    | '<='
+    | '=='
+    | '==='
+    | '>'
+    | '>='
+    | '>>'
+    | '>>>'
     | '^'
-    | '!=';
+    | 'in'
+    | 'instanceof'
+    | '|';
   left:
-    | MemberExpression
-    | Literal
+    | ArrowFunctionExpression
+    | AssignmentExpression
+    | AwaitExpression
+    | BigIntLiteral
     | BinaryExpression
     | CallExpression
-    | UnaryExpression
     | Identifier
-    | BigIntLiteral
-    | UpdateExpression
-    | SequenceExpression
-    | LogicalExpression
-    | AwaitExpression
-    | ArrowFunctionExpression
-    | ThisExpression
-    | ObjectExpression
-    | TemplateLiteral
-    | AssignmentExpression
-    | NewExpression
-    | TSTypeAssertion
-    | TSAsExpression;
-  right:
     | Literal
-    | Identifier
+    | LogicalExpression
     | MemberExpression
-    | UnaryExpression
-    | BinaryExpression
-    | BigIntLiteral
-    | UpdateExpression
+    | NewExpression
     | ObjectExpression
+    | SequenceExpression
+    | TemplateLiteral
+    | ThisExpression
+    | UnaryExpression
+    | UpdateExpression
+    | TSAsExpression
+    | TSTypeAssertion;
+  right:
+    | ArrayExpression
+    | ArrowFunctionExpression
+    | AwaitExpression
+    | BigIntLiteral
+    | BinaryExpression
     | CallExpression
     | ConditionalExpression
-    | LogicalExpression
-    | AwaitExpression
-    | ArrowFunctionExpression
-    | ThisExpression
-    | ArrayExpression
     | FunctionExpression
-    | TemplateLiteral
+    | Identifier
+    | Literal
+    | LogicalExpression
+    | MemberExpression
     | NewExpression
-    | TSTypeAssertion
-    | TSAsExpression;
+    | ObjectExpression
+    | TemplateLiteral
+    | ThisExpression
+    | UnaryExpression
+    | UpdateExpression
+    | TSAsExpression
+    | TSTypeAssertion;
 }
 
 export interface BlockStatement {
   type: 'BlockStatement';
   body: Array<
-    | ReturnStatement
-    | TSAbstractClassDeclaration
-    | ClassDeclaration
-    | ExpressionStatement
-    | VariableDeclaration
-    | IfStatement
-    | SwitchStatement
-    | FunctionDeclaration
-    | ForOfStatement
-    | ThrowStatement
-    | ForStatement
+    | BlockStatement
     | BreakStatement
+    | ClassDeclaration
     | ContinueStatement
-    | ForInStatement
-    | LabeledStatement
-    | TSEnumDeclaration
-    | WhileStatement
-    | TSTypeAliasDeclaration
-    | TSInterfaceDeclaration
+    | DebuggerStatement
     | DoWhileStatement
     | EmptyStatement
-    | BlockStatement
-    | TryStatement
-    | DebuggerStatement
-    | WithStatement
-    | TSDeclareFunction
-    | ExportNamedDeclaration
-    | TSModuleDeclaration
-    | TSExportAssignment
     | ExportAllDeclaration
     | ExportDefaultDeclaration
-    | TSImportEqualsDeclaration
+    | ExportNamedDeclaration
+    | ExpressionStatement
+    | ForInStatement
+    | ForOfStatement
+    | ForStatement
+    | FunctionDeclaration
+    | IfStatement
     | ImportDeclaration
+    | LabeledStatement
+    | ReturnStatement
+    | SwitchStatement
+    | ThrowStatement
+    | TryStatement
+    | VariableDeclaration
+    | WhileStatement
+    | WithStatement
+    | TSAbstractClassDeclaration
+    | TSDeclareFunction
+    | TSEnumDeclaration
+    | TSExportAssignment
+    | TSImportEqualsDeclaration
+    | TSInterfaceDeclaration
+    | TSModuleDeclaration
+    | TSTypeAliasDeclaration
   >;
 }
 
@@ -304,57 +304,57 @@ export interface BreakStatement {
 export interface CallExpression {
   type: 'CallExpression';
   callee:
-    | MemberExpression
     | ArrowFunctionExpression
-    | Identifier
-    | Super
-    | TSNonNullExpression
-    | Import
-    | FunctionExpression
-    | CallExpression
-    | NewExpression
-    | TSTypeAssertion
-    | TSAsExpression
     | AwaitExpression
-    | SequenceExpression
-    | Literal
-    | ThisExpression
-    | TemplateLiteral;
-  arguments: Array<
+    | CallExpression
     | FunctionExpression
     | Identifier
-    | CallExpression
-    | MemberExpression
+    | Import
     | Literal
-    | BinaryExpression
-    | ObjectExpression
-    | UnaryExpression
-    | SpreadElement
+    | MemberExpression
+    | NewExpression
+    | SequenceExpression
+    | Super
+    | TemplateLiteral
+    | ThisExpression
+    | TSAsExpression
+    | TSNonNullExpression
+    | TSTypeAssertion;
+  arguments: Array<
     | ArrayExpression
     | ArrowFunctionExpression
+    | AssignmentExpression
+    | AwaitExpression
+    | BigIntLiteral
+    | BinaryExpression
+    | CallExpression
+    | ClassExpression
+    | ConditionalExpression
+    | FunctionExpression
+    | Identifier
+    | Literal
+    | LogicalExpression
+    | MemberExpression
+    | NewExpression
+    | ObjectExpression
+    | SequenceExpression
+    | SpreadElement
+    | TaggedTemplateExpression
     | TemplateLiteral
+    | ThisExpression
+    | UnaryExpression
+    | UpdateExpression
+    | YieldExpression
     | TSAsExpression
     | TSNonNullExpression
-    | NewExpression
-    | AwaitExpression
-    | YieldExpression
-    | ThisExpression
     | TSTypeAssertion
-    | BigIntLiteral
-    | UpdateExpression
-    | AssignmentExpression
-    | ClassExpression
-    | SequenceExpression
-    | ConditionalExpression
-    | TaggedTemplateExpression
-    | LogicalExpression
   >;
   typeParameters?: TSTypeParameterInstantiation;
 }
 
 export interface CatchClause {
   type: 'CatchClause';
-  param: null | Identifier | ArrayPattern | ObjectPattern;
+  param: null | ArrayPattern | Identifier | ObjectPattern;
   body: BlockStatement;
 }
 
@@ -375,15 +375,15 @@ export interface ClassDeclaration {
   body: ClassBody;
   superClass:
     | null
-    | Identifier
-    | MemberExpression
-    | CallExpression
-    | Literal
-    | ClassExpression
-    | TSAsExpression
     | AwaitExpression
+    | CallExpression
+    | ClassExpression
+    | Identifier
+    | Literal
+    | MemberExpression
+    | ThisExpression
     | YieldExpression
-    | ThisExpression;
+    | TSAsExpression;
   declare?: boolean;
   typeParameters?: TSTypeParameterDeclaration;
   superTypeParameters?: TSTypeParameterInstantiation;
@@ -397,9 +397,9 @@ export interface ClassExpression {
   body: ClassBody;
   superClass:
     | null
+    | ClassExpression
     | Identifier
     | MemberExpression
-    | ClassExpression
     | YieldExpression;
   implements?: Array<ClassImplements>;
   typeParameters?: TSTypeParameterDeclaration;
@@ -415,40 +415,40 @@ export interface ClassImplements {
 export interface ClassProperty {
   type: 'ClassProperty';
   key:
-    | Identifier
-    | MemberExpression
-    | Literal
-    | CallExpression
     | AssignmentExpression
     | BinaryExpression
+    | CallExpression
+    | Identifier
+    | Literal
+    | MemberExpression
+    | TemplateLiteral
     | UnaryExpression
-    | TSTypeAssertion
-    | TemplateLiteral;
+    | TSTypeAssertion;
   value:
     | null
-    | Literal
-    | MemberExpression
+    | ArrayExpression
     | ArrowFunctionExpression
-    | Identifier
-    | ObjectExpression
-    | NewExpression
+    | AssignmentExpression
+    | BinaryExpression
     | CallExpression
     | ClassExpression
-    | BinaryExpression
     | FunctionExpression
-    | ArrayExpression
-    | UnaryExpression
+    | Identifier
+    | Literal
     | LogicalExpression
-    | TSTypeAssertion
+    | MemberExpression
+    | NewExpression
+    | ObjectExpression
     | ThisExpression
+    | UnaryExpression
+    | UpdateExpression
     | YieldExpression
-    | AssignmentExpression
-    | UpdateExpression;
+    | TSTypeAssertion;
   computed: boolean;
   static: boolean;
   typeAnnotation?: TSTypeAnnotation;
   readonly?: boolean;
-  accessibility?: 'public' | 'private' | 'protected';
+  accessibility?: 'private' | 'protected' | 'public';
   decorators?: Array<Decorator>;
   definite?: boolean;
   optional?: boolean;
@@ -457,60 +457,60 @@ export interface ClassProperty {
 export interface ConditionalExpression {
   type: 'ConditionalExpression';
   test:
-    | TSTypeAssertion
-    | BinaryExpression
-    | MemberExpression
-    | Literal
-    | Identifier
-    | LogicalExpression
-    | CallExpression
+    | ArrayExpression
+    | ArrowFunctionExpression
+    | AssignmentExpression
     | AwaitExpression
+    | BinaryExpression
+    | CallExpression
+    | Identifier
+    | Literal
+    | LogicalExpression
+    | MemberExpression
+    | NewExpression
+    | ObjectExpression
     | TemplateLiteral
     | UnaryExpression
-    | ArrowFunctionExpression
-    | ObjectExpression
-    | NewExpression
-    | ArrayExpression
-    | AssignmentExpression;
+    | TSTypeAssertion;
   consequent:
-    | ObjectExpression
-    | Literal
-    | MemberExpression
-    | Identifier
-    | UpdateExpression
-    | ConditionalExpression
-    | ArrowFunctionExpression
-    | CallExpression
-    | UnaryExpression
-    | BinaryExpression
-    | AwaitExpression
-    | FunctionExpression
-    | JSXElement
     | ArrayExpression
-    | TSAsExpression
+    | ArrowFunctionExpression
     | AssignmentExpression
-    | NewExpression
-    | TemplateLiteral
-    | LogicalExpression;
-  alternate:
-    | Literal
+    | AwaitExpression
+    | BinaryExpression
     | CallExpression
-    | Identifier
-    | ArrayExpression
-    | ObjectExpression
     | ConditionalExpression
-    | ArrowFunctionExpression
+    | FunctionExpression
+    | Identifier
+    | JSXElement
+    | Literal
     | LogicalExpression
     | MemberExpression
-    | UnaryExpression
-    | AwaitExpression
-    | FunctionExpression
-    | JSXElement
-    | BinaryExpression
-    | AssignmentExpression
+    | NewExpression
+    | ObjectExpression
     | TemplateLiteral
+    | UnaryExpression
     | UpdateExpression
-    | SequenceExpression;
+    | TSAsExpression;
+  alternate:
+    | ArrayExpression
+    | ArrowFunctionExpression
+    | AssignmentExpression
+    | AwaitExpression
+    | BinaryExpression
+    | CallExpression
+    | ConditionalExpression
+    | FunctionExpression
+    | Identifier
+    | JSXElement
+    | Literal
+    | LogicalExpression
+    | MemberExpression
+    | ObjectExpression
+    | SequenceExpression
+    | TemplateLiteral
+    | UnaryExpression
+    | UpdateExpression;
 }
 
 export interface ContinueStatement {
@@ -525,9 +525,9 @@ export interface DebuggerStatement {
 export interface Decorator {
   type: 'Decorator';
   expression:
+    | ArrowFunctionExpression
     | CallExpression
     | Identifier
-    | ArrowFunctionExpression
     | MemberExpression
     | YieldExpression;
 }
@@ -535,12 +535,12 @@ export interface Decorator {
 export interface DoWhileStatement {
   type: 'DoWhileStatement';
   test:
-    | Literal
+    | AssignmentExpression
+    | AwaitExpression
     | BinaryExpression
     | CallExpression
     | Identifier
-    | AwaitExpression
-    | AssignmentExpression;
+    | Literal;
   body: BlockStatement | VariableDeclaration;
 }
 
@@ -550,43 +550,43 @@ export interface EmptyStatement {
 
 export interface ExportAllDeclaration {
   type: 'ExportAllDeclaration';
-  source: Literal | Identifier;
+  source: Identifier | Literal;
 }
 
 export interface ExportDefaultDeclaration {
   type: 'ExportDefaultDeclaration';
   declaration:
-    | Identifier
-    | TSInterfaceDeclaration
-    | BinaryExpression
-    | UnaryExpression
-    | ClassDeclaration
-    | MemberExpression
-    | ObjectExpression
-    | FunctionDeclaration
-    | NewExpression
-    | Literal
     | ArrowFunctionExpression
+    | AssignmentExpression
+    | BinaryExpression
     | CallExpression
+    | ClassDeclaration
+    | FunctionDeclaration
+    | Identifier
+    | JSXElement
+    | Literal
+    | MemberExpression
+    | NewExpression
+    | ObjectExpression
+    | UnaryExpression
     | TSAbstractClassDeclaration
     | TSAsExpression
-    | JSXElement
-    | AssignmentExpression;
+    | TSInterfaceDeclaration;
 }
 
 export interface ExportNamedDeclaration {
   type: 'ExportNamedDeclaration';
   declaration:
     | null
-    | TSModuleDeclaration
     | ClassDeclaration
-    | TSInterfaceDeclaration
-    | VariableDeclaration
     | FunctionDeclaration
+    | VariableDeclaration
+    | TSAbstractClassDeclaration
     | TSDeclareFunction
-    | TSTypeAliasDeclaration
     | TSEnumDeclaration
-    | TSAbstractClassDeclaration;
+    | TSInterfaceDeclaration
+    | TSModuleDeclaration
+    | TSTypeAliasDeclaration;
   specifiers: Array<ExportSpecifier>;
   source: null | Literal;
 }
@@ -600,87 +600,87 @@ export interface ExportSpecifier {
 export interface ExpressionStatement {
   type: 'ExpressionStatement';
   expression:
-    | Identifier
-    | NewExpression
-    | CallExpression
-    | AssignmentExpression
-    | MemberExpression
-    | Literal
-    | ThisExpression
-    | UpdateExpression
-    | TSTypeAssertion
-    | ArrowFunctionExpression
-    | AwaitExpression
-    | YieldExpression
-    | FunctionExpression
-    | UnaryExpression
-    | ClassExpression
-    | SequenceExpression
-    | BinaryExpression
-    | LogicalExpression
-    | ObjectExpression
     | ArrayExpression
+    | ArrowFunctionExpression
+    | AssignmentExpression
+    | AwaitExpression
+    | BinaryExpression
+    | CallExpression
+    | ClassExpression
     | ConditionalExpression
-    | TSNonNullExpression
-    | TSAsExpression
+    | FunctionExpression
+    | Identifier
     | JSXElement
     | JSXFragment
+    | Literal
+    | LogicalExpression
+    | MemberExpression
     | MetaProperty
+    | NewExpression
+    | ObjectExpression
+    | SequenceExpression
+    | TaggedTemplateExpression
     | TemplateLiteral
-    | TaggedTemplateExpression;
+    | ThisExpression
+    | UnaryExpression
+    | UpdateExpression
+    | YieldExpression
+    | TSAsExpression
+    | TSNonNullExpression
+    | TSTypeAssertion;
   directive?: string;
 }
 
 export interface ForInStatement {
   type: 'ForInStatement';
   left:
-    | Identifier
-    | VariableDeclaration
-    | MemberExpression
     | AssignmentExpression
     | CallExpression
+    | Identifier
+    | MemberExpression
     | NewExpression
     | ObjectExpression
-    | ThisExpression;
-  right:
-    | Literal
-    | ObjectExpression
-    | Identifier
-    | ArrayPattern
-    | MemberExpression
-    | AwaitExpression
     | ThisExpression
-    | SequenceExpression;
+    | VariableDeclaration;
+  right:
+    | ArrayPattern
+    | AwaitExpression
+    | Identifier
+    | Literal
+    | MemberExpression
+    | ObjectExpression
+    | SequenceExpression
+    | ThisExpression;
   body:
     | BlockStatement
-    | VariableDeclaration
     | EmptyStatement
-    | ExpressionStatement;
+    | ExpressionStatement
+    | VariableDeclaration;
 }
 
 export interface ForOfStatement {
   type: 'ForOfStatement';
   left:
-    | VariableDeclaration
-    | Identifier
-    | MemberExpression
     | ArrayPattern
-    | ObjectExpression
-    | UpdateExpression;
-  right:
-    | CallExpression
-    | MemberExpression
     | Identifier
+    | MemberExpression
+    | ObjectExpression
+    | UpdateExpression
+    | VariableDeclaration;
+  right:
     | ArrayPattern
     | AwaitExpression
-    | TSTypeAssertion
+    | CallExpression
+    | Identifier
+    | Literal
+    | MemberExpression
     | NewExpression
-    | Literal;
+    | TSTypeAssertion;
   body:
     | BlockStatement
     | ContinueStatement
-    | ExpressionStatement
     | EmptyStatement
+    | ExpressionStatement
     | ForOfStatement;
   await: boolean;
 }
@@ -689,34 +689,34 @@ export interface ForStatement {
   type: 'ForStatement';
   init:
     | null
-    | VariableDeclaration
     | AssignmentExpression
-    | Identifier
     | AwaitExpression
-    | SequenceExpression;
+    | Identifier
+    | SequenceExpression
+    | VariableDeclaration;
   test:
     | null
+    | AssignmentExpression
+    | AwaitExpression
     | BinaryExpression
+    | Identifier
     | Literal
     | SequenceExpression
-    | Identifier
-    | AwaitExpression
-    | UnaryExpression
-    | AssignmentExpression;
+    | UnaryExpression;
   update:
     | null
-    | UpdateExpression
-    | SequenceExpression
     | AssignmentExpression
-    | Identifier
     | AwaitExpression
-    | UnaryExpression;
+    | Identifier
+    | SequenceExpression
+    | UnaryExpression
+    | UpdateExpression;
   body:
     | BlockStatement
     | ContinueStatement
-    | VariableDeclaration
     | EmptyStatement
-    | ExpressionStatement;
+    | ExpressionStatement
+    | VariableDeclaration;
 }
 
 export interface FunctionDeclaration {
@@ -726,11 +726,11 @@ export interface FunctionDeclaration {
   expression: boolean;
   async: boolean;
   params: Array<
-    | Identifier
-    | RestElement
-    | ObjectPattern
     | ArrayPattern
     | AssignmentPattern
+    | Identifier
+    | ObjectPattern
+    | RestElement
     | TSParameterProperty
   >;
   body?: BlockStatement;
@@ -743,12 +743,12 @@ export interface FunctionExpression {
   id: null | Identifier;
   generator: boolean;
   params: Array<
-    | Identifier
-    | TSParameterProperty
-    | AssignmentPattern
-    | RestElement
     | ArrayPattern
+    | AssignmentPattern
+    | Identifier
     | ObjectPattern
+    | RestElement
+    | TSParameterProperty
   >;
   body: null | BlockStatement;
   async: boolean;
@@ -768,36 +768,36 @@ export interface Identifier {
 export interface IfStatement {
   type: 'IfStatement';
   test:
-    | UnaryExpression
-    | Literal
+    | AssignmentExpression
+    | AwaitExpression
     | BinaryExpression
+    | CallExpression
+    | Identifier
+    | Literal
     | LogicalExpression
     | MemberExpression
-    | Identifier
-    | CallExpression
-    | AssignmentExpression
-    | TSAsExpression
-    | AwaitExpression
+    | SequenceExpression
+    | UnaryExpression
     | UpdateExpression
-    | SequenceExpression;
+    | TSAsExpression;
   consequent:
     | BlockStatement
-    | ExpressionStatement
-    | ReturnStatement
     | BreakStatement
-    | VariableDeclaration
-    | LabeledStatement
+    | ContinueStatement
     | EmptyStatement
+    | ExpressionStatement
+    | LabeledStatement
+    | ReturnStatement
     | ThrowStatement
-    | ContinueStatement;
+    | VariableDeclaration;
   alternate:
     | null
     | BlockStatement
-    | IfStatement
+    | BreakStatement
     | ExpressionStatement
+    | IfStatement
     | ReturnStatement
-    | VariableDeclaration
-    | BreakStatement;
+    | VariableDeclaration;
 }
 
 export interface Import {
@@ -808,7 +808,7 @@ export interface ImportDeclaration {
   type: 'ImportDeclaration';
   source: Literal;
   specifiers: Array<
-    ImportSpecifier | ImportDefaultSpecifier | ImportNamespaceSpecifier
+    ImportDefaultSpecifier | ImportNamespaceSpecifier | ImportSpecifier
   >;
 }
 
@@ -848,7 +848,7 @@ export interface JSXElement {
   openingElement: JSXOpeningElement;
   closingElement: null | JSXClosingElement;
   children: Array<
-    JSXText | JSXElement | JSXExpressionContainer | JSXFragment | JSXSpreadChild
+    JSXElement | JSXExpressionContainer | JSXFragment | JSXSpreadChild | JSXText
   >;
 }
 
@@ -859,18 +859,18 @@ export interface JSXEmptyExpression {
 export interface JSXExpressionContainer {
   type: 'JSXExpressionContainer';
   expression:
+    | ArrayExpression
     | ArrowFunctionExpression
-    | Literal
-    | TSAsExpression
+    | BinaryExpression
+    | CallExpression
+    | ConditionalExpression
     | Identifier
-    | JSXEmptyExpression
     | JSXElement
+    | JSXEmptyExpression
+    | Literal
     | MemberExpression
     | ObjectExpression
-    | ConditionalExpression
-    | CallExpression
-    | BinaryExpression
-    | ArrayExpression;
+    | TSAsExpression;
 }
 
 export interface JSXFragment {
@@ -908,13 +908,13 @@ export interface JSXSpreadAttribute {
   argument:
     | Identifier
     | MemberExpression
-    | SequenceExpression
-    | ObjectExpression;
+    | ObjectExpression
+    | SequenceExpression;
 }
 
 export interface JSXSpreadChild {
   type: 'JSXSpreadChild';
-  expression: MemberExpression | CallExpression | JSXElement | TSAsExpression;
+  expression: CallExpression | JSXElement | MemberExpression | TSAsExpression;
 }
 
 export interface JSXText {
@@ -927,27 +927,27 @@ export interface LabeledStatement {
   type: 'LabeledStatement';
   label: Identifier;
   body:
-    | VariableDeclaration
-    | ForStatement
+    | BlockStatement
     | BreakStatement
-    | WhileStatement
-    | LabeledStatement
-    | ForOfStatement
-    | ForInStatement
-    | DoWhileStatement
-    | IfStatement
-    | TryStatement
-    | EmptyStatement
     | ContinueStatement
+    | DoWhileStatement
+    | EmptyStatement
     | ExpressionStatement
+    | ForInStatement
+    | ForOfStatement
+    | ForStatement
+    | IfStatement
+    | LabeledStatement
     | SwitchStatement
-    | BlockStatement;
+    | TryStatement
+    | VariableDeclaration
+    | WhileStatement;
 }
 
 export interface Literal {
   type: 'Literal';
-  raw: string;
   value: boolean | null | number | string;
+  raw: string;
   regex?: {
     pattern: string;
     flags: string;
@@ -956,79 +956,79 @@ export interface Literal {
 
 export interface LogicalExpression {
   type: 'LogicalExpression';
-  operator: '||' | '&&';
+  operator: '&&' | '||';
   left:
-    | Identifier
-    | TSTypeAssertion
-    | MemberExpression
-    | LogicalExpression
-    | BinaryExpression
-    | UnaryExpression
-    | CallExpression
-    | ObjectExpression
-    | Literal
-    | ArrowFunctionExpression
-    | NewExpression
-    | AwaitExpression
     | ArrayExpression
+    | ArrowFunctionExpression
     | AssignmentExpression
-    | FunctionExpression;
-  right:
-    | Identifier
-    | ObjectExpression
+    | AwaitExpression
     | BinaryExpression
-    | UnaryExpression
-    | MemberExpression
     | CallExpression
     | FunctionExpression
-    | ArrayExpression
-    | LogicalExpression
+    | Identifier
     | Literal
+    | LogicalExpression
+    | MemberExpression
     | NewExpression
+    | ObjectExpression
+    | UnaryExpression
+    | TSTypeAssertion;
+  right:
+    | ArrayExpression
     | ArrowFunctionExpression
-    | AwaitExpression
     | AssignmentExpression
-    | ThisExpression
+    | AwaitExpression
+    | BinaryExpression
+    | CallExpression
     | ConditionalExpression
-    | SequenceExpression;
+    | FunctionExpression
+    | Identifier
+    | Literal
+    | LogicalExpression
+    | MemberExpression
+    | NewExpression
+    | ObjectExpression
+    | SequenceExpression
+    | ThisExpression
+    | UnaryExpression;
 }
 
 export interface MemberExpression {
   type: 'MemberExpression';
   object:
-    | ThisExpression
-    | MemberExpression
-    | Identifier
-    | Super
-    | Literal
-    | TSTypeAssertion
-    | CallExpression
-    | TSAsExpression
     | ArrayExpression
-    | AwaitExpression
-    | NewExpression
-    | LogicalExpression
+    | ArrowFunctionExpression
     | AssignmentExpression
-    | SequenceExpression
-    | ObjectExpression
-    | TSNonNullExpression
+    | AwaitExpression
+    | CallExpression
+    | Identifier
+    | Literal
+    | LogicalExpression
+    | MemberExpression
     | MetaProperty
+    | NewExpression
+    | ObjectExpression
+    | SequenceExpression
+    | Super
     | TaggedTemplateExpression
     | TemplateLiteral
-    | ArrowFunctionExpression;
+    | ThisExpression
+    | TSAsExpression
+    | TSNonNullExpression
+    | TSTypeAssertion;
   property:
+    | AwaitExpression
+    | BinaryExpression
+    | CallExpression
     | Identifier
     | Literal
     | MemberExpression
-    | BinaryExpression
-    | UpdateExpression
-    | AwaitExpression
-    | TSAsExpression
-    | TSTypeAssertion
     | SequenceExpression
-    | ThisExpression
     | TemplateLiteral
-    | CallExpression;
+    | ThisExpression
+    | UpdateExpression
+    | TSAsExpression
+    | TSTypeAssertion;
   computed: boolean;
 }
 
@@ -1041,63 +1041,63 @@ export interface MetaProperty {
 export interface MethodDefinition {
   type: 'MethodDefinition';
   key:
+    | ArrayExpression
+    | ArrowFunctionExpression
+    | BinaryExpression
+    | CallExpression
+    | ConditionalExpression
     | Identifier
     | Literal
     | MemberExpression
-    | BinaryExpression
-    | CallExpression
-    | UnaryExpression
-    | TSTypeAssertion
-    | TemplateLiteral
-    | ArrayExpression
+    | MetaProperty
     | ObjectExpression
     | SequenceExpression
-    | ArrowFunctionExpression
-    | MetaProperty
+    | TemplateLiteral
+    | UnaryExpression
     | YieldExpression
-    | ConditionalExpression;
+    | TSTypeAssertion;
   value: FunctionExpression;
   computed: boolean;
   static: boolean;
-  kind: 'method' | 'get' | 'set' | 'constructor';
-  accessibility?: 'private' | 'public' | 'protected';
+  kind: 'constructor' | 'get' | 'method' | 'set';
+  accessibility?: 'private' | 'protected' | 'public';
   decorators?: Array<Decorator>;
 }
 
 export interface NewExpression {
   type: 'NewExpression';
   callee:
-    | Identifier
-    | MemberExpression
-    | TSTypeAssertion
-    | AwaitExpression
     | ArrayExpression
-    | Super
+    | AwaitExpression
+    | BinaryExpression
     | CallExpression
     | ClassExpression
-    | ThisExpression
-    | NewExpression
-    | TemplateLiteral
-    | BinaryExpression
-    | TSAsExpression;
-  arguments: Array<
-    | Literal
-    | NewExpression
-    | ObjectExpression
-    | ArrowFunctionExpression
-    | ThisExpression
-    | ArrayExpression
-    | BinaryExpression
     | Identifier
     | MemberExpression
-    | TSAsExpression
-    | FunctionExpression
+    | NewExpression
+    | Super
     | TemplateLiteral
+    | ThisExpression
+    | TSAsExpression
+    | TSTypeAssertion;
+  arguments: Array<
+    | ArrayExpression
+    | ArrowFunctionExpression
     | AwaitExpression
-    | SpreadElement
-    | UnaryExpression
-    | TSTypeAssertion
+    | BinaryExpression
     | CallExpression
+    | FunctionExpression
+    | Identifier
+    | Literal
+    | MemberExpression
+    | NewExpression
+    | ObjectExpression
+    | SpreadElement
+    | TemplateLiteral
+    | ThisExpression
+    | UnaryExpression
+    | TSAsExpression
+    | TSTypeAssertion
   >;
   typeParameters?: TSTypeParameterInstantiation;
 }
@@ -1117,96 +1117,96 @@ export interface ObjectPattern {
 export interface Program {
   type: 'Program';
   body: Array<
-    | ExpressionStatement
-    | ClassDeclaration
-    | TSInterfaceDeclaration
-    | TSAbstractClassDeclaration
-    | VariableDeclaration
-    | FunctionDeclaration
-    | TSModuleDeclaration
-    | TSImportEqualsDeclaration
-    | ExportNamedDeclaration
-    | ImportDeclaration
-    | TSExportAssignment
-    | ExportDefaultDeclaration
-    | TSTypeAliasDeclaration
-    | TSDeclareFunction
-    | EmptyStatement
-    | TSEnumDeclaration
-    | TSNamespaceExportDeclaration
-    | WhileStatement
     | BlockStatement
-    | IfStatement
-    | ReturnStatement
-    | ForOfStatement
-    | ForStatement
-    | LabeledStatement
-    | DoWhileStatement
-    | ForInStatement
     | BreakStatement
-    | TryStatement
-    | WithStatement
-    | SwitchStatement
+    | ClassDeclaration
     | ContinueStatement
     | DebuggerStatement
+    | DoWhileStatement
+    | EmptyStatement
     | ExportAllDeclaration
+    | ExportDefaultDeclaration
+    | ExportNamedDeclaration
+    | ExpressionStatement
+    | ForInStatement
+    | ForOfStatement
+    | ForStatement
+    | FunctionDeclaration
+    | IfStatement
+    | ImportDeclaration
+    | LabeledStatement
+    | ReturnStatement
+    | SwitchStatement
     | ThrowStatement
+    | TryStatement
+    | VariableDeclaration
+    | WhileStatement
+    | WithStatement
+    | TSAbstractClassDeclaration
+    | TSDeclareFunction
+    | TSEnumDeclaration
+    | TSExportAssignment
+    | TSImportEqualsDeclaration
+    | TSInterfaceDeclaration
+    | TSModuleDeclaration
+    | TSNamespaceExportDeclaration
+    | TSTypeAliasDeclaration
   >;
-  sourceType: 'script' | 'module';
+  sourceType: 'module' | 'script';
 }
 
 export interface Property {
   type: 'Property';
   key:
-    | Identifier
-    | BinaryExpression
-    | Literal
-    | CallExpression
-    | TemplateLiteral
-    | MemberExpression
-    | AwaitExpression
-    | UnaryExpression
-    | TSTypeAssertion
-    | SequenceExpression
-    | LogicalExpression
     | ArrayExpression
+    | AwaitExpression
+    | BinaryExpression
+    | CallExpression
+    | Identifier
+    | Literal
+    | LogicalExpression
+    | MemberExpression
+    | MetaProperty
     | ObjectExpression
+    | SequenceExpression
+    | TemplateLiteral
+    | UnaryExpression
     | YieldExpression
-    | MetaProperty;
+    | TSTypeAssertion;
   value:
+    | ArrayExpression
+    | ArrayPattern
+    | ArrowFunctionExpression
+    | AssignmentExpression
+    | AssignmentPattern
+    | AwaitExpression
+    | BinaryExpression
+    | CallExpression
+    | ClassExpression
+    | ConditionalExpression
     | FunctionExpression
     | Identifier
-    | TSTypeAssertion
-    | ObjectExpression
     | Literal
     | MemberExpression
-    | ArrowFunctionExpression
-    | TSNonNullExpression
-    | NewExpression
-    | ArrayExpression
-    | AssignmentExpression
-    | ObjectPattern
-    | TSAsExpression
-    | BinaryExpression
-    | AssignmentPattern
-    | ClassExpression
-    | CallExpression
-    | ConditionalExpression
-    | ArrayPattern
-    | UnaryExpression
-    | AwaitExpression
-    | ThisExpression
     | MetaProperty
-    | TemplateLiteral;
+    | NewExpression
+    | ObjectExpression
+    | ObjectPattern
+    | TemplateLiteral
+    | ThisExpression
+    | UnaryExpression
+    | TSAsExpression
+    | TSNonNullExpression
+    | TSTypeAssertion;
   computed: boolean;
   method: boolean;
   shorthand: boolean;
-  kind: 'get' | 'set' | 'init';
+  kind: 'get' | 'init' | 'set';
 }
 
 export interface RestElement {
   type: 'RestElement';
-  argument: Identifier | ObjectPattern | ArrayPattern | AssignmentPattern;
+  argument: ArrayPattern | AssignmentPattern | Identifier | ObjectPattern;
   decorators?: Array<Decorator>;
 }
 
@@ -1214,74 +1214,74 @@ export interface ReturnStatement {
   type: 'ReturnStatement';
   argument:
     | null
-    | MemberExpression
-    | CallExpression
-    | Identifier
-    | Literal
-    | NewExpression
-    | BinaryExpression
-    | ClassExpression
-    | ConditionalExpression
-    | TSTypeAssertion
-    | ObjectExpression
     | ArrayExpression
-    | UnaryExpression
-    | TSAsExpression
-    | JSXElement
     | ArrowFunctionExpression
     | AssignmentExpression
-    | ThisExpression
-    | TSNonNullExpression
-    | SequenceExpression
-    | FunctionExpression
     | AwaitExpression
-    | LogicalExpression
+    | BinaryExpression
+    | CallExpression
+    | ClassExpression
+    | ConditionalExpression
+    | FunctionExpression
+    | Identifier
+    | JSXElement
     | JSXFragment
+    | Literal
+    | LogicalExpression
+    | MemberExpression
+    | MetaProperty
+    | NewExpression
+    | ObjectExpression
+    | SequenceExpression
     | TaggedTemplateExpression
     | TemplateLiteral
-    | MetaProperty
+    | ThisExpression
+    | UnaryExpression
+    | UpdateExpression
     | YieldExpression
-    | UpdateExpression;
+    | TSAsExpression
+    | TSNonNullExpression
+    | TSTypeAssertion;
 }
 
 export interface SequenceExpression {
   type: 'SequenceExpression';
   expressions: Array<
-    | Literal
-    | Identifier
-    | UpdateExpression
-    | CallExpression
-    | BinaryExpression
-    | TemplateLiteral
-    | AssignmentExpression
-    | ArrowFunctionExpression
-    | FunctionExpression
-    | ObjectExpression
-    | UnaryExpression
     | ArrayExpression
-    | TSNonNullExpression
-    | ConditionalExpression
-    | TSAsExpression
+    | ArrowFunctionExpression
+    | AssignmentExpression
     | AwaitExpression
-    | NewExpression
-    | MemberExpression
+    | BinaryExpression
+    | CallExpression
+    | ConditionalExpression
+    | FunctionExpression
+    | Identifier
     | JSXElement
+    | Literal
     | LogicalExpression
+    | MemberExpression
+    | NewExpression
+    | ObjectExpression
+    | TemplateLiteral
+    | UnaryExpression
+    | UpdateExpression
+    | TSAsExpression
+    | TSNonNullExpression
   >;
 }
 
 export interface SpreadElement {
   type: 'SpreadElement';
   argument:
-    | Identifier
-    | CallExpression
-    | ObjectExpression
-    | AwaitExpression
-    | TSAsExpression
-    | ConditionalExpression
     | ArrayExpression
+    | AwaitExpression
+    | CallExpression
+    | ConditionalExpression
+    | Identifier
     | LogicalExpression
-    | NewExpression;
+    | NewExpression
+    | ObjectExpression
+    | TSAsExpression;
 }
 
 export interface Super {
@@ -1292,37 +1292,37 @@ export interface SwitchCase {
   type: 'SwitchCase';
   test:
     | null
+    | AwaitExpression
+    | CallExpression
+    | Identifier
     | Literal
     | MemberExpression
     | SequenceExpression
-    | Identifier
-    | AwaitExpression
-    | TemplateLiteral
-    | CallExpression;
+    | TemplateLiteral;
   consequent: Array<
-    | BreakStatement
-    | IfStatement
-    | VariableDeclaration
-    | ReturnStatement
-    | ExpressionStatement
-    | ContinueStatement
     | BlockStatement
+    | BreakStatement
+    | ContinueStatement
+    | ExpressionStatement
     | FunctionDeclaration
+    | IfStatement
+    | ReturnStatement
     | SwitchStatement
+    | VariableDeclaration
   >;
 }
 
 export interface SwitchStatement {
   type: 'SwitchStatement';
   discriminant:
-    | Identifier
-    | MemberExpression
-    | Literal
     | AwaitExpression
-    | UnaryExpression
     | BinaryExpression
+    | CallExpression
+    | Identifier
+    | Literal
+    | MemberExpression
     | TemplateLiteral
-    | CallExpression;
+    | UnaryExpression;
   cases: Array<SwitchCase>;
 }
 
@@ -1346,23 +1346,23 @@ export interface TemplateLiteral {
   type: 'TemplateLiteral';
   quasis: Array<TemplateElement>;
   expressions: Array<
-    | MemberExpression
-    | BinaryExpression
-    | Identifier
-    | LogicalExpression
-    | CallExpression
-    | Literal
-    | ArrowFunctionExpression
     | ArrayExpression
-    | ObjectExpression
-    | FunctionExpression
-    | TemplateLiteral
+    | ArrowFunctionExpression
+    | BinaryExpression
+    | CallExpression
     | ConditionalExpression
+    | FunctionExpression
+    | Identifier
+    | Literal
+    | LogicalExpression
+    | MemberExpression
     | NewExpression
-    | TSTypeAssertion
+    | ObjectExpression
+    | TemplateLiteral
     | UnaryExpression
     | YieldExpression
     | TSAsExpression
+    | TSTypeAssertion
   >;
 }
 
@@ -1374,11 +1374,11 @@ export interface ThrowStatement {
   type: 'ThrowStatement';
   argument:
     | null
-    | Literal
-    | NewExpression
+    | ArrayExpression
     | CallExpression
     | Identifier
-    | ArrayExpression
+    | Literal
+    | NewExpression
     | ObjectExpression;
 }
 
@@ -1391,27 +1391,27 @@ export interface TryStatement {
 
 export interface UnaryExpression {
   type: 'UnaryExpression';
-  operator: '!' | '-' | 'typeof' | '+' | 'void' | '~' | 'delete';
+  operator: '!' | '+' | '-' | 'delete' | 'typeof' | 'void' | '~';
   prefix: boolean;
   argument:
+    | ArrowFunctionExpression
+    | AssignmentExpression
+    | AwaitExpression
+    | BigIntLiteral
+    | BinaryExpression
+    | CallExpression
+    | ClassExpression
     | Identifier
     | Literal
-    | MemberExpression
-    | ClassExpression
-    | CallExpression
-    | UnaryExpression
-    | BigIntLiteral
-    | AwaitExpression
-    | TSTypeAssertion
-    | BinaryExpression
-    | ThisExpression
     | LogicalExpression
-    | TemplateLiteral
-    | ArrowFunctionExpression
-    | UpdateExpression
-    | AssignmentExpression
+    | MemberExpression
+    | NewExpression
     | ObjectExpression
-    | NewExpression;
+    | TemplateLiteral
+    | ThisExpression
+    | UnaryExpression
+    | UpdateExpression
+    | TSTypeAssertion;
 }
 
 export interface UpdateExpression {
@@ -1419,93 +1419,93 @@ export interface UpdateExpression {
   operator: '++' | '--';
   prefix: boolean;
   argument:
-    | MemberExpression
-    | Identifier
-    | TSNonNullExpression
-    | Literal
+    | ArrayExpression
     | BinaryExpression
-    | ObjectExpression
     | CallExpression
     | FunctionExpression
+    | Identifier
+    | Literal
+    | MemberExpression
+    | NewExpression
+    | ObjectExpression
     | ThisExpression
-    | ArrayExpression
-    | NewExpression;
+    | TSNonNullExpression;
 }
 
 export interface VariableDeclaration {
   type: 'VariableDeclaration';
   declarations: Array<VariableDeclarator>;
-  kind: 'let' | 'const' | 'var';
+  kind: 'const' | 'let' | 'var';
   declare?: boolean;
 }
 
 export interface VariableDeclarator {
   type: 'VariableDeclarator';
-  id: Identifier | ObjectPattern | ArrayPattern;
+  id: ArrayPattern | Identifier | ObjectPattern;
   init:
     | null
-    | CallExpression
-    | ArrowFunctionExpression
-    | Literal
-    | NewExpression
-    | Identifier
-    | ObjectExpression
-    | MemberExpression
     | ArrayExpression
-    | FunctionExpression
-    | LogicalExpression
-    | ConditionalExpression
-    | BinaryExpression
-    | TSTypeAssertion
-    | TSAsExpression
+    | ArrowFunctionExpression
     | AssignmentExpression
     | AwaitExpression
-    | ThisExpression
     | BigIntLiteral
-    | UnaryExpression
+    | BinaryExpression
+    | CallExpression
     | ClassExpression
+    | ConditionalExpression
+    | FunctionExpression
+    | Identifier
     | JSXElement
-    | SequenceExpression
-    | TemplateLiteral
-    | YieldExpression
-    | TaggedTemplateExpression
-    | TSNonNullExpression
+    | Literal
+    | LogicalExpression
+    | MemberExpression
     | MetaProperty
-    | UpdateExpression;
+    | NewExpression
+    | ObjectExpression
+    | SequenceExpression
+    | TaggedTemplateExpression
+    | TemplateLiteral
+    | ThisExpression
+    | UnaryExpression
+    | UpdateExpression
+    | YieldExpression
+    | TSAsExpression
+    | TSNonNullExpression
+    | TSTypeAssertion;
   definite?: boolean;
 }
 
 export interface WhileStatement {
   type: 'WhileStatement';
   test:
-    | Literal
+    | AssignmentExpression
+    | AwaitExpression
     | BinaryExpression
     | CallExpression
     | Identifier
-    | AwaitExpression
-    | AssignmentExpression
-    | TemplateLiteral
-    | LogicalExpression;
+    | Literal
+    | LogicalExpression
+    | TemplateLiteral;
   body:
-    | EmptyStatement
     | BlockStatement
     | BreakStatement
     | ContinueStatement
-    | VariableDeclaration
+    | EmptyStatement
+    | ExpressionStatement
     | LabeledStatement
-    | ExpressionStatement;
+    | VariableDeclaration;
 }
 
 export interface WithStatement {
   type: 'WithStatement';
   object:
-    | Identifier
     | AwaitExpression
-    | ObjectExpression
-    | NewExpression
+    | Identifier
+    | Literal
     | MemberExpression
-    | Literal;
-  body: BlockStatement | VariableDeclaration | ReturnStatement;
+    | NewExpression
+    | ObjectExpression;
+  body: BlockStatement | ReturnStatement | VariableDeclaration;
 }
 
 export interface YieldExpression {
@@ -1513,16 +1513,16 @@ export interface YieldExpression {
   delegate: boolean;
   argument:
     | null
-    | Literal
-    | Identifier
-    | ConditionalExpression
     | ArrayExpression
+    | ArrowFunctionExpression
     | BinaryExpression
     | CallExpression
-    | TemplateLiteral
+    | ConditionalExpression
+    | Identifier
+    | Literal
     | NewExpression
-    | ArrowFunctionExpression
     | ObjectExpression
+    | TemplateLiteral
     | YieldExpression;
 }
 
@@ -1545,7 +1545,7 @@ export interface TSAbstractClassProperty {
   static: boolean;
   typeAnnotation?: TSTypeAnnotation;
   readonly?: boolean;
-  accessibility?: 'public' | 'protected' | 'private';
+  accessibility?: 'private' | 'protected' | 'public';
   optional?: boolean;
   definite: boolean;
 }
@@ -1556,71 +1556,71 @@ export interface TSAbstractMethodDefinition {
   value: FunctionExpression;
   computed: boolean;
   static: boolean;
-  kind: 'get' | 'set' | 'method' | 'constructor';
-  accessibility?: 'public' | 'protected' | 'private';
+  kind: 'constructor' | 'get' | 'method' | 'set';
+  accessibility?: 'private' | 'protected' | 'public';
 }
 
 export interface TSArrayType {
   type: 'TSArrayType';
   elementType:
-    | TSTypeReference
-    | TSTypeQuery
-    | TSStringKeyword
-    | TSAnyKeyword
-    | TSParenthesizedType
-    | TSVoidKeyword
     | TSArrayType
-    | TSTypeLiteral
-    | TSNumberKeyword
-    | TSBooleanKeyword
-    | TSTupleType
     | TSIndexedAccessType
     | TSMappedType
+    | TSParenthesizedType
+    | TSTupleType
+    | TSTypeLiteral
+    | TSTypeQuery
+    | TSTypeReference
+    | TSAnyKeyword
+    | TSBooleanKeyword
     | TSNeverKeyword
     | TSNullKeyword
+    | TSNumberKeyword
+    | TSStringKeyword
     | TSSymbolKeyword
-    | TSUnknownKeyword;
+    | TSUnknownKeyword
+    | TSVoidKeyword;
 }
 
 export interface TSAsExpression {
   type: 'TSAsExpression';
   expression:
-    | Identifier
-    | Literal
-    | ObjectExpression
-    | FunctionExpression
-    | CallExpression
-    | ConditionalExpression
-    | ThisExpression
-    | MemberExpression
-    | ClassExpression
     | ArrayExpression
-    | TSAsExpression
-    | BinaryExpression
-    | TemplateLiteral
-    | TaggedTemplateExpression
     | ArrowFunctionExpression
-    | JSXElement;
+    | BinaryExpression
+    | CallExpression
+    | ClassExpression
+    | ConditionalExpression
+    | FunctionExpression
+    | Identifier
+    | JSXElement
+    | Literal
+    | MemberExpression
+    | ObjectExpression
+    | TaggedTemplateExpression
+    | TemplateLiteral
+    | ThisExpression
+    | TSAsExpression;
   typeAnnotation:
-    | TSAnyKeyword
-    | TSTypeReference
-    | TSUnionType
-    | TSNumberKeyword
-    | TSLiteralType
-    | TSIntersectionType
     | TSArrayType
+    | TSConstructorType
+    | TSFunctionType
+    | TSIntersectionType
+    | TSLiteralType
     | TSParenthesizedType
+    | TSTupleType
     | TSTypeLiteral
     | TSTypeOperator
-    | TSConstructorType
-    | TSTupleType
-    | TSStringKeyword
-    | TSFunctionType;
+    | TSTypeReference
+    | TSUnionType
+    | TSAnyKeyword
+    | TSNumberKeyword
+    | TSStringKeyword;
 }
 
 export interface TSCallSignatureDeclaration {
   type: 'TSCallSignatureDeclaration';
-  params: Array<Identifier | RestElement | ObjectPattern>;
+  params: Array<Identifier | ObjectPattern | RestElement>;
   returnType?: TSTypeAnnotation;
   typeParameters?: TSTypeParameterDeclaration;
 }
@@ -1629,58 +1629,58 @@ export interface TSConditionalType {
   type: 'TSConditionalType';
   checkType:
     | TSIndexedAccessType
-    | TSStringKeyword
-    | TSTypeReference
-    | TSTupleType
-    | TSTypeQuery
-    | TSNumberKeyword
     | TSParenthesizedType
-    | TSUndefinedKeyword
-    | TSTypeLiteral;
+    | TSTupleType
+    | TSTypeLiteral
+    | TSTypeQuery
+    | TSTypeReference
+    | TSNumberKeyword
+    | TSStringKeyword
+    | TSUndefinedKeyword;
   extendsType:
-    | TSBooleanKeyword
-    | TSIndexedAccessType
-    | TSUnionType
-    | TSTypeOperator
-    | TSTypeLiteral
-    | TSTypeReference
-    | TSTupleType
     | TSArrayType
-    | TSStringKeyword
     | TSFunctionType
-    | TSParenthesizedType
-    | TSLiteralType
-    | TSNumberKeyword;
-  trueType:
-    | TSNumberKeyword
     | TSIndexedAccessType
-    | TSTypeReference
-    | TSMappedType
-    | TSTypeLiteral
     | TSLiteralType
-    | TSNeverKeyword
     | TSParenthesizedType
     | TSTupleType
-    | TSIntersectionType;
-  falseType:
-    | TSStringKeyword
-    | TSNeverKeyword
-    | TSIntersectionType
-    | TSMappedType
     | TSTypeLiteral
-    | TSConditionalType
-    | TSTypeQuery
-    | TSUndefinedKeyword
-    | TSLiteralType
+    | TSTypeOperator
     | TSTypeReference
-    | TSAnyKeyword
+    | TSUnionType
+    | TSBooleanKeyword
+    | TSNumberKeyword
+    | TSStringKeyword;
+  trueType:
+    | TSIndexedAccessType
+    | TSIntersectionType
+    | TSLiteralType
+    | TSMappedType
+    | TSParenthesizedType
     | TSTupleType
-    | TSUnionType;
+    | TSTypeLiteral
+    | TSTypeReference
+    | TSNeverKeyword
+    | TSNumberKeyword;
+  falseType:
+    | TSConditionalType
+    | TSIntersectionType
+    | TSLiteralType
+    | TSMappedType
+    | TSTupleType
+    | TSTypeLiteral
+    | TSTypeQuery
+    | TSTypeReference
+    | TSUnionType
+    | TSAnyKeyword
+    | TSNeverKeyword
+    | TSStringKeyword
+    | TSUndefinedKeyword;
 }
 
 export interface TSConstructSignatureDeclaration {
   type: 'TSConstructSignatureDeclaration';
-  params: Array<RestElement | Identifier | ObjectPattern | TSParameterProperty>;
+  params: Array<Identifier | ObjectPattern | RestElement | TSParameterProperty>;
   returnType?: TSTypeAnnotation;
   typeParameters?: TSTypeParameterDeclaration;
 }
@@ -1688,7 +1688,7 @@ export interface TSConstructSignatureDeclaration {
 export interface TSConstructorType {
   type: 'TSConstructorType';
   typeParameters: null | TSTypeParameterDeclaration;
-  parameters: Array<Identifier | RestElement | ArrayPattern>;
+  parameters: Array<ArrayPattern | Identifier | RestElement>;
   typeAnnotation: TSTypeAnnotation;
 }
 
@@ -1698,7 +1698,7 @@ export interface TSDeclareFunction {
   generator: boolean;
   expression: boolean;
   async: boolean;
-  params: Array<Identifier | RestElement | ObjectPattern | AssignmentPattern>;
+  params: Array<AssignmentPattern | Identifier | ObjectPattern | RestElement>;
   returnType?: TSTypeAnnotation;
   declare: boolean;
   typeParameters?: TSTypeParameterDeclaration;
@@ -1712,7 +1712,7 @@ export interface TSEnumDeclaration {
   declare?: boolean;
   const?: boolean;
   modifiers?: Array<
-    TSAsyncKeyword | TSPublicKeyword | TSPrivateKeyword | TSStaticKeyword
+    TSAsyncKeyword | TSPrivateKeyword | TSPublicKeyword | TSStaticKeyword
   >;
   decorators?: Array<Decorator>;
 }
@@ -1721,50 +1721,50 @@ export interface TSEnumMember {
   type: 'TSEnumMember';
   id: Identifier | Literal;
   initializer?:
-    | Literal
-    | MemberExpression
-    | UnaryExpression
-    | Identifier
-    | BinaryExpression
-    | CallExpression
-    | ThisExpression
-    | NewExpression
-    | ObjectExpression
     | ArrowFunctionExpression
     | AssignmentExpression
+    | BinaryExpression
+    | CallExpression
+    | Identifier
+    | Literal
+    | MemberExpression
+    | NewExpression
+    | ObjectExpression
+    | ThisExpression
+    | UnaryExpression
     | UpdateExpression;
 }
 
 export interface TSExportAssignment {
   type: 'TSExportAssignment';
   expression:
-    | Identifier
     | BinaryExpression
-    | UnaryExpression
     | ClassExpression
-    | ObjectExpression
-    | NewExpression
-    | MemberExpression
-    | Literal
     | FunctionExpression
-    | ThisExpression;
+    | Identifier
+    | Literal
+    | MemberExpression
+    | NewExpression
+    | ObjectExpression
+    | ThisExpression
+    | UnaryExpression;
 }
 
 export interface TSExternalModuleReference {
   type: 'TSExternalModuleReference';
-  expression: Literal | Identifier;
+  expression: Identifier | Literal;
 }
 
 export interface TSFunctionType {
   type: 'TSFunctionType';
   typeParameters: null | TSTypeParameterDeclaration;
   parameters: Array<
-    | Identifier
-    | RestElement
-    | AssignmentPattern
-    | TSParameterProperty
     | ArrayPattern
+    | AssignmentPattern
+    | Identifier
     | ObjectPattern
+    | RestElement
+    | TSParameterProperty
   >;
   typeAnnotation: TSTypeAnnotation;
 }
@@ -1772,7 +1772,7 @@ export interface TSFunctionType {
 export interface TSImportEqualsDeclaration {
   type: 'TSImportEqualsDeclaration';
   id: Identifier;
-  moduleReference: Identifier | TSQualifiedName | TSExternalModuleReference;
+  moduleReference: Identifier | TSExternalModuleReference | TSQualifiedName;
   isExport: boolean;
 }
 
@@ -1788,36 +1788,36 @@ export interface TSIndexSignature {
   type: 'TSIndexSignature';
   index:
     | null
+    | AssignmentPattern
     | Identifier
     | RestElement
-    | TSParameterProperty
-    | AssignmentPattern;
+    | TSParameterProperty;
   typeAnnotation: null | TSTypeAnnotation;
   static: boolean;
   readonly?: boolean;
-  accessibility?: 'public' | 'private';
+  accessibility?: 'private' | 'public';
   export?: boolean;
 }
 
 export interface TSIndexedAccessType {
   type: 'TSIndexedAccessType';
   objectType:
-    | TSAnyKeyword
-    | TSTypeReference
-    | TSParenthesizedType
-    | TSTypeLiteral
     | TSIndexedAccessType
+    | TSMappedType
+    | TSParenthesizedType
     | TSTupleType
-    | TSMappedType;
-  indexType:
-    | TSTupleType
-    | TSLiteralType
+    | TSTypeLiteral
     | TSTypeReference
-    | TSNeverKeyword
-    | TSTypeOperator
+    | TSAnyKeyword;
+  indexType:
+    | TSIndexedAccessType
     | TSIntersectionType
+    | TSLiteralType
+    | TSTupleType
+    | TSTypeOperator
     | TSTypeQuery
-    | TSIndexedAccessType;
+    | TSTypeReference
+    | TSNeverKeyword;
 }
 
 export interface TSInferType {
@@ -1828,11 +1828,11 @@ export interface TSInferType {
 export interface TSInterfaceBody {
   type: 'TSInterfaceBody';
   body: Array<
-    | TSPropertySignature
-    | TSMethodSignature
     | TSCallSignatureDeclaration
-    | TSIndexSignature
     | TSConstructSignatureDeclaration
+    | TSIndexSignature
+    | TSMethodSignature
+    | TSPropertySignature
   >;
 }
 
@@ -1849,31 +1849,31 @@ export interface TSInterfaceDeclaration {
 
 export interface TSInterfaceHeritage {
   type: 'TSInterfaceHeritage';
-  id: Identifier | MemberExpression | UnaryExpression | CallExpression;
+  id: CallExpression | Identifier | MemberExpression | UnaryExpression;
   typeParameters?: TSTypeParameterInstantiation;
 }
 
 export interface TSIntersectionType {
   type: 'TSIntersectionType';
   types: Array<
-    | TSTypeReference
-    | TSTypeLiteral
     | TSIndexedAccessType
     | TSMappedType
-    | TSTypeQuery
-    | TSNumberKeyword
-    | TSBooleanKeyword
     | TSParenthesizedType
+    | TSThisType
+    | TSTypeLiteral
+    | TSTypeQuery
+    | TSTypeReference
+    | TSBooleanKeyword
+    | TSNumberKeyword
     | TSObjectKeyword
     | TSStringKeyword
     | TSUndefinedKeyword
-    | TSThisType
   >;
 }
 
 export interface TSLiteralType {
   type: 'TSLiteralType';
-  literal: Literal | BigIntLiteral | UnaryExpression | TemplateLiteral;
+  literal: BigIntLiteral | Literal | TemplateLiteral | UnaryExpression;
 }
 
 export interface TSMappedType {
@@ -1881,18 +1881,18 @@ export interface TSMappedType {
   typeParameter: TSTypeParameter;
   typeAnnotation?:
     | TSConditionalType
+    | TSFunctionType
     | TSIndexedAccessType
-    | TSTypeReference
-    | TSStringKeyword
-    | TSNumberKeyword
-    | TSLiteralType
-    | TSAnyKeyword
     | TSIntersectionType
-    | TSNeverKeyword
+    | TSLiteralType
     | TSTypeLiteral
+    | TSTypeReference
     | TSUnionType
+    | TSAnyKeyword
     | TSBooleanKeyword
-    | TSFunctionType;
+    | TSNeverKeyword
+    | TSNumberKeyword
+    | TSStringKeyword;
   optional?: boolean | '-';
   readonly?: boolean;
 }
@@ -1902,13 +1902,13 @@ export interface TSMethodSignature {
   optional: boolean;
   computed: boolean;
   key:
+    | BinaryExpression
+    | CallExpression
     | Identifier
     | Literal
-    | CallExpression
-    | BinaryExpression
     | MemberExpression;
   params: Array<
-    Identifier | RestElement | AssignmentPattern | ArrayPattern | ObjectPattern
+    ArrayPattern | AssignmentPattern | Identifier | ObjectPattern | RestElement
   >;
   typeAnnotation: null | TSTypeAnnotation;
   static: boolean;
@@ -1918,38 +1918,38 @@ export interface TSMethodSignature {
 export interface TSModuleBlock {
   type: 'TSModuleBlock';
   body: Array<
-    | ExportNamedDeclaration
-    | TSImportEqualsDeclaration
-    | ClassDeclaration
-    | VariableDeclaration
-    | FunctionDeclaration
-    | TSExportAssignment
-    | TSModuleDeclaration
-    | TSInterfaceDeclaration
-    | ExportDefaultDeclaration
-    | TSEnumDeclaration
-    | WhileStatement
+    | BlockStatement
     | BreakStatement
+    | ClassDeclaration
     | ContinueStatement
     | DebuggerStatement
     | DoWhileStatement
-    | ForInStatement
-    | IfStatement
+    | EmptyStatement
+    | ExportAllDeclaration
+    | ExportDefaultDeclaration
+    | ExportNamedDeclaration
     | ExpressionStatement
+    | ForInStatement
+    | ForOfStatement
+    | ForStatement
+    | FunctionDeclaration
+    | IfStatement
+    | ImportDeclaration
     | LabeledStatement
     | ReturnStatement
     | SwitchStatement
     | ThrowStatement
     | TryStatement
+    | VariableDeclaration
+    | WhileStatement
     | WithStatement
-    | EmptyStatement
-    | BlockStatement
     | TSDeclareFunction
+    | TSEnumDeclaration
+    | TSExportAssignment
+    | TSImportEqualsDeclaration
+    | TSInterfaceDeclaration
+    | TSModuleDeclaration
     | TSTypeAliasDeclaration
-    | ForStatement
-    | ImportDeclaration
-    | ExportAllDeclaration
-    | ForOfStatement
   >;
 }
 
@@ -1961,10 +1961,10 @@ export interface TSModuleDeclaration {
   global?: boolean;
   modifiers?: Array<
     | TSAsyncKeyword
-    | TSPublicKeyword
     | TSPrivateKeyword
-    | TSStaticKeyword
     | TSProtectedKeyword
+    | TSPublicKeyword
+    | TSStaticKeyword
   >;
 }
 
@@ -1975,7 +1975,7 @@ export interface TSNamespaceExportDeclaration {
 
 export interface TSNonNullExpression {
   type: 'TSNonNullExpression';
-  expression: MemberExpression | Identifier | Literal | CallExpression;
+  expression: CallExpression | Identifier | Literal | MemberExpression;
 }
 
 export interface TSOptionalType {
@@ -1985,12 +1985,12 @@ export interface TSOptionalType {
 
 export interface TSParameterProperty {
   type: 'TSParameterProperty';
-  accessibility?: 'public' | 'private' | 'protected';
+  accessibility?: 'private' | 'protected' | 'public';
   parameter:
-    | Identifier
     | ArrayPattern
-    | ObjectPattern
     | AssignmentPattern
+    | Identifier
+    | ObjectPattern
     | RestElement;
   readonly?: boolean;
   static?: boolean;
@@ -2001,31 +2001,31 @@ export interface TSParameterProperty {
 export interface TSParenthesizedType {
   type: 'TSParenthesizedType';
   typeAnnotation:
-    | TSUnionType
-    | TSFunctionType
-    | TSConditionalType
-    | TSTypeOperator
-    | TSIntersectionType
-    | TSConstructorType
-    | TSInferType
-    | TSTypeQuery
-    | TSMappedType
     | TSArrayType
+    | TSConditionalType
+    | TSConstructorType
+    | TSFunctionType
+    | TSInferType
+    | TSIntersectionType
     | TSLiteralType
+    | TSMappedType
     | TSTupleType
     | TSTypeLiteral
-    | TSTypeReference;
+    | TSTypeOperator
+    | TSTypeQuery
+    | TSTypeReference
+    | TSUnionType;
 }
 
 export interface TSPropertySignature {
   type: 'TSPropertySignature';
   computed: boolean;
-  key: Identifier | Literal | MemberExpression | AssignmentExpression;
+  key: AssignmentExpression | Identifier | Literal | MemberExpression;
   typeAnnotation?: TSTypeAnnotation;
   optional?: boolean;
   readonly?: boolean;
   initializer?: Literal;
-  accessibility?: 'public' | 'private' | 'protected';
+  accessibility?: 'private' | 'protected' | 'public';
 }
 
 export interface TSQualifiedName {
@@ -2046,27 +2046,27 @@ export interface TSThisType {
 export interface TSTupleType {
   type: 'TSTupleType';
   elementTypes: Array<
-    | TSAnyKeyword
-    | TSNumberKeyword
-    | TSBooleanKeyword
-    | TSStringKeyword
-    | TSTypeLiteral
-    | TSTypeReference
     | TSArrayType
-    | TSFunctionType
-    | TSLiteralType
-    | TSTupleType
-    | TSRestType
-    | TSIntersectionType
     | TSConstructorType
-    | TSParenthesizedType
-    | TSNeverKeyword
-    | TSVoidKeyword
-    | TSOptionalType
-    | TSUnionType
-    | TSUndefinedKeyword
-    | TSTypeOperator
+    | TSFunctionType
     | TSIndexedAccessType
+    | TSIntersectionType
+    | TSLiteralType
+    | TSOptionalType
+    | TSParenthesizedType
+    | TSRestType
+    | TSTupleType
+    | TSTypeLiteral
+    | TSTypeOperator
+    | TSTypeReference
+    | TSUnionType
+    | TSAnyKeyword
+    | TSBooleanKeyword
+    | TSNeverKeyword
+    | TSNumberKeyword
+    | TSStringKeyword
+    | TSUndefinedKeyword
+    | TSVoidKeyword
   >;
 }
 
@@ -2074,26 +2074,26 @@ export interface TSTypeAliasDeclaration {
   type: 'TSTypeAliasDeclaration';
   id: Identifier;
   typeAnnotation:
-    | TSFunctionType
-    | TSTypeLiteral
-    | TSMappedType
-    | TSUnionType
-    | TSTypeReference
-    | TSIntersectionType
-    | TSConditionalType
     | TSArrayType
-    | TSTupleType
-    | TSTypeQuery
-    | TSStringKeyword
-    | TSNumberKeyword
-    | TSIndexedAccessType
+    | TSConditionalType
     | TSConstructorType
-    | TSTypeOperator
+    | TSFunctionType
+    | TSIndexedAccessType
+    | TSIntersectionType
     | TSLiteralType
-    | TSBooleanKeyword
+    | TSMappedType
     | TSParenthesizedType
-    | TSAnyKeyword
     | TSThisType
+    | TSTupleType
+    | TSTypeLiteral
+    | TSTypeOperator
+    | TSTypeQuery
+    | TSTypeReference
+    | TSUnionType
+    | TSAnyKeyword
+    | TSBooleanKeyword
+    | TSNumberKeyword
+    | TSStringKeyword
     | TSVoidKeyword;
   typeParameters?: TSTypeParameterDeclaration;
   declare?: boolean;
@@ -2102,83 +2102,83 @@ export interface TSTypeAliasDeclaration {
 export interface TSTypeAnnotation {
   type: 'TSTypeAnnotation';
   typeAnnotation:
-    | TSBooleanKeyword
     | TSArrayType
-    | TSStringKeyword
-    | TSVoidKeyword
-    | TSTypeReference
-    | TSFunctionType
-    | TSNumberKeyword
-    | TSTypeQuery
-    | TSAnyKeyword
-    | TSTypeLiteral
-    | TSIndexedAccessType
-    | TSUnionType
-    | TSLiteralType
-    | TSConstructorType
-    | TSTupleType
-    | TSTypePredicate
-    | TSBigIntKeyword
-    | TSObjectKeyword
-    | TSIntersectionType
-    | TSUnknownKeyword
-    | TSThisType
-    | TSParenthesizedType
     | TSConditionalType
-    | TSMappedType
-    | TSTypeOperator
-    | TSNullKeyword
+    | TSConstructorType
+    | TSFunctionType
     | TSImportType
+    | TSIndexedAccessType
     | TSInferType
+    | TSIntersectionType
+    | TSLiteralType
+    | TSMappedType
+    | TSParenthesizedType
+    | TSThisType
+    | TSTupleType
+    | TSTypeLiteral
+    | TSTypeOperator
+    | TSTypePredicate
+    | TSTypeQuery
+    | TSTypeReference
+    | TSUnionType
+    | TSAnyKeyword
+    | TSBigIntKeyword
+    | TSBooleanKeyword
     | TSNeverKeyword
+    | TSNullKeyword
+    | TSNumberKeyword
+    | TSObjectKeyword
+    | TSStringKeyword
+    | TSSymbolKeyword
     | TSUndefinedKeyword
-    | TSSymbolKeyword;
+    | TSUnknownKeyword
+    | TSVoidKeyword;
 }
 
 export interface TSTypeAssertion {
   type: 'TSTypeAssertion';
   typeAnnotation:
-    | TSTypeReference
-    | TSTypeLiteral
-    | TSTupleType
-    | TSNumberKeyword
     | TSArrayType
-    | TSAnyKeyword
-    | TSStringKeyword
-    | TSTypeQuery
-    | TSBooleanKeyword
     | TSFunctionType
+    | TSTupleType
+    | TSTypeLiteral
+    | TSTypeQuery
+    | TSTypeReference
+    | TSUnionType
+    | TSAnyKeyword
+    | TSBooleanKeyword
+    | TSNumberKeyword
     | TSObjectKeyword
-    | TSUnionType;
+    | TSStringKeyword;
   expression:
-    | Literal
-    | Identifier
-    | CallExpression
     | ArrayExpression
-    | ObjectExpression
-    | TSTypeAssertion
-    | MemberExpression
-    | ThisExpression
-    | NewExpression
-    | UnaryExpression
-    | FunctionExpression
-    | AwaitExpression
-    | AssignmentExpression
     | ArrowFunctionExpression
-    | TemplateLiteral
+    | AssignmentExpression
+    | AwaitExpression
     | BinaryExpression
+    | CallExpression
+    | FunctionExpression
+    | Identifier
+    | Literal
+    | MemberExpression
+    | NewExpression
+    | ObjectExpression
+    | SequenceExpression
+    | TemplateLiteral
+    | ThisExpression
+    | UnaryExpression
     | UpdateExpression
-    | SequenceExpression;
+    | TSTypeAssertion;
 }
 
 export interface TSTypeLiteral {
   type: 'TSTypeLiteral';
   members: Array<
-    | TSPropertySignature
-    | TSConstructSignatureDeclaration
     | TSCallSignatureDeclaration
+    | TSConstructSignatureDeclaration
     | TSIndexSignature
     | TSMethodSignature
+    | TSPropertySignature
   >;
 }
 
@@ -2186,51 +2186,51 @@ export interface TSTypeOperator {
   type: 'TSTypeOperator';
   operator: 'keyof' | 'unique';
   typeAnnotation:
-    | TSTypeReference
-    | TSSymbolKeyword
-    | TSAnyKeyword
     | TSIndexedAccessType
-    | TSTypeQuery;
+    | TSTypeQuery
+    | TSTypeReference
+    | TSAnyKeyword
+    | TSSymbolKeyword;
 }
 
 export interface TSTypeParameter {
   type: 'TSTypeParameter';
   name: string;
   constraint?:
-    | TSTypeLiteral
-    | TSTypeReference
-    | TSLiteralType
-    | TSObjectKeyword
-    | TSNumberKeyword
-    | TSUnionType
-    | TSTypeOperator
     | TSArrayType
     | TSConstructorType
-    | TSStringKeyword
     | TSFunctionType
-    | TSMappedType
-    | TSTupleType
     | TSIndexedAccessType
-    | TSTypeQuery
-    | TSThisType
-    | TSAnyKeyword
+    | TSLiteralType
+    | TSMappedType
     | TSParenthesizedType
+    | TSThisType
+    | TSTupleType
+    | TSTypeLiteral
+    | TSTypeOperator
+    | TSTypeQuery
+    | TSTypeReference
+    | TSUnionType
+    | TSAnyKeyword
     | TSNullKeyword
+    | TSNumberKeyword
+    | TSObjectKeyword
+    | TSStringKeyword
     | TSUndefinedKeyword
     | TSVoidKeyword;
   default?:
-    | TSIndexedAccessType
-    | TSObjectKeyword
-    | TSTypeLiteral
-    | TSStringKeyword
-    | TSAnyKeyword
-    | TSNumberKeyword
-    | TSTypeReference
-    | TSLiteralType
-    | TSNeverKeyword
     | TSFunctionType
+    | TSIndexedAccessType
+    | TSIntersectionType
+    | TSLiteralType
+    | TSTypeLiteral
+    | TSTypeReference
     | TSUnionType
-    | TSIntersectionType;
+    | TSAnyKeyword
+    | TSNeverKeyword
+    | TSNumberKeyword
+    | TSObjectKeyword
+    | TSStringKeyword;
 }
 
 export interface TSTypeParameterDeclaration {
@@ -2241,32 +2241,32 @@ export interface TSTypeParameterDeclaration {
 export interface TSTypeParameterInstantiation {
   type: 'TSTypeParameterInstantiation';
   params: Array<
-    | TSTypeReference
-    | TSAnyKeyword
-    | TSStringKeyword
-    | TSTypeLiteral
-    | TSNumberKeyword
-    | TSUnionType
     | TSArrayType
-    | TSTupleType
-    | TSIndexedAccessType
-    | TSVoidKeyword
-    | TSBooleanKeyword
-    | TSTypeOperator
-    | TSIntersectionType
-    | TSTypeQuery
-    | TSLiteralType
-    | TSThisType
     | TSFunctionType
-    | TSParenthesizedType
     | TSImportType
-    | TSNeverKeyword
+    | TSIndexedAccessType
     | TSInferType
+    | TSIntersectionType
+    | TSLiteralType
     | TSMappedType
+    | TSParenthesizedType
+    | TSThisType
+    | TSTupleType
+    | TSTypeLiteral
+    | TSTypeOperator
+    | TSTypeQuery
+    | TSTypeReference
+    | TSUnionType
+    | TSAnyKeyword
+    | TSBooleanKeyword
+    | TSNeverKeyword
     | TSNullKeyword
-    | TSUndefinedKeyword
+    | TSNumberKeyword
     | TSObjectKeyword
+    | TSStringKeyword
+    | TSUndefinedKeyword
     | TSUnknownKeyword
+    | TSVoidKeyword
   >;
 }
 
@@ -2278,7 +2278,7 @@ export interface TSTypePredicate {
 
 export interface TSTypeQuery {
   type: 'TSTypeQuery';
-  exprName: TSQualifiedName | Identifier;
+  exprName: Identifier | TSQualifiedName;
 }
 
 export interface TSTypeReference {
@@ -2290,28 +2290,28 @@ export interface TSTypeReference {
 export interface TSUnionType {
   type: 'TSUnionType';
   types: Array<
-    | TSStringKeyword
-    | TSUndefinedKeyword
-    | TSTypeReference
-    | TSTypeLiteral
-    | TSNumberKeyword
-    | TSBooleanKeyword
     | TSArrayType
+    | TSIndexedAccessType
+    | TSIntersectionType
     | TSLiteralType
     | TSParenthesizedType
-    | TSNullKeyword
-    | TSTypeOperator
-    | TSSymbolKeyword
-    | TSVoidKeyword
-    | TSNeverKeyword
-    | TSObjectKeyword
-    | TSAnyKeyword
-    | TSIntersectionType
-    | TSTypeQuery
     | TSTupleType
+    | TSTypeLiteral
+    | TSTypeOperator
+    | TSTypeQuery
+    | TSTypeReference
+    | TSAnyKeyword
     | TSBigIntKeyword
-    | TSIndexedAccessType
+    | TSBooleanKeyword
+    | TSNeverKeyword
+    | TSNullKeyword
+    | TSNumberKeyword
+    | TSObjectKeyword
+    | TSStringKeyword
+    | TSSymbolKeyword
+    | TSUndefinedKeyword
     | TSUnknownKeyword
+    | TSVoidKeyword
   >;
 }
 

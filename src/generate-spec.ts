@@ -150,6 +150,22 @@ for (const file of files) {
   );
 }
 
+function typesSorter(a: string | null, b: string | null) {
+  if (a === null) {
+    return 1;
+  }
+  if (b === null) {
+    return -1;
+  }
+  if (a.startsWith('TS') === b.startsWith('TS')) {
+    if (a.endsWith('Keyword') === b.endsWith('Keyword')) {
+      return a > b ? 1 : -1;
+    }
+    return a.endsWith('Keyword') ? 1 : -1;
+  }
+  return a.startsWith('TS') ? 1 : -1;
+}
+
 function prepareProp(props: Map<string, PropOptions>, indent: number) {
   let typesDTS = `{\n`;
   props.forEach((propValue, propName) => {
@@ -171,18 +187,27 @@ function prepareProp(props: Map<string, PropOptions>, indent: number) {
       if (propValue.stringValues.size === 0) {
         values.push('string');
       } else {
-        values.push(...Array.from(propValue.stringValues).map(e => `'${e}'`));
+        values.push(
+          ...Array.from(propValue.stringValues)
+            .sort()
+            .map(e => `'${e}'`)
+        );
       }
     }
     if (propValue.containArrayOfTypes.size > 0) {
       values.push(
         `Array<${Array.from(propValue.containArrayOfTypes)
+          .sort((a, b) => typesSorter(a, b))
           .map(e => String(e))
           .join(' | ')}>`
       );
     }
     if (propValue.containTypes.size > 0) {
-      values.push(...Array.from(propValue.containTypes).map(e => String(e)));
+      values.push(
+        ...Array.from(propValue.containTypes)
+          .sort((a, b) => typesSorter(a, b))
+          .map(e => String(e))
+      );
     }
     if (propValue.objectTypes.size > 0) {
       values.push(prepareProp(propValue.objectTypes, indent + 1));
@@ -197,19 +222,9 @@ function prepareProp(props: Map<string, PropOptions>, indent: number) {
 }
 
 Promise.all(promises).then(() => {
-  fs.writeFileSync('./types.json', JSON.stringify(standardize(nodes), null, 2));
-
   let typesDTS = '';
   const sortedMap = new Map(
-    Array.from(nodes).sort((a, b) => {
-      if (a[0].startsWith('TS') === b[0].startsWith('TS')) {
-        if (a[0].endsWith('Keyword') === b[0].endsWith('Keyword')) {
-          return a[0] > b[0] ? 1 : -1;
-        }
-        return a[0].endsWith('Keyword') ? 1 : -1;
-      }
-      return a[0].startsWith('TS') ? 1 : -1;
-    })
+    Array.from(nodes).sort((a, b) => typesSorter(a[0], b[0]))
   );
 
   sortedMap.forEach((props, type) => {
