@@ -222,13 +222,35 @@ function prepareProp(props: Map<string, PropOptions>, indent: number) {
 }
 
 Promise.all(promises).then(() => {
-  let typesDTS = '';
+  let typesDTS = `export interface Position {
+  line: number;
+  column: number;
+}
+
+interface SourceLocation {
+  source?: string | null;
+  start: Position;
+  end: Position;
+}
+
+export interface BaseNode {
+  type: string;
+  loc?: SourceLocation | null;
+  range?: [number, number];
+}
+
+export interface Comment extends BaseNode {
+  type: "Line" | "Block";
+  value: string;
+}
+
+`;
   const sortedMap = new Map(
     Array.from(nodes).sort((a, b) => typesSorter(a[0], b[0]))
   );
 
   sortedMap.forEach((props, type) => {
-    typesDTS += `export interface ${type} ${prepareProp(props, 0)}\n\n`;
+    typesDTS += `export interface ${type} extends BaseNode ${prepareProp(props, 0)}\n\n`;
   });
 
   fs.writeFileSync('./typescript-estree.spec.d.ts', typesDTS);
