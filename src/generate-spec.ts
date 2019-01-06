@@ -111,7 +111,7 @@ const promises = [];
 for (const file of files) {
   promises.push(
     readFixture(file).then(({ file, content, isTsx }) => {
-      const tsCode = parseTsEstree(content, isTsx);
+      const tsCode = parseTsEstree(content, isTsx, false);
       if (!tsCode.parseError) {
         traverse(tsCode, node => {
           delete node.range;

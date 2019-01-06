@@ -5,7 +5,11 @@ export function normalizeNodeTypes(ast: any): any {
   return JSON.parse(JSON.stringify(ast));
 }
 
-export function parseTsEstree(code: string, jsx: boolean) {
+export function parseTsEstree(
+  code: string,
+  jsx: boolean,
+  errorOnUnknownASTType: boolean
+) {
   try {
     return normalizeNodeTypes(
       tsEstreeParse(code, {
@@ -14,7 +18,7 @@ export function parseTsEstree(code: string, jsx: boolean) {
         tokens: false,
         comment: false,
         useJSXTextNode: true,
-        errorOnUnknownASTType: true,
+        errorOnUnknownASTType,
         jsx
       })
     );

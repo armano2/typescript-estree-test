@@ -25,7 +25,7 @@ export function readFixtures(): string[] {
 }
 
 export async function readFixture(file: string): Promise<Fixture> {
-  return new Promise(resolve => {
+  return new Promise<Fixture>(resolve => {
     fs.readFile(
       path.join(rootDir, file),
       {
