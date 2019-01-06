@@ -593,6 +593,7 @@ export interface ExportDefaultDeclaration extends BaseNode {
     | UnaryExpression
     | TSAbstractClassDeclaration
     | TSAsExpression
+    | TSDeclareFunction
     | TSInterfaceDeclaration;
 }
 
@@ -755,9 +756,9 @@ export interface FunctionDeclaration extends BaseNode {
     | RestElement
     | TSParameterProperty
   >;
-  body?: BlockStatement;
-  returnType?: TSTypeAnnotation;
+  body: BlockStatement;
   typeParameters?: TSTypeParameterDeclaration;
+  returnType?: TSTypeAnnotation;
 }
 
 export interface FunctionExpression extends BaseNode {
@@ -968,8 +969,8 @@ export interface LabeledStatement extends BaseNode {
 
 export interface Literal extends BaseNode {
   type: 'Literal';
-  raw: string;
   value: boolean | null | number | string;
+  raw: string;
   regex?: {
     pattern: string;
     flags: string;
@@ -1720,9 +1721,11 @@ export interface TSDeclareFunction extends BaseNode {
   generator: boolean;
   expression: boolean;
   async: boolean;
-  params: Array<AssignmentPattern | Identifier | ObjectPattern | RestElement>;
+  params: Array<
+    ArrayPattern | AssignmentPattern | Identifier | ObjectPattern | RestElement
+  >;
   returnType?: TSTypeAnnotation;
-  declare: boolean;
+  declare?: boolean;
   typeParameters?: TSTypeParameterDeclaration;
   body?: BlockStatement;
 }
