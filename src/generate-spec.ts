@@ -2,6 +2,7 @@ import { readFixtures, readFixture } from './read-fixtures';
 import { parseTsEstree } from './parser';
 import * as fs from 'fs';
 import { isPlainObject, traverse } from './utils';
+import { format } from 'prettier';
 
 const files = readFixtures();
 
@@ -28,6 +29,7 @@ const disabledStringFields = [
 ];
 
 const nodes = new Map<string, Map<string, PropOptions>>();
+const typeAliases = new Map<string, Set<string>>();
 
 function getNode(type: string): Map<string, PropOptions> {
   let node = nodes.get(type);
@@ -55,32 +57,6 @@ function getProp(def: Map<string, PropOptions>, type: string) {
     def.set(type, node);
   }
   return node;
-}
-
-function standardizeEl(value: any) {
-  if (value instanceof Map) {
-    return standardize(value);
-  } else if (value instanceof Set) {
-    return Array.from(value);
-  } else if (isPlainObject(value)) {
-    return Object.entries(value as Record<string, any>).reduce(
-      (p, x) => {
-        p[x[0]] = standardizeEl(x[1]);
-        return p;
-      },
-      {} as Record<string, any>
-    );
-  } else {
-    return value;
-  }
-}
-
-function standardize(map: Map<string, any>) {
-  const out = Object.create(null);
-  map.forEach((value, key) => {
-    out[key] = standardizeEl(value);
-  });
-  return out;
 }
 
 function parseType(def: Map<string, any>, node: Record<string, any>) {
@@ -166,7 +142,7 @@ function typesSorter(a: string | null, b: string | null) {
   return a.startsWith('TS') ? 1 : -1;
 }
 
-function prepareProp(props: Map<string, PropOptions>, indent: number) {
+function prepareProp(props: Map<string, PropOptions>) {
   let typesDTS = `{\n`;
   props.forEach((propValue, propName) => {
     if (propValue.isOptional) {
@@ -210,50 +186,61 @@ function prepareProp(props: Map<string, PropOptions>, indent: number) {
       );
     }
     if (propValue.objectTypes.size > 0) {
-      values.push(prepareProp(propValue.objectTypes, indent + 1));
+      values.push(prepareProp(propValue.objectTypes));
     }
 
-    typesDTS += `${' '.repeat((indent + 1) * 2)}${propName}: ${values.join(
-      ' | '
-    )};\n`;
+    typesDTS += `${propName}: ${values.join(' | ')};\n`;
   });
-  typesDTS += `${' '.repeat(indent * 2)}}`;
+  typesDTS += `}`;
   return typesDTS;
 }
 
 Promise.all(promises).then(() => {
-  let typesDTS = `export interface Position {
-  line: number;
-  column: number;
-}
+  const interfaces = Array.from(nodes)
+    .sort((a, b) => typesSorter(a[0], b[0]))
+    .map(node => {
+      return `export interface ${node[0]} extends BaseNode ${prepareProp(
+        node[1]
+      )}`;
+    });
 
-interface SourceLocation {
-  source?: string | null;
-  start: Position;
-  end: Position;
-}
-
-export interface BaseNode {
-  type: string;
-  loc?: SourceLocation | null;
-  range?: [number, number];
-}
-
-export interface Comment extends BaseNode {
-  type: "Line" | "Block";
-  value: string;
-}
-
-`;
-  const sortedMap = new Map(
-    Array.from(nodes).sort((a, b) => typesSorter(a[0], b[0]))
+  const aliases = Array.from(typeAliases).map(
+    e => `export type ${e[0]} = ${Array.from(e[1]).join(' | ')};`
   );
 
-  sortedMap.forEach((props, type) => {
-    typesDTS += `export interface ${type} extends BaseNode ${prepareProp(props, 0)}\n\n`;
+  const template = `export interface Position {
+    line: number;
+    column: number;
+  }
+  
+  interface SourceLocation {
+    source?: string | null;
+    start: Position;
+    end: Position;
+  }
+  
+  export interface BaseNode {
+    type: string;
+    loc?: SourceLocation | null;
+    range?: [number, number];
+  }
+  
+  export interface Comment extends BaseNode {
+    type: "Line" | "Block";
+    value: string;
+  }
+  
+  ${aliases.join('\n\n')}
+  
+  ${interfaces.join('\n\n')}
+  `;
+
+  const formatted = format(template, {
+    parser: 'typescript',
+    singleQuote: true,
+    // @ts-ignore
+    editorconfig: true
   });
-
-  fs.writeFileSync('./typescript-estree.spec.d.ts', typesDTS);
-
+  fs.writeFileSync('./typescript-estree.spec.d.ts', formatted);
   console.log('reports saved.');
 });

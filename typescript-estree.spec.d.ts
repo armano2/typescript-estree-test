@@ -968,8 +968,8 @@ export interface LabeledStatement extends BaseNode {
 
 export interface Literal extends BaseNode {
   type: 'Literal';
-  value: boolean | null | number | string;
   raw: string;
+  value: boolean | null | number | string;
   regex?: {
     pattern: string;
     flags: string;
