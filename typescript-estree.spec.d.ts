@@ -36,6 +36,27 @@ export type TSTypeKeywords =
   | TSUnknownKeyword
   | TSVoidKeyword;
 
+export type TSTypeOperators =
+  | TSArrayType
+  | TSConditionalType
+  | TSConstructorType
+  | TSFunctionType
+  | TSImportType
+  | TSIndexedAccessType
+  | TSInferType
+  | TSIntersectionType
+  | TSMappedType
+  | TSParenthesizedType
+  | TSTupleType
+  | TSTypeLiteral
+  | TSTypeOperator
+  | TSTypePredicate
+  | TSTypeQuery
+  | TSTypeReference
+  | TSUnionType
+  | TSOptionalType
+  | TSRestType;
+
 export interface ArrayExpression extends BaseNode {
   type: 'ArrayExpression';
   elements: Array<
@@ -1601,33 +1622,12 @@ export interface TSAbstractMethodDefinition extends BaseNode {
 
 export interface TSArrayType extends BaseNode {
   type: 'TSArrayType';
-  elementType:
-    | TSArrayType
-    | TSIndexedAccessType
-    | TSMappedType
-    | TSParenthesizedType
-    | TSTupleType
-    | TSTypeKeywords
-    | TSTypeLiteral
-    | TSTypeQuery
-    | TSTypeReference;
+  elementType: TSTypeKeywords | TSTypeOperators;
 }
 
 export interface TSAsExpression extends BaseNode {
   type: 'TSAsExpression';
-  typeAnnotation:
-    | TSArrayType
-    | TSConstructorType
-    | TSFunctionType
-    | TSIntersectionType
-    | TSLiteralType
-    | TSParenthesizedType
-    | TSTupleType
-    | TSTypeKeywords
-    | TSTypeLiteral
-    | TSTypeOperator
-    | TSTypeReference
-    | TSUnionType;
+  typeAnnotation: TSLiteralType | TSTypeKeywords | TSTypeOperators;
   expression:
     | ArrayExpression
     | ArrowFunctionExpression
@@ -1656,47 +1656,10 @@ export interface TSCallSignatureDeclaration extends BaseNode {
 
 export interface TSConditionalType extends BaseNode {
   type: 'TSConditionalType';
-  trueType:
-    | TSIndexedAccessType
-    | TSIntersectionType
-    | TSLiteralType
-    | TSMappedType
-    | TSParenthesizedType
-    | TSTupleType
-    | TSTypeKeywords
-    | TSTypeLiteral
-    | TSTypeReference;
-  falseType:
-    | TSConditionalType
-    | TSIntersectionType
-    | TSLiteralType
-    | TSMappedType
-    | TSTupleType
-    | TSTypeKeywords
-    | TSTypeLiteral
-    | TSTypeQuery
-    | TSTypeReference
-    | TSUnionType;
-  extendsType:
-    | TSArrayType
-    | TSFunctionType
-    | TSIndexedAccessType
-    | TSLiteralType
-    | TSParenthesizedType
-    | TSTupleType
-    | TSTypeKeywords
-    | TSTypeLiteral
-    | TSTypeOperator
-    | TSTypeReference
-    | TSUnionType;
-  checkType:
-    | TSIndexedAccessType
-    | TSParenthesizedType
-    | TSTupleType
-    | TSTypeKeywords
-    | TSTypeLiteral
-    | TSTypeQuery
-    | TSTypeReference;
+  trueType: TSLiteralType | TSTypeKeywords | TSTypeOperators;
+  falseType: TSLiteralType | TSTypeKeywords | TSTypeOperators;
+  extendsType: TSLiteralType | TSTypeKeywords | TSTypeOperators;
+  checkType: TSTypeKeywords | TSTypeOperators;
 }
 
 export interface TSConstructSignatureDeclaration extends BaseNode {
@@ -1824,23 +1787,8 @@ export interface TSIndexSignature extends BaseNode {
 
 export interface TSIndexedAccessType extends BaseNode {
   type: 'TSIndexedAccessType';
-  objectType:
-    | TSIndexedAccessType
-    | TSMappedType
-    | TSParenthesizedType
-    | TSTupleType
-    | TSTypeKeywords
-    | TSTypeLiteral
-    | TSTypeReference;
-  indexType:
-    | TSIndexedAccessType
-    | TSIntersectionType
-    | TSLiteralType
-    | TSTupleType
-    | TSTypeKeywords
-    | TSTypeOperator
-    | TSTypeQuery
-    | TSTypeReference;
+  objectType: TSTypeKeywords | TSTypeOperators;
+  indexType: TSLiteralType | TSTypeKeywords | TSTypeOperators;
 }
 
 export interface TSInferType extends BaseNode {
@@ -1878,16 +1826,7 @@ export interface TSInterfaceHeritage extends BaseNode {
 
 export interface TSIntersectionType extends BaseNode {
   type: 'TSIntersectionType';
-  types: Array<
-    | TSIndexedAccessType
-    | TSMappedType
-    | TSParenthesizedType
-    | TSThisType
-    | TSTypeKeywords
-    | TSTypeLiteral
-    | TSTypeQuery
-    | TSTypeReference
-  >;
+  types: Array<TSThisType | TSTypeKeywords | TSTypeOperators>;
 }
 
 export interface TSLiteralType extends BaseNode {
@@ -1900,16 +1839,7 @@ export interface TSMappedType extends BaseNode {
   readonly?: boolean;
   optional?: boolean | '-';
   typeParameter: TSTypeParameter;
-  typeAnnotation?:
-    | TSConditionalType
-    | TSFunctionType
-    | TSIndexedAccessType
-    | TSIntersectionType
-    | TSLiteralType
-    | TSTypeKeywords
-    | TSTypeLiteral
-    | TSTypeReference
-    | TSUnionType;
+  typeAnnotation?: TSLiteralType | TSTypeKeywords | TSTypeOperators;
 }
 
 export interface TSMethodSignature extends BaseNode {
@@ -2015,21 +1945,7 @@ export interface TSParameterProperty extends BaseNode {
 
 export interface TSParenthesizedType extends BaseNode {
   type: 'TSParenthesizedType';
-  typeAnnotation:
-    | TSArrayType
-    | TSConditionalType
-    | TSConstructorType
-    | TSFunctionType
-    | TSInferType
-    | TSIntersectionType
-    | TSLiteralType
-    | TSMappedType
-    | TSTupleType
-    | TSTypeLiteral
-    | TSTypeOperator
-    | TSTypeQuery
-    | TSTypeReference
-    | TSUnionType;
+  typeAnnotation: TSLiteralType | TSTypeOperators;
 }
 
 export interface TSPropertySignature extends BaseNode {
@@ -2051,7 +1967,7 @@ export interface TSQualifiedName extends BaseNode {
 
 export interface TSRestType extends BaseNode {
   type: 'TSRestType';
-  typeAnnotation: TSArrayType | TSTypeReference;
+  typeAnnotation: TSTypeOperators;
 }
 
 export interface TSThisType extends BaseNode {
@@ -2060,86 +1976,25 @@ export interface TSThisType extends BaseNode {
 
 export interface TSTupleType extends BaseNode {
   type: 'TSTupleType';
-  elementTypes: Array<
-    | TSArrayType
-    | TSConstructorType
-    | TSFunctionType
-    | TSIndexedAccessType
-    | TSIntersectionType
-    | TSLiteralType
-    | TSOptionalType
-    | TSParenthesizedType
-    | TSRestType
-    | TSTupleType
-    | TSTypeKeywords
-    | TSTypeLiteral
-    | TSTypeOperator
-    | TSTypeReference
-    | TSUnionType
-  >;
+  elementTypes: Array<TSLiteralType | TSTypeKeywords | TSTypeOperators>;
 }
 
 export interface TSTypeAliasDeclaration extends BaseNode {
   type: 'TSTypeAliasDeclaration';
   declare?: boolean;
   typeParameters?: TSTypeParameterDeclaration;
-  typeAnnotation:
-    | TSArrayType
-    | TSConditionalType
-    | TSConstructorType
-    | TSFunctionType
-    | TSIndexedAccessType
-    | TSIntersectionType
-    | TSLiteralType
-    | TSMappedType
-    | TSParenthesizedType
-    | TSThisType
-    | TSTupleType
-    | TSTypeKeywords
-    | TSTypeLiteral
-    | TSTypeOperator
-    | TSTypeQuery
-    | TSTypeReference
-    | TSUnionType;
+  typeAnnotation: TSLiteralType | TSThisType | TSTypeKeywords | TSTypeOperators;
   id: Identifier;
 }
 
 export interface TSTypeAnnotation extends BaseNode {
   type: 'TSTypeAnnotation';
-  typeAnnotation:
-    | TSArrayType
-    | TSConditionalType
-    | TSConstructorType
-    | TSFunctionType
-    | TSImportType
-    | TSIndexedAccessType
-    | TSInferType
-    | TSIntersectionType
-    | TSLiteralType
-    | TSMappedType
-    | TSParenthesizedType
-    | TSThisType
-    | TSTupleType
-    | TSTypeKeywords
-    | TSTypeLiteral
-    | TSTypeOperator
-    | TSTypePredicate
-    | TSTypeQuery
-    | TSTypeReference
-    | TSUnionType;
+  typeAnnotation: TSLiteralType | TSThisType | TSTypeKeywords | TSTypeOperators;
 }
 
 export interface TSTypeAssertion extends BaseNode {
   type: 'TSTypeAssertion';
-  typeAnnotation:
-    | TSArrayType
-    | TSFunctionType
-    | TSTupleType
-    | TSTypeKeywords
-    | TSTypeLiteral
-    | TSTypeQuery
-    | TSTypeReference
-    | TSUnionType;
+  typeAnnotation: TSTypeKeywords | TSTypeOperators;
   expression:
     | ArrayExpression
     | ArrowFunctionExpression
@@ -2175,41 +2030,14 @@ export interface TSTypeLiteral extends BaseNode {
 export interface TSTypeOperator extends BaseNode {
   type: 'TSTypeOperator';
   operator: 'keyof' | 'unique';
-  typeAnnotation:
-    | TSIndexedAccessType
-    | TSTypeKeywords
-    | TSTypeQuery
-    | TSTypeReference;
+  typeAnnotation: TSTypeKeywords | TSTypeOperators;
 }
 
 export interface TSTypeParameter extends BaseNode {
   type: 'TSTypeParameter';
   name: string;
-  default?:
-    | TSFunctionType
-    | TSIndexedAccessType
-    | TSIntersectionType
-    | TSLiteralType
-    | TSTypeKeywords
-    | TSTypeLiteral
-    | TSTypeReference
-    | TSUnionType;
-  constraint?:
-    | TSArrayType
-    | TSConstructorType
-    | TSFunctionType
-    | TSIndexedAccessType
-    | TSLiteralType
-    | TSMappedType
-    | TSParenthesizedType
-    | TSThisType
-    | TSTupleType
-    | TSTypeKeywords
-    | TSTypeLiteral
-    | TSTypeOperator
-    | TSTypeQuery
-    | TSTypeReference
-    | TSUnionType;
+  default?: TSLiteralType | TSTypeKeywords | TSTypeOperators;
+  constraint?: TSLiteralType | TSThisType | TSTypeKeywords | TSTypeOperators;
 }
 
 export interface TSTypeParameterDeclaration extends BaseNode {
@@ -2219,25 +2047,7 @@ export interface TSTypeParameterDeclaration extends BaseNode {
 
 export interface TSTypeParameterInstantiation extends BaseNode {
   type: 'TSTypeParameterInstantiation';
-  params: Array<
-    | TSArrayType
-    | TSFunctionType
-    | TSImportType
-    | TSIndexedAccessType
-    | TSInferType
-    | TSIntersectionType
-    | TSLiteralType
-    | TSMappedType
-    | TSParenthesizedType
-    | TSThisType
-    | TSTupleType
-    | TSTypeKeywords
-    | TSTypeLiteral
-    | TSTypeOperator
-    | TSTypeQuery
-    | TSTypeReference
-    | TSUnionType
-  >;
+  params: Array<TSLiteralType | TSThisType | TSTypeKeywords | TSTypeOperators>;
 }
 
 export interface TSTypePredicate extends BaseNode {
@@ -2259,19 +2069,7 @@ export interface TSTypeReference extends BaseNode {
 
 export interface TSUnionType extends BaseNode {
   type: 'TSUnionType';
-  types: Array<
-    | TSArrayType
-    | TSIndexedAccessType
-    | TSIntersectionType
-    | TSLiteralType
-    | TSParenthesizedType
-    | TSTupleType
-    | TSTypeKeywords
-    | TSTypeLiteral
-    | TSTypeOperator
-    | TSTypeQuery
-    | TSTypeReference
-  >;
+  types: Array<TSLiteralType | TSTypeKeywords | TSTypeOperators>;
 }
 
 export interface TSAnyKeyword extends BaseNode {

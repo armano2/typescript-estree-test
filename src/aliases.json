@@ -15,5 +15,29 @@
       "TSUnknownKeyword",
       "TSVoidKeyword"
     ]
+  ],
+  [
+    "TSTypeOperators",
+    [
+      "TSArrayType",
+      "TSConditionalType",
+      "TSConstructorType",
+      "TSFunctionType",
+      "TSImportType",
+      "TSIndexedAccessType",
+      "TSInferType",
+      "TSIntersectionType",
+      "TSMappedType",
+      "TSParenthesizedType",
+      "TSTupleType",
+      "TSTypeLiteral",
+      "TSTypeOperator",
+      "TSTypePredicate",
+      "TSTypeQuery",
+      "TSTypeReference",
+      "TSUnionType",
+      "TSOptionalType",
+      "TSRestType"
+    ]
   ]
 ]
