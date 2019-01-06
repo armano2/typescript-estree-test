@@ -22,6 +22,20 @@ export interface Comment extends BaseNode {
   value: string;
 }
 
+export type TSTypeKeywords =
+  | TSAnyKeyword
+  | TSBigIntKeyword
+  | TSBooleanKeyword
+  | TSNeverKeyword
+  | TSNullKeyword
+  | TSNumberKeyword
+  | TSObjectKeyword
+  | TSStringKeyword
+  | TSSymbolKeyword
+  | TSUndefinedKeyword
+  | TSUnknownKeyword
+  | TSVoidKeyword;
+
 export interface ArrayExpression extends BaseNode {
   type: 'ArrayExpression';
   elements: Array<
@@ -44,8 +58,8 @@ export interface ArrayExpression extends BaseNode {
     | ThisExpression
     | UnaryExpression
     | UpdateExpression
-    | TSTypeAssertion
     | null
+    | TSTypeAssertion
   >;
 }
 
@@ -1593,18 +1607,10 @@ export interface TSArrayType extends BaseNode {
     | TSMappedType
     | TSParenthesizedType
     | TSTupleType
+    | TSTypeKeywords
     | TSTypeLiteral
     | TSTypeQuery
-    | TSTypeReference
-    | TSAnyKeyword
-    | TSBooleanKeyword
-    | TSNeverKeyword
-    | TSNullKeyword
-    | TSNumberKeyword
-    | TSStringKeyword
-    | TSSymbolKeyword
-    | TSUnknownKeyword
-    | TSVoidKeyword;
+    | TSTypeReference;
 }
 
 export interface TSAsExpression extends BaseNode {
@@ -1617,13 +1623,11 @@ export interface TSAsExpression extends BaseNode {
     | TSLiteralType
     | TSParenthesizedType
     | TSTupleType
+    | TSTypeKeywords
     | TSTypeLiteral
     | TSTypeOperator
     | TSTypeReference
-    | TSUnionType
-    | TSAnyKeyword
-    | TSNumberKeyword
-    | TSStringKeyword;
+    | TSUnionType;
   expression:
     | ArrayExpression
     | ArrowFunctionExpression
@@ -1659,24 +1663,20 @@ export interface TSConditionalType extends BaseNode {
     | TSMappedType
     | TSParenthesizedType
     | TSTupleType
+    | TSTypeKeywords
     | TSTypeLiteral
-    | TSTypeReference
-    | TSNeverKeyword
-    | TSNumberKeyword;
+    | TSTypeReference;
   falseType:
     | TSConditionalType
     | TSIntersectionType
     | TSLiteralType
     | TSMappedType
     | TSTupleType
+    | TSTypeKeywords
     | TSTypeLiteral
     | TSTypeQuery
     | TSTypeReference
-    | TSUnionType
-    | TSAnyKeyword
-    | TSNeverKeyword
-    | TSStringKeyword
-    | TSUndefinedKeyword;
+    | TSUnionType;
   extendsType:
     | TSArrayType
     | TSFunctionType
@@ -1684,23 +1684,19 @@ export interface TSConditionalType extends BaseNode {
     | TSLiteralType
     | TSParenthesizedType
     | TSTupleType
+    | TSTypeKeywords
     | TSTypeLiteral
     | TSTypeOperator
     | TSTypeReference
-    | TSUnionType
-    | TSBooleanKeyword
-    | TSNumberKeyword
-    | TSStringKeyword;
+    | TSUnionType;
   checkType:
     | TSIndexedAccessType
     | TSParenthesizedType
     | TSTupleType
+    | TSTypeKeywords
     | TSTypeLiteral
     | TSTypeQuery
-    | TSTypeReference
-    | TSNumberKeyword
-    | TSStringKeyword
-    | TSUndefinedKeyword;
+    | TSTypeReference;
 }
 
 export interface TSConstructSignatureDeclaration extends BaseNode {
@@ -1833,18 +1829,18 @@ export interface TSIndexedAccessType extends BaseNode {
     | TSMappedType
     | TSParenthesizedType
     | TSTupleType
+    | TSTypeKeywords
     | TSTypeLiteral
-    | TSTypeReference
-    | TSAnyKeyword;
+    | TSTypeReference;
   indexType:
     | TSIndexedAccessType
     | TSIntersectionType
     | TSLiteralType
     | TSTupleType
+    | TSTypeKeywords
     | TSTypeOperator
     | TSTypeQuery
-    | TSTypeReference
-    | TSNeverKeyword;
+    | TSTypeReference;
 }
 
 export interface TSInferType extends BaseNode {
@@ -1887,14 +1883,10 @@ export interface TSIntersectionType extends BaseNode {
     | TSMappedType
     | TSParenthesizedType
     | TSThisType
+    | TSTypeKeywords
     | TSTypeLiteral
     | TSTypeQuery
     | TSTypeReference
-    | TSBooleanKeyword
-    | TSNumberKeyword
-    | TSObjectKeyword
-    | TSStringKeyword
-    | TSUndefinedKeyword
   >;
 }
 
@@ -1914,14 +1906,10 @@ export interface TSMappedType extends BaseNode {
     | TSIndexedAccessType
     | TSIntersectionType
     | TSLiteralType
+    | TSTypeKeywords
     | TSTypeLiteral
     | TSTypeReference
-    | TSUnionType
-    | TSAnyKeyword
-    | TSBooleanKeyword
-    | TSNeverKeyword
-    | TSNumberKeyword
-    | TSStringKeyword;
+    | TSUnionType;
 }
 
 export interface TSMethodSignature extends BaseNode {
@@ -2007,7 +1995,7 @@ export interface TSNonNullExpression extends BaseNode {
 
 export interface TSOptionalType extends BaseNode {
   type: 'TSOptionalType';
-  typeAnnotation: TSStringKeyword;
+  typeAnnotation: TSTypeKeywords;
 }
 
 export interface TSParameterProperty extends BaseNode {
@@ -2083,17 +2071,11 @@ export interface TSTupleType extends BaseNode {
     | TSParenthesizedType
     | TSRestType
     | TSTupleType
+    | TSTypeKeywords
     | TSTypeLiteral
     | TSTypeOperator
     | TSTypeReference
     | TSUnionType
-    | TSAnyKeyword
-    | TSBooleanKeyword
-    | TSNeverKeyword
-    | TSNumberKeyword
-    | TSStringKeyword
-    | TSUndefinedKeyword
-    | TSVoidKeyword
   >;
 }
 
@@ -2113,16 +2095,12 @@ export interface TSTypeAliasDeclaration extends BaseNode {
     | TSParenthesizedType
     | TSThisType
     | TSTupleType
+    | TSTypeKeywords
     | TSTypeLiteral
     | TSTypeOperator
     | TSTypeQuery
     | TSTypeReference
-    | TSUnionType
-    | TSAnyKeyword
-    | TSBooleanKeyword
-    | TSNumberKeyword
-    | TSStringKeyword
-    | TSVoidKeyword;
+    | TSUnionType;
   id: Identifier;
 }
 
@@ -2142,24 +2120,13 @@ export interface TSTypeAnnotation extends BaseNode {
     | TSParenthesizedType
     | TSThisType
     | TSTupleType
+    | TSTypeKeywords
     | TSTypeLiteral
     | TSTypeOperator
     | TSTypePredicate
     | TSTypeQuery
     | TSTypeReference
-    | TSUnionType
-    | TSAnyKeyword
-    | TSBigIntKeyword
-    | TSBooleanKeyword
-    | TSNeverKeyword
-    | TSNullKeyword
-    | TSNumberKeyword
-    | TSObjectKeyword
-    | TSStringKeyword
-    | TSSymbolKeyword
-    | TSUndefinedKeyword
-    | TSUnknownKeyword
-    | TSVoidKeyword;
+    | TSUnionType;
 }
 
 export interface TSTypeAssertion extends BaseNode {
@@ -2168,15 +2135,11 @@ export interface TSTypeAssertion extends BaseNode {
     | TSArrayType
     | TSFunctionType
     | TSTupleType
+    | TSTypeKeywords
     | TSTypeLiteral
     | TSTypeQuery
     | TSTypeReference
-    | TSUnionType
-    | TSAnyKeyword
-    | TSBooleanKeyword
-    | TSNumberKeyword
-    | TSObjectKeyword
-    | TSStringKeyword;
+    | TSUnionType;
   expression:
     | ArrayExpression
     | ArrowFunctionExpression
@@ -2214,10 +2177,9 @@ export interface TSTypeOperator extends BaseNode {
   operator: 'keyof' | 'unique';
   typeAnnotation:
     | TSIndexedAccessType
+    | TSTypeKeywords
     | TSTypeQuery
-    | TSTypeReference
-    | TSAnyKeyword
-    | TSSymbolKeyword;
+    | TSTypeReference;
 }
 
 export interface TSTypeParameter extends BaseNode {
@@ -2228,14 +2190,10 @@ export interface TSTypeParameter extends BaseNode {
     | TSIndexedAccessType
     | TSIntersectionType
     | TSLiteralType
+    | TSTypeKeywords
     | TSTypeLiteral
     | TSTypeReference
-    | TSUnionType
-    | TSAnyKeyword
-    | TSNeverKeyword
-    | TSNumberKeyword
-    | TSObjectKeyword
-    | TSStringKeyword;
+    | TSUnionType;
   constraint?:
     | TSArrayType
     | TSConstructorType
@@ -2246,18 +2204,12 @@ export interface TSTypeParameter extends BaseNode {
     | TSParenthesizedType
     | TSThisType
     | TSTupleType
+    | TSTypeKeywords
     | TSTypeLiteral
     | TSTypeOperator
     | TSTypeQuery
     | TSTypeReference
-    | TSUnionType
-    | TSAnyKeyword
-    | TSNullKeyword
-    | TSNumberKeyword
-    | TSObjectKeyword
-    | TSStringKeyword
-    | TSUndefinedKeyword
-    | TSVoidKeyword;
+    | TSUnionType;
 }
 
 export interface TSTypeParameterDeclaration extends BaseNode {
@@ -2279,21 +2231,12 @@ export interface TSTypeParameterInstantiation extends BaseNode {
     | TSParenthesizedType
     | TSThisType
     | TSTupleType
+    | TSTypeKeywords
     | TSTypeLiteral
     | TSTypeOperator
     | TSTypeQuery
     | TSTypeReference
     | TSUnionType
-    | TSAnyKeyword
-    | TSBooleanKeyword
-    | TSNeverKeyword
-    | TSNullKeyword
-    | TSNumberKeyword
-    | TSObjectKeyword
-    | TSStringKeyword
-    | TSUndefinedKeyword
-    | TSUnknownKeyword
-    | TSVoidKeyword
   >;
 }
 
@@ -2323,22 +2266,11 @@ export interface TSUnionType extends BaseNode {
     | TSLiteralType
     | TSParenthesizedType
     | TSTupleType
+    | TSTypeKeywords
     | TSTypeLiteral
     | TSTypeOperator
     | TSTypeQuery
     | TSTypeReference
-    | TSAnyKeyword
-    | TSBigIntKeyword
-    | TSBooleanKeyword
-    | TSNeverKeyword
-    | TSNullKeyword
-    | TSNumberKeyword
-    | TSObjectKeyword
-    | TSStringKeyword
-    | TSSymbolKeyword
-    | TSUndefinedKeyword
-    | TSUnknownKeyword
-    | TSVoidKeyword
   >;
 }
 

@@ -3,20 +3,10 @@ import { parseTsEstree } from './parser';
 import * as fs from 'fs';
 import { isPlainObject, traverse } from './utils';
 import { format } from 'prettier';
+import { sortNodes, sortProps } from './generate/sort';
+import { PropOptions } from './generate/types';
 
 const files = readFixtures();
-
-interface PropOptions {
-  isOptional: boolean;
-  isNullable: boolean;
-  isBoolean: boolean;
-  isString: boolean;
-  stringValues: Set<string>;
-  isNumber: boolean;
-  containTypes: Set<string>;
-  objectTypes: Map<string, PropOptions>;
-  containArrayOfTypes: Set<string>;
-}
 
 const disabledStringFields = [
   'name',
@@ -29,7 +19,7 @@ const disabledStringFields = [
 ];
 
 const nodes = new Map<string, Map<string, PropOptions>>();
-const typeAliases = new Map<string, Set<string>>();
+const typeAliases = new Map<string, string[]>(require('./aliases.json'));
 
 function getNode(type: string): Map<string, PropOptions> {
   let node = nodes.get(type);
@@ -126,35 +116,21 @@ for (const file of files) {
   );
 }
 
-function sortNodes(a: string | null, b: string | null) {
-  if (a === null) {
-    return 1;
-  }
-  if (b === null) {
-    return -1;
-  }
-  if (a.startsWith('TS') === b.startsWith('TS')) {
-    if (a.endsWith('Keyword') === b.endsWith('Keyword')) {
-      return a > b ? 1 : -1;
-    }
-    return a.endsWith('Keyword') ? 1 : -1;
-  }
-  return a.startsWith('TS') ? 1 : -1;
-}
+function prepareTypes(types: Set<string>): string[] {
+  // TODO: check if present in aliases
+  const result = Array.from(types)
+    .map(e => String(e))
+    .map(e => {
+      for (const aliases of typeAliases) {
+        if (aliases[1].some((alias) => alias === e)) {
+          return aliases[0]
+        }
+      }
+      return e;
+    });
 
-function sortProps(a: [string, PropOptions], b: [string, PropOptions]): number {
-  if (a[0] === 'type') {
-    return -1;
-  }
-  if (b[0] === 'type') {
-    return 1;
-  }
-  const aPriority = a[1].isBoolean || a[1].isString || a[1].isNumber;
-  const bPriority = b[1].isBoolean || b[1].isString || b[1].isNumber;
-  if (aPriority === bPriority) {
-    return a[0] > b[0] ? -1 : 1;
-  }
-  return aPriority ? -1 : 1;
+  return [...new Set(result)]
+    .sort((a, b) => sortNodes(a, b));
 }
 
 function prepareProp(props: Map<string, PropOptions>) {
@@ -189,18 +165,11 @@ function prepareProp(props: Map<string, PropOptions>) {
       }
       if (propValue.containArrayOfTypes.size > 0) {
         values.push(
-          `Array<${Array.from(propValue.containArrayOfTypes)
-            .sort((a, b) => sortNodes(a, b))
-            .map(e => String(e))
-            .join(' | ')}>`
+          `Array<${prepareTypes(propValue.containArrayOfTypes).join(' | ')}>`
         );
       }
       if (propValue.containTypes.size > 0) {
-        values.push(
-          ...Array.from(propValue.containTypes)
-            .sort((a, b) => sortNodes(a, b))
-            .map(e => String(e))
-        );
+        values.push(...prepareTypes(propValue.containTypes));
       }
       if (propValue.objectTypes.size > 0) {
         values.push(prepareProp(propValue.objectTypes));
@@ -230,26 +199,26 @@ Promise.all(promises).then(() => {
     line: number;
     column: number;
   }
-  
+
   interface SourceLocation {
     source?: string | null;
     start: Position;
     end: Position;
   }
-  
+
   export interface BaseNode {
     type: string;
     loc?: SourceLocation | null;
     range?: [number, number];
   }
-  
+
   export interface Comment extends BaseNode {
     type: "Line" | "Block";
     value: string;
   }
-  
+
   ${aliases.join('\n\n')}
-  
+
   ${interfaces.join('\n\n')}
   `;
 

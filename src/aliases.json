@@ -1,0 +1,19 @@
+[
+  [
+    "TSTypeKeywords",
+    [
+      "TSAnyKeyword",
+      "TSBigIntKeyword",
+      "TSBooleanKeyword",
+      "TSNeverKeyword",
+      "TSNullKeyword",
+      "TSNumberKeyword",
+      "TSObjectKeyword",
+      "TSStringKeyword",
+      "TSSymbolKeyword",
+      "TSUndefinedKeyword",
+      "TSUnknownKeyword",
+      "TSVoidKeyword"
+    ]
+  ]
+]
