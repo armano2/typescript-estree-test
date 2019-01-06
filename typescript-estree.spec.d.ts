@@ -1709,9 +1709,9 @@ export interface TSConstructSignatureDeclaration extends BaseNode {
 
 export interface TSConstructorType extends BaseNode {
   type: 'TSConstructorType';
-  typeParameters: null | TSTypeParameterDeclaration;
-  parameters: Array<ArrayPattern | Identifier | RestElement>;
-  typeAnnotation: TSTypeAnnotation;
+  params: Array<ArrayPattern | Identifier | RestElement>;
+  returnType: TSTypeAnnotation;
+  typeParameters?: TSTypeParameterDeclaration;
 }
 
 export interface TSDeclareFunction extends BaseNode {
@@ -1779,8 +1779,7 @@ export interface TSExternalModuleReference extends BaseNode {
 
 export interface TSFunctionType extends BaseNode {
   type: 'TSFunctionType';
-  typeParameters: null | TSTypeParameterDeclaration;
-  parameters: Array<
+  params: Array<
     | ArrayPattern
     | AssignmentPattern
     | Identifier
@@ -1788,7 +1787,8 @@ export interface TSFunctionType extends BaseNode {
     | RestElement
     | TSParameterProperty
   >;
-  typeAnnotation: TSTypeAnnotation;
+  returnType: TSTypeAnnotation;
+  typeParameters?: TSTypeParameterDeclaration;
 }
 
 export interface TSImportEqualsDeclaration extends BaseNode {
