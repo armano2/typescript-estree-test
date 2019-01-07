@@ -1,5 +1,30 @@
 [
   [
+    "Expression",
+    [
+      "ThisExpression",
+      "ArrayExpression",
+      "ObjectExpression",
+      "FunctionExpression",
+      "ArrowFunctionExpression",
+      "YieldExpression",
+      "UnaryExpression",
+      "UpdateExpression",
+      "BinaryExpression",
+      "AssignmentExpression",
+      "LogicalExpression",
+      "MemberExpression",
+      "ConditionalExpression",
+      "CallExpression",
+      "NewExpression",
+      "SequenceExpression",
+      "TaggedTemplateExpression",
+      "ClassExpression",
+      "MetaProperty",
+      "AwaitExpression"
+    ]
+  ],
+  [
     "TSTypeKeywords",
     [
       "TSAnyKeyword",

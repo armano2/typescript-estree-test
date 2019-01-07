@@ -217,9 +217,9 @@ Promise.all(promises).then(() => {
     value: string;
   }
 
-  ${aliases.join('\n\n')}
-
   ${interfaces.join('\n\n')}
+
+  ${aliases.join('\n\n')}
   `;
 
   const formatted = format(template, {

@@ -1,10 +1,10 @@
 import { PropOptions } from "./types";
 
-export function sortNodes(a: string | null, b: string | null) {
-  if (a === null) {
+export function sortNodes(a: string, b: string) {
+  if (a === 'null') {
     return 1;
   }
-  if (b === null) {
+  if (b === 'null') {
     return -1;
   }
   if (a.startsWith('TS') === b.startsWith('TS')) {
