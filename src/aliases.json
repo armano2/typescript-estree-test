@@ -21,7 +21,20 @@
       "TaggedTemplateExpression",
       "ClassExpression",
       "MetaProperty",
-      "AwaitExpression"
+      "AwaitExpression",
+      "TSAsExpression",
+      "TSNonNullExpression",
+      "TSTypeAssertion"
+    ]
+  ],
+  [
+    "TSSignatures",
+    [
+      "TSCallSignatureDeclaration",
+      "TSConstructSignatureDeclaration",
+      "TSIndexSignature",
+      "TSMethodSignature",
+      "TSPropertySignature"
     ]
   ],
   [

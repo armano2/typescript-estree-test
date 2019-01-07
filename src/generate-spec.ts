@@ -122,6 +122,7 @@ function prepareTypes(types: Set<string>): string[] {
     .map(e => String(e))
     .map(e => {
       for (const aliases of typeAliases) {
+        // TODO: make sure that at least 2 of them are present
         if (aliases[1].some((alias) => alias === e)) {
           return aliases[0]
         }
