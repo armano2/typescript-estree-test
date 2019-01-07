@@ -3,14 +3,16 @@ import * as path from 'path';
 // @ts-ignore
 import glob = require('tiny-glob/sync');
 
-const rootDir = path.join(
-  __dirname,
-  '..',
-  'projects',
-  'TypeScript',
-  'tests',
-  'cases'
-);
+const rootDir = path.join(__dirname, '..', 'projects');
+
+const directories = [
+  'TypeScript/tests/cases',
+  'react-server-example-tsx/src',
+  'typeorm/src',
+  'typescript-collections/src',
+  'vue-tsx-support/src',
+  'vue-tsx-support/test'
+];
 
 interface Fixture {
   file: string;
@@ -19,15 +21,19 @@ interface Fixture {
 }
 
 export function readFixtures(): string[] {
-  return glob('**/*.{ts,tsx,js,jsx}', {
-    cwd: rootDir
-  });
+  return directories.flatMap(directory =>
+    glob('**/*.{ts,tsx,js,jsx}', {
+      cwd: path.join(rootDir, directory),
+      absolute: true,
+      filesOnly: true
+    })
+  );
 }
 
 export async function readFixture(file: string): Promise<Fixture> {
   return new Promise(resolve => {
     fs.readFile(
-      path.join(rootDir, file),
+      file,
       {
         encoding: 'utf-8'
       },
