@@ -117,18 +117,14 @@ for (const file of files) {
 }
 
 function prepareTypes(types: Set<string>): string[] {
-  // TODO: check if present in aliases
-  const result = Array.from(types)
-    .map(e => String(e))
-    .map(e => {
-      for (const aliases of typeAliases) {
-        // TODO: make sure that at least 2 of them are present
-        if (aliases[1].some(alias => alias === e)) {
-          return aliases[0];
-        }
-      }
-      return e;
-    });
+  let result = Array.from(types).map(e => String(e));
+
+  for (const aliases of typeAliases) {
+    if (aliases[1].filter(alias => result.includes(alias)).length > 1) {
+      result = result.filter(e => !aliases[1].includes(e));
+      result.push(aliases[0]);
+    }
+  }
 
   return [...new Set(result)].sort((a, b) => sortNodes(a, b));
 }

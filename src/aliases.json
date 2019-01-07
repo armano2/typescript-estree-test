@@ -1,5 +1,25 @@
 [
   [
+    "Declarations",
+    [
+      "ClassDeclaration",
+      "ExportAllDeclaration",
+      "ExportDefaultDeclaration",
+      "ExportNamedDeclaration",
+      "FunctionDeclaration",
+      "ImportDeclaration",
+      "VariableDeclaration",
+      "TSAbstractClassDeclaration",
+      "TSDeclareFunction",
+      "TSEnumDeclaration",
+      "TSExportAssignment",
+      "TSImportEqualsDeclaration",
+      "TSInterfaceDeclaration",
+      "TSModuleDeclaration",
+      "TSTypeAliasDeclaration"
+    ]
+  ],
+  [
     "Statements",
     [
       "ExpressionStatement",

@@ -36,7 +36,7 @@ export interface ArrayPattern extends BaseNode {
     | AssignmentPattern
     | Expressions
     | Identifier
-    | Literals
+    | Literal
     | ObjectPattern
     | RestElement
     | SpreadElement
@@ -60,7 +60,7 @@ export interface ArrowFunctionExpression extends BaseNode {
     | TSParameterProperty
   >;
   id: null;
-  body: Expressions | Identifier | JSXElement | Literals | Statements;
+  body: BlockStatement | Expressions | Identifier | JSXElement | Literals;
 }
 
 export interface AssignmentExpression extends BaseNode {
@@ -80,7 +80,7 @@ export interface AssignmentExpression extends BaseNode {
     | '^='
     | '|=';
   right: Expressions | Identifier | JSXElement | Literals;
-  left: ArrayPattern | Expressions | Identifier | Literals | ObjectPattern;
+  left: ArrayPattern | Expressions | Identifier | Literal | ObjectPattern;
 }
 
 export interface AssignmentPattern extends BaseNode {
@@ -91,7 +91,7 @@ export interface AssignmentPattern extends BaseNode {
 
 export interface AwaitExpression extends BaseNode {
   type: 'AwaitExpression';
-  argument: Expressions | Identifier | Literals;
+  argument: Expressions | Identifier | Literal;
 }
 
 export interface BigIntLiteral extends BaseNode {
@@ -131,24 +131,7 @@ export interface BinaryExpression extends BaseNode {
 
 export interface BlockStatement extends BaseNode {
   type: 'BlockStatement';
-  body: Array<
-    | ClassDeclaration
-    | ExportAllDeclaration
-    | ExportDefaultDeclaration
-    | ExportNamedDeclaration
-    | FunctionDeclaration
-    | ImportDeclaration
-    | Statements
-    | VariableDeclaration
-    | TSAbstractClassDeclaration
-    | TSDeclareFunction
-    | TSEnumDeclaration
-    | TSExportAssignment
-    | TSImportEqualsDeclaration
-    | TSInterfaceDeclaration
-    | TSModuleDeclaration
-    | TSTypeAliasDeclaration
-  >;
+  body: Array<Declarations | Statements>;
 }
 
 export interface BreakStatement extends BaseNode {
@@ -166,7 +149,7 @@ export interface CallExpression extends BaseNode {
 export interface CatchClause extends BaseNode {
   type: 'CatchClause';
   param: null | ArrayPattern | Identifier | ObjectPattern;
-  body: Statements;
+  body: BlockStatement;
 }
 
 export interface ClassBody extends BaseNode {
@@ -176,7 +159,7 @@ export interface ClassBody extends BaseNode {
     | MethodDefinition
     | TSAbstractClassProperty
     | TSAbstractMethodDefinition
-    | TSSignatures
+    | TSIndexSignature
   >;
 }
 
@@ -185,7 +168,7 @@ export interface ClassDeclaration extends BaseNode {
   declare?: boolean;
   typeParameters?: TSTypeParameterDeclaration;
   superTypeParameters?: TSTypeParameterInstantiation;
-  superClass: null | Expressions | Identifier | Literals;
+  superClass: null | Expressions | Identifier | Literal;
   implements?: Array<ClassImplements>;
   id: null | Identifier;
   decorators?: Array<Decorator>;
@@ -205,7 +188,7 @@ export interface ClassExpression extends BaseNode {
 export interface ClassImplements extends BaseNode {
   type: 'ClassImplements';
   typeParameters?: TSTypeParameterInstantiation;
-  id: Expressions | Identifier;
+  id: Identifier | MemberExpression;
 }
 
 export interface ClassProperty extends BaseNode {
@@ -216,7 +199,7 @@ export interface ClassProperty extends BaseNode {
   definite?: boolean;
   computed: boolean;
   accessibility?: 'private' | 'protected' | 'public';
-  value: null | Expressions | Identifier | Literals;
+  value: null | Expressions | Identifier | Literal;
   typeAnnotation?: TSTypeAnnotation;
   key: Expressions | Identifier | Literals;
   decorators?: Array<Decorator>;
@@ -245,8 +228,8 @@ export interface Decorator extends BaseNode {
 
 export interface DoWhileStatement extends BaseNode {
   type: 'DoWhileStatement';
-  test: Expressions | Identifier | Literals;
-  body: Statements | VariableDeclaration;
+  test: Expressions | Identifier | Literal;
+  body: BlockStatement | VariableDeclaration;
 }
 
 export interface EmptyStatement extends BaseNode {
@@ -255,38 +238,19 @@ export interface EmptyStatement extends BaseNode {
 
 export interface ExportAllDeclaration extends BaseNode {
   type: 'ExportAllDeclaration';
-  source: Identifier | Literals;
+  source: Identifier | Literal;
 }
 
 export interface ExportDefaultDeclaration extends BaseNode {
   type: 'ExportDefaultDeclaration';
-  declaration:
-    | ClassDeclaration
-    | Expressions
-    | FunctionDeclaration
-    | Identifier
-    | JSXElement
-    | Literals
-    | TSAbstractClassDeclaration
-    | TSDeclareFunction
-    | TSInterfaceDeclaration;
+  declaration: Declarations | Expressions | Identifier | JSXElement | Literal;
 }
 
 export interface ExportNamedDeclaration extends BaseNode {
   type: 'ExportNamedDeclaration';
   specifiers: Array<ExportSpecifier>;
-  source: null | Literals;
-  declaration:
-    | null
-    | ClassDeclaration
-    | FunctionDeclaration
-    | VariableDeclaration
-    | TSAbstractClassDeclaration
-    | TSDeclareFunction
-    | TSEnumDeclaration
-    | TSInterfaceDeclaration
-    | TSModuleDeclaration
-    | TSTypeAliasDeclaration;
+  source: null | Literal;
+  declaration: null | Declarations;
 }
 
 export interface ExportSpecifier extends BaseNode {
@@ -303,7 +267,7 @@ export interface ExpressionStatement extends BaseNode {
 
 export interface ForInStatement extends BaseNode {
   type: 'ForInStatement';
-  right: ArrayPattern | Expressions | Identifier | Literals;
+  right: ArrayPattern | Expressions | Identifier | Literal;
   left: Expressions | Identifier | VariableDeclaration;
   body: Statements | VariableDeclaration;
 }
@@ -311,7 +275,7 @@ export interface ForInStatement extends BaseNode {
 export interface ForOfStatement extends BaseNode {
   type: 'ForOfStatement';
   await: boolean;
-  right: ArrayPattern | Expressions | Identifier | Literals;
+  right: ArrayPattern | Expressions | Identifier | Literal;
   left: ArrayPattern | Expressions | Identifier | VariableDeclaration;
   body: Statements;
 }
@@ -319,7 +283,7 @@ export interface ForOfStatement extends BaseNode {
 export interface ForStatement extends BaseNode {
   type: 'ForStatement';
   update: null | Expressions | Identifier;
-  test: null | Expressions | Identifier | Literals;
+  test: null | Expressions | Identifier | Literal;
   init: null | Expressions | Identifier | VariableDeclaration;
   body: Statements | VariableDeclaration;
 }
@@ -340,7 +304,7 @@ export interface FunctionDeclaration extends BaseNode {
     | TSParameterProperty
   >;
   id: null | Identifier;
-  body: Statements;
+  body: BlockStatement;
 }
 
 export interface FunctionExpression extends BaseNode {
@@ -359,7 +323,7 @@ export interface FunctionExpression extends BaseNode {
     | TSParameterProperty
   >;
   id: null | Identifier;
-  body: null | Statements;
+  body: null | BlockStatement;
 }
 
 export interface Identifier extends BaseNode {
@@ -372,7 +336,7 @@ export interface Identifier extends BaseNode {
 
 export interface IfStatement extends BaseNode {
   type: 'IfStatement';
-  test: Expressions | Identifier | Literals;
+  test: Expressions | Identifier | Literal;
   consequent: Statements | VariableDeclaration;
   alternate: null | Statements | VariableDeclaration;
 }
@@ -386,7 +350,7 @@ export interface ImportDeclaration extends BaseNode {
   specifiers: Array<
     ImportDefaultSpecifier | ImportNamespaceSpecifier | ImportSpecifier
   >;
-  source: Literals;
+  source: Literal;
 }
 
 export interface ImportDefaultSpecifier extends BaseNode {
@@ -407,7 +371,7 @@ export interface ImportSpecifier extends BaseNode {
 
 export interface JSXAttribute extends BaseNode {
   type: 'JSXAttribute';
-  value: null | JSXExpressionContainer | Literals;
+  value: null | JSXExpressionContainer | Literal;
   name: JSXIdentifier;
 }
 
@@ -440,7 +404,7 @@ export interface JSXExpressionContainer extends BaseNode {
     | Identifier
     | JSXElement
     | JSXEmptyExpression
-    | Literals;
+    | Literal;
 }
 
 export interface JSXFragment extends BaseNode {
@@ -458,7 +422,7 @@ export interface JSXIdentifier extends BaseNode {
 export interface JSXMemberExpression extends BaseNode {
   type: 'JSXMemberExpression';
   property: JSXIdentifier;
-  object: Expressions | JSXIdentifier | JSXMemberExpression;
+  object: JSXIdentifier | JSXMemberExpression | MemberExpression;
 }
 
 export interface JSXOpeningElement extends BaseNode {
@@ -508,8 +472,8 @@ export interface Literal extends BaseNode {
 export interface LogicalExpression extends BaseNode {
   type: 'LogicalExpression';
   operator: '&&' | '||';
-  right: Expressions | Identifier | Literals;
-  left: Expressions | Identifier | Literals;
+  right: Expressions | Identifier | Literal;
+  left: Expressions | Identifier | Literal;
 }
 
 export interface MemberExpression extends BaseNode {
@@ -531,7 +495,7 @@ export interface MethodDefinition extends BaseNode {
   kind: 'constructor' | 'get' | 'method' | 'set';
   computed: boolean;
   accessibility?: 'private' | 'protected' | 'public';
-  value: Expressions;
+  value: FunctionExpression;
   key: Expressions | Identifier | Literals;
   decorators?: Array<Decorator>;
 }
@@ -539,7 +503,7 @@ export interface MethodDefinition extends BaseNode {
 export interface NewExpression extends BaseNode {
   type: 'NewExpression';
   typeParameters?: TSTypeParameterInstantiation;
-  callee: Expressions | Identifier | Literals | Super;
+  callee: Expressions | Identifier | Super | TemplateLiteral;
   arguments: Array<Expressions | Identifier | Literals | SpreadElement>;
 }
 
@@ -558,25 +522,7 @@ export interface ObjectPattern extends BaseNode {
 export interface Program extends BaseNode {
   type: 'Program';
   sourceType: 'module' | 'script';
-  body: Array<
-    | ClassDeclaration
-    | ExportAllDeclaration
-    | ExportDefaultDeclaration
-    | ExportNamedDeclaration
-    | FunctionDeclaration
-    | ImportDeclaration
-    | Statements
-    | VariableDeclaration
-    | TSAbstractClassDeclaration
-    | TSDeclareFunction
-    | TSEnumDeclaration
-    | TSExportAssignment
-    | TSImportEqualsDeclaration
-    | TSInterfaceDeclaration
-    | TSModuleDeclaration
-    | TSNamespaceExportDeclaration
-    | TSTypeAliasDeclaration
-  >;
+  body: Array<Declarations | Statements | TSNamespaceExportDeclaration>;
 }
 
 export interface Property extends BaseNode {
@@ -629,7 +575,7 @@ export interface Super extends BaseNode {
 export interface SwitchCase extends BaseNode {
   type: 'SwitchCase';
   test: null | Expressions | Identifier | Literals;
-  consequent: Array<FunctionDeclaration | Statements | VariableDeclaration>;
+  consequent: Array<Declarations | Statements>;
 }
 
 export interface SwitchStatement extends BaseNode {
@@ -641,8 +587,8 @@ export interface SwitchStatement extends BaseNode {
 export interface TaggedTemplateExpression extends BaseNode {
   type: 'TaggedTemplateExpression';
   typeParameters?: TSTypeParameterInstantiation;
-  tag: Expressions | Identifier | Literals;
-  quasi: Literals;
+  tag: Identifier | MemberExpression | TemplateLiteral;
+  quasi: TemplateLiteral;
 }
 
 export interface TemplateElement extends BaseNode {
@@ -666,14 +612,14 @@ export interface ThisExpression extends BaseNode {
 
 export interface ThrowStatement extends BaseNode {
   type: 'ThrowStatement';
-  argument: null | Expressions | Identifier | Literals;
+  argument: null | Expressions | Identifier | Literal;
 }
 
 export interface TryStatement extends BaseNode {
   type: 'TryStatement';
   handler: null | CatchClause;
-  finalizer: null | Statements;
-  block: Statements;
+  finalizer: null | BlockStatement;
+  block: BlockStatement;
 }
 
 export interface UnaryExpression extends BaseNode {
@@ -687,7 +633,7 @@ export interface UpdateExpression extends BaseNode {
   type: 'UpdateExpression';
   prefix: boolean;
   operator: '++' | '--';
-  argument: Expressions | Identifier | Literals;
+  argument: Expressions | Identifier | Literal;
 }
 
 export interface VariableDeclaration extends BaseNode {
@@ -712,7 +658,7 @@ export interface WhileStatement extends BaseNode {
 
 export interface WithStatement extends BaseNode {
   type: 'WithStatement';
-  object: Expressions | Identifier | Literals;
+  object: Expressions | Identifier | Literal;
   body: Statements | VariableDeclaration;
 }
 
@@ -752,7 +698,7 @@ export interface TSAbstractMethodDefinition extends BaseNode {
   kind: 'constructor' | 'get' | 'method' | 'set';
   computed: boolean;
   accessibility?: 'private' | 'protected' | 'public';
-  value: Expressions;
+  value: FunctionExpression;
   key: Identifier;
 }
 
@@ -808,7 +754,7 @@ export interface TSDeclareFunction extends BaseNode {
     ArrayPattern | AssignmentPattern | Identifier | ObjectPattern | RestElement
   >;
   id: Identifier;
-  body?: Statements;
+  body?: BlockStatement;
 }
 
 export interface TSEnumDeclaration extends BaseNode {
@@ -825,18 +771,18 @@ export interface TSEnumDeclaration extends BaseNode {
 
 export interface TSEnumMember extends BaseNode {
   type: 'TSEnumMember';
-  initializer?: Expressions | Identifier | Literals;
-  id: Identifier | Literals;
+  initializer?: Expressions | Identifier | Literal;
+  id: Identifier | Literal;
 }
 
 export interface TSExportAssignment extends BaseNode {
   type: 'TSExportAssignment';
-  expression: Expressions | Identifier | Literals;
+  expression: Expressions | Identifier | Literal;
 }
 
 export interface TSExternalModuleReference extends BaseNode {
   type: 'TSExternalModuleReference';
-  expression: Identifier | Literals;
+  expression: Identifier | Literal;
 }
 
 export interface TSFunctionType extends BaseNode {
@@ -885,8 +831,8 @@ export interface TSIndexSignature extends BaseNode {
 
 export interface TSIndexedAccessType extends BaseNode {
   type: 'TSIndexedAccessType';
-  objectType: TSTypeKeywords | TSTypeOperators;
-  indexType: TSLiteralType | TSTypeKeywords | TSTypeOperators;
+  objectType: TSTypeOperators | TSAnyKeyword;
+  indexType: TSLiteralType | TSTypeOperators | TSNeverKeyword;
 }
 
 export interface TSInferType extends BaseNode {
@@ -923,7 +869,7 @@ export interface TSIntersectionType extends BaseNode {
 
 export interface TSLiteralType extends BaseNode {
   type: 'TSLiteralType';
-  literal: Expressions | Literals;
+  literal: Literals | UnaryExpression;
 }
 
 export interface TSMappedType extends BaseNode {
@@ -944,28 +890,12 @@ export interface TSMethodSignature extends BaseNode {
   params: Array<
     ArrayPattern | AssignmentPattern | Identifier | ObjectPattern | RestElement
   >;
-  key: Expressions | Identifier | Literals;
+  key: Expressions | Identifier | Literal;
 }
 
 export interface TSModuleBlock extends BaseNode {
   type: 'TSModuleBlock';
-  body: Array<
-    | ClassDeclaration
-    | ExportAllDeclaration
-    | ExportDefaultDeclaration
-    | ExportNamedDeclaration
-    | FunctionDeclaration
-    | ImportDeclaration
-    | Statements
-    | VariableDeclaration
-    | TSDeclareFunction
-    | TSEnumDeclaration
-    | TSExportAssignment
-    | TSImportEqualsDeclaration
-    | TSInterfaceDeclaration
-    | TSModuleDeclaration
-    | TSTypeAliasDeclaration
-  >;
+  body: Array<Declarations | Statements>;
 }
 
 export interface TSModuleDeclaration extends BaseNode {
@@ -979,7 +909,7 @@ export interface TSModuleDeclaration extends BaseNode {
     | TSPublicKeyword
     | TSStaticKeyword
   >;
-  id: Identifier | Literals;
+  id: Identifier | Literal;
   body?: TSModuleBlock | TSModuleDeclaration;
 }
 
@@ -990,12 +920,12 @@ export interface TSNamespaceExportDeclaration extends BaseNode {
 
 export interface TSNonNullExpression extends BaseNode {
   type: 'TSNonNullExpression';
-  expression: Expressions | Identifier | Literals;
+  expression: Expressions | Identifier | Literal;
 }
 
 export interface TSOptionalType extends BaseNode {
   type: 'TSOptionalType';
-  typeAnnotation: TSTypeKeywords;
+  typeAnnotation: TSStringKeyword;
 }
 
 export interface TSParameterProperty extends BaseNode {
@@ -1025,8 +955,8 @@ export interface TSPropertySignature extends BaseNode {
   computed: boolean;
   accessibility?: 'private' | 'protected' | 'public';
   typeAnnotation?: TSTypeAnnotation;
-  key: Expressions | Identifier | Literals;
-  initializer?: Literals;
+  key: Expressions | Identifier | Literal;
+  initializer?: Literal;
 }
 
 export interface TSQualifiedName extends BaseNode {
@@ -1185,6 +1115,23 @@ export interface TSUnknownKeyword extends BaseNode {
 export interface TSVoidKeyword extends BaseNode {
   type: 'TSVoidKeyword';
 }
+
+export type Declarations =
+  | ClassDeclaration
+  | ExportAllDeclaration
+  | ExportDefaultDeclaration
+  | ExportNamedDeclaration
+  | FunctionDeclaration
+  | ImportDeclaration
+  | VariableDeclaration
+  | TSAbstractClassDeclaration
+  | TSDeclareFunction
+  | TSEnumDeclaration
+  | TSExportAssignment
+  | TSImportEqualsDeclaration
+  | TSInterfaceDeclaration
+  | TSModuleDeclaration
+  | TSTypeAliasDeclaration;
 
 export type Statements =
   | ExpressionStatement
