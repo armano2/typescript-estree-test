@@ -123,15 +123,14 @@ function prepareTypes(types: Set<string>): string[] {
     .map(e => {
       for (const aliases of typeAliases) {
         // TODO: make sure that at least 2 of them are present
-        if (aliases[1].some((alias) => alias === e)) {
-          return aliases[0]
+        if (aliases[1].some(alias => alias === e)) {
+          return aliases[0];
         }
       }
       return e;
     });
 
-  return [...new Set(result)]
-    .sort((a, b) => sortNodes(a, b));
+  return [...new Set(result)].sort((a, b) => sortNodes(a, b));
 }
 
 function prepareProp(props: Map<string, PropOptions>) {

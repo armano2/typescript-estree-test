@@ -60,7 +60,7 @@ export interface ArrowFunctionExpression extends BaseNode {
     | TSParameterProperty
   >;
   id: null;
-  body: BlockStatement | Expressions | Identifier | JSXElement | Literals;
+  body: Expressions | Identifier | JSXElement | Literals | Statements;
 }
 
 export interface AssignmentExpression extends BaseNode {
@@ -132,31 +132,14 @@ export interface BinaryExpression extends BaseNode {
 export interface BlockStatement extends BaseNode {
   type: 'BlockStatement';
   body: Array<
-    | BlockStatement
-    | BreakStatement
     | ClassDeclaration
-    | ContinueStatement
-    | DebuggerStatement
-    | DoWhileStatement
-    | EmptyStatement
     | ExportAllDeclaration
     | ExportDefaultDeclaration
     | ExportNamedDeclaration
-    | ExpressionStatement
-    | ForInStatement
-    | ForOfStatement
-    | ForStatement
     | FunctionDeclaration
-    | IfStatement
     | ImportDeclaration
-    | LabeledStatement
-    | ReturnStatement
-    | SwitchStatement
-    | ThrowStatement
-    | TryStatement
+    | Statements
     | VariableDeclaration
-    | WhileStatement
-    | WithStatement
     | TSAbstractClassDeclaration
     | TSDeclareFunction
     | TSEnumDeclaration
@@ -183,7 +166,7 @@ export interface CallExpression extends BaseNode {
 export interface CatchClause extends BaseNode {
   type: 'CatchClause';
   param: null | ArrayPattern | Identifier | ObjectPattern;
-  body: BlockStatement;
+  body: Statements;
 }
 
 export interface ClassBody extends BaseNode {
@@ -263,7 +246,7 @@ export interface Decorator extends BaseNode {
 export interface DoWhileStatement extends BaseNode {
   type: 'DoWhileStatement';
   test: Expressions | Identifier | Literals;
-  body: BlockStatement | VariableDeclaration;
+  body: Statements | VariableDeclaration;
 }
 
 export interface EmptyStatement extends BaseNode {
@@ -322,11 +305,7 @@ export interface ForInStatement extends BaseNode {
   type: 'ForInStatement';
   right: ArrayPattern | Expressions | Identifier | Literals;
   left: Expressions | Identifier | VariableDeclaration;
-  body:
-    | BlockStatement
-    | EmptyStatement
-    | ExpressionStatement
-    | VariableDeclaration;
+  body: Statements | VariableDeclaration;
 }
 
 export interface ForOfStatement extends BaseNode {
@@ -334,12 +313,7 @@ export interface ForOfStatement extends BaseNode {
   await: boolean;
   right: ArrayPattern | Expressions | Identifier | Literals;
   left: ArrayPattern | Expressions | Identifier | VariableDeclaration;
-  body:
-    | BlockStatement
-    | ContinueStatement
-    | EmptyStatement
-    | ExpressionStatement
-    | ForOfStatement;
+  body: Statements;
 }
 
 export interface ForStatement extends BaseNode {
@@ -347,12 +321,7 @@ export interface ForStatement extends BaseNode {
   update: null | Expressions | Identifier;
   test: null | Expressions | Identifier | Literals;
   init: null | Expressions | Identifier | VariableDeclaration;
-  body:
-    | BlockStatement
-    | ContinueStatement
-    | EmptyStatement
-    | ExpressionStatement
-    | VariableDeclaration;
+  body: Statements | VariableDeclaration;
 }
 
 export interface FunctionDeclaration extends BaseNode {
@@ -371,7 +340,7 @@ export interface FunctionDeclaration extends BaseNode {
     | TSParameterProperty
   >;
   id: null | Identifier;
-  body: BlockStatement;
+  body: Statements;
 }
 
 export interface FunctionExpression extends BaseNode {
@@ -390,7 +359,7 @@ export interface FunctionExpression extends BaseNode {
     | TSParameterProperty
   >;
   id: null | Identifier;
-  body: null | BlockStatement;
+  body: null | Statements;
 }
 
 export interface Identifier extends BaseNode {
@@ -404,24 +373,8 @@ export interface Identifier extends BaseNode {
 export interface IfStatement extends BaseNode {
   type: 'IfStatement';
   test: Expressions | Identifier | Literals;
-  consequent:
-    | BlockStatement
-    | BreakStatement
-    | ContinueStatement
-    | EmptyStatement
-    | ExpressionStatement
-    | LabeledStatement
-    | ReturnStatement
-    | ThrowStatement
-    | VariableDeclaration;
-  alternate:
-    | null
-    | BlockStatement
-    | BreakStatement
-    | ExpressionStatement
-    | IfStatement
-    | ReturnStatement
-    | VariableDeclaration;
+  consequent: Statements | VariableDeclaration;
+  alternate: null | Statements | VariableDeclaration;
 }
 
 export interface Import extends BaseNode {
@@ -539,22 +492,7 @@ export interface JSXText extends BaseNode {
 export interface LabeledStatement extends BaseNode {
   type: 'LabeledStatement';
   label: Identifier;
-  body:
-    | BlockStatement
-    | BreakStatement
-    | ContinueStatement
-    | DoWhileStatement
-    | EmptyStatement
-    | ExpressionStatement
-    | ForInStatement
-    | ForOfStatement
-    | ForStatement
-    | IfStatement
-    | LabeledStatement
-    | SwitchStatement
-    | TryStatement
-    | VariableDeclaration
-    | WhileStatement;
+  body: Statements | VariableDeclaration;
 }
 
 export interface Literal extends BaseNode {
@@ -621,31 +559,14 @@ export interface Program extends BaseNode {
   type: 'Program';
   sourceType: 'module' | 'script';
   body: Array<
-    | BlockStatement
-    | BreakStatement
     | ClassDeclaration
-    | ContinueStatement
-    | DebuggerStatement
-    | DoWhileStatement
-    | EmptyStatement
     | ExportAllDeclaration
     | ExportDefaultDeclaration
     | ExportNamedDeclaration
-    | ExpressionStatement
-    | ForInStatement
-    | ForOfStatement
-    | ForStatement
     | FunctionDeclaration
-    | IfStatement
     | ImportDeclaration
-    | LabeledStatement
-    | ReturnStatement
-    | SwitchStatement
-    | ThrowStatement
-    | TryStatement
+    | Statements
     | VariableDeclaration
-    | WhileStatement
-    | WithStatement
     | TSAbstractClassDeclaration
     | TSDeclareFunction
     | TSEnumDeclaration
@@ -708,17 +629,7 @@ export interface Super extends BaseNode {
 export interface SwitchCase extends BaseNode {
   type: 'SwitchCase';
   test: null | Expressions | Identifier | Literals;
-  consequent: Array<
-    | BlockStatement
-    | BreakStatement
-    | ContinueStatement
-    | ExpressionStatement
-    | FunctionDeclaration
-    | IfStatement
-    | ReturnStatement
-    | SwitchStatement
-    | VariableDeclaration
-  >;
+  consequent: Array<FunctionDeclaration | Statements | VariableDeclaration>;
 }
 
 export interface SwitchStatement extends BaseNode {
@@ -761,8 +672,8 @@ export interface ThrowStatement extends BaseNode {
 export interface TryStatement extends BaseNode {
   type: 'TryStatement';
   handler: null | CatchClause;
-  finalizer: null | BlockStatement;
-  block: BlockStatement;
+  finalizer: null | Statements;
+  block: Statements;
 }
 
 export interface UnaryExpression extends BaseNode {
@@ -796,20 +707,13 @@ export interface VariableDeclarator extends BaseNode {
 export interface WhileStatement extends BaseNode {
   type: 'WhileStatement';
   test: Expressions | Identifier | Literals;
-  body:
-    | BlockStatement
-    | BreakStatement
-    | ContinueStatement
-    | EmptyStatement
-    | ExpressionStatement
-    | LabeledStatement
-    | VariableDeclaration;
+  body: Statements | VariableDeclaration;
 }
 
 export interface WithStatement extends BaseNode {
   type: 'WithStatement';
   object: Expressions | Identifier | Literals;
-  body: BlockStatement | ReturnStatement | VariableDeclaration;
+  body: Statements | VariableDeclaration;
 }
 
 export interface YieldExpression extends BaseNode {
@@ -904,7 +808,7 @@ export interface TSDeclareFunction extends BaseNode {
     ArrayPattern | AssignmentPattern | Identifier | ObjectPattern | RestElement
   >;
   id: Identifier;
-  body?: BlockStatement;
+  body?: Statements;
 }
 
 export interface TSEnumDeclaration extends BaseNode {
@@ -1046,31 +950,14 @@ export interface TSMethodSignature extends BaseNode {
 export interface TSModuleBlock extends BaseNode {
   type: 'TSModuleBlock';
   body: Array<
-    | BlockStatement
-    | BreakStatement
     | ClassDeclaration
-    | ContinueStatement
-    | DebuggerStatement
-    | DoWhileStatement
-    | EmptyStatement
     | ExportAllDeclaration
     | ExportDefaultDeclaration
     | ExportNamedDeclaration
-    | ExpressionStatement
-    | ForInStatement
-    | ForOfStatement
-    | ForStatement
     | FunctionDeclaration
-    | IfStatement
     | ImportDeclaration
-    | LabeledStatement
-    | ReturnStatement
-    | SwitchStatement
-    | ThrowStatement
-    | TryStatement
+    | Statements
     | VariableDeclaration
-    | WhileStatement
-    | WithStatement
     | TSDeclareFunction
     | TSEnumDeclaration
     | TSExportAssignment
@@ -1298,6 +1185,26 @@ export interface TSUnknownKeyword extends BaseNode {
 export interface TSVoidKeyword extends BaseNode {
   type: 'TSVoidKeyword';
 }
+
+export type Statements =
+  | ExpressionStatement
+  | BlockStatement
+  | EmptyStatement
+  | DebuggerStatement
+  | WithStatement
+  | ReturnStatement
+  | LabeledStatement
+  | BreakStatement
+  | ContinueStatement
+  | IfStatement
+  | SwitchStatement
+  | ThrowStatement
+  | TryStatement
+  | WhileStatement
+  | DoWhileStatement
+  | ForStatement
+  | ForInStatement
+  | ForOfStatement;
 
 export type Literals = TemplateLiteral | Literal | BigIntLiteral;
 
