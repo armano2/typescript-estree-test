@@ -1,6 +1,14 @@
 [
   [
-    "Expression",
+    "Literals",
+    [
+      "TemplateLiteral",
+      "Literal",
+      "BigIntLiteral"
+    ]
+  ],
+  [
+    "Expressions",
     [
       "ThisExpression",
       "ArrayExpression",
