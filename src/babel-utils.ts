@@ -24,7 +24,7 @@
 // ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 // THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-import { isPlainObject } from "./utils";
+import { isPlainObject } from './utils';
 
 /**
  * Removes the given keys from the given AST object recursively
@@ -207,6 +207,65 @@ export function preprocessBabelAST(ast: any): any {
         if (node.parameters) {
           node.params = node.parameters;
           delete node.parameters;
+        }
+      },
+      ClassDeclaration(node: any) {
+        if (node.abstract) {
+          node.type = 'TSAbstractClassDeclaration';
+          delete node.abstract;
+        }
+      },
+      TSInterfaceDeclaration(node: any) {
+        if (node.extends) {
+          node.heritage = node.extends;
+          delete node.extends;
+        } else {
+          node.heritage = [];
+        }
+      },
+      TSExpressionWithTypeArguments(node: any, parent: any) {
+        if (parent.type === 'TSInterfaceDeclaration') {
+          node.type = 'TSInterfaceHeritage';
+        } else if (
+          parent.type === 'ClassExpression' ||
+          parent.type === 'ClassDeclaration'
+        ) {
+          node.type = 'ClassImplements';
+        }
+        if (node.expression) {
+          node.id = node.expression;
+          delete node.expression;
+        }
+      },
+      // https://github.com/JamesHenry/typescript-estree/pull/104
+      TSMethodSignature(node: any) {
+        if (!node.optional) {
+          node.optional = false;
+        }
+        if (!node.static) {
+          node.static = false;
+        }
+        if (!node.typeAnnotation) {
+          node.typeAnnotation = null;
+        }
+        if (node.parameters) {
+          node.params = node.parameters;
+          delete node.parameters;
+        }
+      },
+      TemplateElement(node: any) {
+        node.range = [node.range[0] + 1, node.range[1] - (node.tail ? 1 : 2)];
+        node.loc.start.column += 1;
+        node.loc.end.column -= node.tail ? 1 : 2;
+      },
+      TSTypeAssertion(node: any) {
+        node.range[0] -= 1;
+        node.loc.start.column -= 1;
+      },
+      TSParameterProperty(node: any) {
+        if (node.accessibility) {
+          node.range[0] -= node.accessibility.length + 1;
+          node.loc.start.column -= node.accessibility.length + 1;
         }
       }
     }

@@ -13,22 +13,24 @@ describe('alignment', () => {
       .normalize(path.relative(__dirname, file))
       .replace(/\\/g, '/');
 
-    it(`${filePath}`, function() {
-      return readFixture(file).then(({ content, isTsx }) => {
-        const bCode = preprocessBabelAST(parseBabel(content, isTsx));
-        if (!bCode || bCode.parseError) {
-          return;
-        }
+    describe(`${filePath}`, () => {
+      it(`comparing babel with ts-estree`, function() {
+        return readFixture(file).then(({ content, isTsx }) => {
+          const bCode = preprocessBabelAST(parseBabel(content, isTsx));
+          if (!bCode || bCode.parseError) {
+            return;
+          }
 
-        const tsCode = parseTsEstree(content, isTsx);
-        if (!tsCode || tsCode.parseError) {
-          return;
-        }
+          const tsCode = parseTsEstree(content, isTsx);
+          if (!tsCode || tsCode.parseError) {
+            return;
+          }
 
-        assert.deepStrictEqual(
-          removeFromProgramNode(tsCode),
-          removeFromProgramNode(bCode)
-        );
+          assert.deepStrictEqual(
+            removeFromProgramNode(tsCode),
+            removeFromProgramNode(bCode)
+          );
+        });
       });
     });
   }
