@@ -209,6 +209,42 @@ export function preprocessBabelAST(ast: any): any {
           delete node.parameters;
         }
       },
+      /**
+       * Awaiting feedback on Babel issue https://github.com/babel/babel/issues/9231
+       */
+      TSMethodSignature(node: any) {
+        if (node.typeAnnotation) {
+          node.returnType = node.typeAnnotation;
+          delete node.typeAnnotation;
+        }
+        if (node.parameters) {
+          node.params = node.parameters;
+          delete node.parameters;
+        }
+      },
+      /**
+       * We want this node to be different
+       * @see https://github.com/JamesHenry/typescript-estree/issues/109
+       */
+      TSTypeParameter(node: any) {
+        if (node.name) {
+          node.name = {
+            loc: {
+              start: {
+                column: node.loc.start.column,
+                line: node.loc.start.line
+              },
+              end: {
+                column: node.loc.start.column + node.name.length,
+                line: node.loc.start.line
+              }
+            },
+            name: node.name,
+            range: [node.range[0], node.range[0] + node.name.length],
+            type: 'Identifier'
+          };
+        }
+      },
       ClassDeclaration(node: any) {
         if (node.abstract) {
           node.type = 'TSAbstractClassDeclaration';
@@ -236,27 +272,6 @@ export function preprocessBabelAST(ast: any): any {
           node.id = node.expression;
           delete node.expression;
         }
-      },
-      // https://github.com/JamesHenry/typescript-estree/pull/104
-      TSMethodSignature(node: any) {
-        if (!node.optional) {
-          node.optional = false;
-        }
-        if (!node.static) {
-          node.static = false;
-        }
-        if (!node.typeAnnotation) {
-          node.typeAnnotation = null;
-        }
-        if (node.parameters) {
-          node.params = node.parameters;
-          delete node.parameters;
-        }
-      },
-      TemplateElement(node: any) {
-        node.range = [node.range[0] + 1, node.range[1] - (node.tail ? 1 : 2)];
-        node.loc.start.column += 1;
-        node.loc.end.column -= node.tail ? 1 : 2;
       },
       TSTypeAssertion(node: any) {
         node.range[0] -= 1;
