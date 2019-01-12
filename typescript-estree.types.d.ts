@@ -34,12 +34,10 @@ export interface ArrayPattern extends BaseNode {
   elements: Array<
     | ArrayPattern
     | AssignmentPattern
-    | Expressions
     | Identifier
-    | Literal
+    | MemberExpression
     | ObjectPattern
     | RestElement
-    | SpreadElement
     | null
   >;
 }
@@ -267,16 +265,26 @@ export interface ExpressionStatement extends BaseNode {
 
 export interface ForInStatement extends BaseNode {
   type: 'ForInStatement';
-  right: ArrayPattern | Expressions | Identifier | Literal;
-  left: Expressions | Identifier | VariableDeclaration;
+  right: Expressions | Identifier | Literal;
+  left:
+    | AssignmentPattern
+    | Expressions
+    | Identifier
+    | ObjectPattern
+    | VariableDeclaration;
   body: Statements | VariableDeclaration;
 }
 
 export interface ForOfStatement extends BaseNode {
   type: 'ForOfStatement';
   await: boolean;
-  right: ArrayPattern | Expressions | Identifier | Literal;
-  left: ArrayPattern | Expressions | Identifier | VariableDeclaration;
+  right: Expressions | Identifier | Literal;
+  left:
+    | ArrayPattern
+    | Expressions
+    | Identifier
+    | ObjectPattern
+    | VariableDeclaration;
   body: Statements;
 }
 

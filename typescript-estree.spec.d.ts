@@ -54,17 +54,12 @@ export interface ArrayPattern extends BaseNode {
   optional?: boolean;
   typeAnnotation?: TSTypeAnnotation;
   elements: Array<
-    | ArrayExpression
     | ArrayPattern
-    | AssignmentExpression
     | AssignmentPattern
     | Identifier
-    | Literal
     | MemberExpression
-    | ObjectExpression
     | ObjectPattern
     | RestElement
-    | SpreadElement
     | null
   >;
 }
@@ -659,7 +654,7 @@ export interface ExpressionStatement extends BaseNode {
 export interface ForInStatement extends BaseNode {
   type: 'ForInStatement';
   right:
-    | ArrayPattern
+    | ArrayExpression
     | AwaitExpression
     | Identifier
     | Literal
@@ -668,12 +663,12 @@ export interface ForInStatement extends BaseNode {
     | SequenceExpression
     | ThisExpression;
   left:
-    | AssignmentExpression
+    | AssignmentPattern
     | CallExpression
     | Identifier
     | MemberExpression
     | NewExpression
-    | ObjectExpression
+    | ObjectPattern
     | ThisExpression
     | VariableDeclaration;
   body:
@@ -687,7 +682,7 @@ export interface ForOfStatement extends BaseNode {
   type: 'ForOfStatement';
   await: boolean;
   right:
-    | ArrayPattern
+    | ArrayExpression
     | AwaitExpression
     | CallExpression
     | Identifier
@@ -699,7 +694,7 @@ export interface ForOfStatement extends BaseNode {
     | ArrayPattern
     | Identifier
     | MemberExpression
-    | ObjectExpression
+    | ObjectPattern
     | UpdateExpression
     | VariableDeclaration;
   body:
