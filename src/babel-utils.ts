@@ -245,18 +245,24 @@ export function preprocessBabelAST(ast: any): any {
           };
         }
       },
+      /**
+       * Babel: ClassDeclaration + abstract: true
+       * ts-estree: TSAbstractClassDeclaration
+       */
       ClassDeclaration(node: any) {
         if (node.abstract) {
           node.type = 'TSAbstractClassDeclaration';
           delete node.abstract;
         }
       },
-      TSInterfaceDeclaration(node: any) {
-        if (node.extends) {
-          node.heritage = node.extends;
-          delete node.extends;
-        } else {
-          node.heritage = [];
+      /**
+       * Babel: ClassProperty + abstract: true
+       * ts-estree: TSAbstractClassProperty
+       */
+      ClassProperty(node: any, parent: any) {
+        if (node.abstract) {
+          node.type = 'TSAbstractClassProperty';
+          delete node.abstract;
         }
       },
       TSExpressionWithTypeArguments(node: any, parent: any) {
@@ -267,10 +273,6 @@ export function preprocessBabelAST(ast: any): any {
           parent.type === 'ClassDeclaration'
         ) {
           node.type = 'ClassImplements';
-        }
-        if (node.expression) {
-          node.id = node.expression;
-          delete node.expression;
         }
       },
       TSTypeAssertion(node: any) {
