@@ -282,7 +282,33 @@ export function preprocessBabelAST(ast: any): any {
           node.range[0] -= node.accessibility.length + 1;
           node.loc.start.column -= node.accessibility.length + 1;
         }
+      },
+      TemplateElement() {
+        throw new Error(`Omit TemplateElement`);
+      },
+      JSXText() {
+        throw new Error(`Omit TemplateElement`);
       }
     }
   );
+}
+
+export function omitRange(ast: any): any {
+  return omitDeep(ast, [
+    {
+      key: 'start',
+      // only remove the "start" number (not the "start" object within loc)
+      predicate: always
+    },
+    {
+      key: 'end',
+      // only remove the "end" number (not the "end" object within loc)
+      predicate: always
+    },
+    {
+      key: 'range',
+      // only remove the "end" number (not the "end" object within loc)
+      predicate: always
+    }
+  ]);
 }

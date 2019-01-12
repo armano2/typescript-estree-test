@@ -818,17 +818,14 @@ export interface TSImportType extends BaseNode {
 
 export interface TSIndexSignature extends BaseNode {
   type: 'TSIndexSignature';
-  static: boolean;
+  static?: boolean;
   readonly?: boolean;
   export?: boolean;
   accessibility?: 'private' | 'public';
   typeAnnotation: null | TSTypeAnnotation;
-  index:
-    | null
-    | AssignmentPattern
-    | Identifier
-    | RestElement
-    | TSParameterProperty;
+  parameters: Array<
+    AssignmentPattern | Identifier | RestElement | TSParameterProperty
+  >;
 }
 
 export interface TSIndexedAccessType extends BaseNode {

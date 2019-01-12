@@ -1,9 +1,8 @@
-import { ESTreeNode } from "typescript-estree/dist/temp-types-based-on-js-source";
+import { ESTreeNode } from 'typescript-estree/dist/temp-types-based-on-js-source';
 
 export function isPlainObject(obj: any) {
   return Object.prototype.toString.call(obj) === '[object Object]';
 }
-
 
 /**
  * There is currently a really awkward difference in location data for Program nodes
