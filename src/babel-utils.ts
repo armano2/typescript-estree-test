@@ -272,7 +272,7 @@ export function preprocessBabelAST(ast: any): any {
           parent.type === 'ClassExpression' ||
           parent.type === 'ClassDeclaration'
         ) {
-          node.type = 'ClassImplements';
+          node.type = 'TSClassImplements';
         }
       },
       TSTypeAssertion(node: any) {
