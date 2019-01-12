@@ -6,10 +6,7 @@ import glob = require('tiny-glob/sync');
 const rootDir = path.join(__dirname, '..', 'projects');
 
 const directories = [
-  'TypeScript/tests/cases',
-  'typescript-collections/src',
-  'vue-tsx-support/src',
-  'vue-tsx-support/test'
+  'TypeScript/tests/cases'
 ];
 
 interface Fixture {

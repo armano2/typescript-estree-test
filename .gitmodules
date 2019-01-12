@@ -1,9 +1,3 @@
 [submodule "projects/TypeScript"]
 	path = projects/TypeScript
 	url = https://github.com/Microsoft/TypeScript.git
-[submodule "typescript-collections"]
-  path = projects/typescript-collections
-  url = https://github.com/basarat/typescript-collections.git
-[submodule "vue-tsx-support"]
-  path = projects/vue-tsx-support
-  url = https://github.com/wonderful-panda/vue-tsx-support.git
