@@ -1,12 +1,6 @@
 [submodule "projects/TypeScript"]
 	path = projects/TypeScript
 	url = https://github.com/Microsoft/TypeScript.git
-[submodule "react-server-example-tsx"]
-  path = projects/react-server-example-tsx
-  url = https://github.com/styfle/react-server-example-tsx.git
-[submodule "typeorm"]
-  path = projects/typeorm
-  url = https://github.com/typeorm/typeorm.git
 [submodule "typescript-collections"]
   path = projects/typescript-collections
   url = https://github.com/basarat/typescript-collections.git

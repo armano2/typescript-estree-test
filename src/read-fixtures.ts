@@ -7,8 +7,6 @@ const rootDir = path.join(__dirname, '..', 'projects');
 
 const directories = [
   'TypeScript/tests/cases',
-  'react-server-example-tsx/src',
-  'typeorm/src',
   'typescript-collections/src',
   'vue-tsx-support/src',
   'vue-tsx-support/test'
