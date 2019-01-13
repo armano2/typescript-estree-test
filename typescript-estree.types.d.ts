@@ -167,7 +167,7 @@ export interface ClassDeclaration extends BaseNode {
   typeParameters?: TSTypeParameterDeclaration;
   superTypeParameters?: TSTypeParameterInstantiation;
   superClass: null | Expressions | Identifier | Literal;
-  implements?: Array<ClassImplements>;
+  implements?: Array<TSClassImplements>;
   id: null | Identifier;
   decorators?: Array<Decorator>;
   body: ClassBody;
@@ -178,15 +178,9 @@ export interface ClassExpression extends BaseNode {
   typeParameters?: TSTypeParameterDeclaration;
   superTypeParameters?: TSTypeParameterInstantiation;
   superClass: null | Expressions | Identifier;
-  implements?: Array<ClassImplements>;
+  implements?: Array<TSClassImplements>;
   id: null | Identifier;
   body: ClassBody;
-}
-
-export interface ClassImplements extends BaseNode {
-  type: 'ClassImplements';
-  typeParameters?: TSTypeParameterInstantiation;
-  id: Identifier | MemberExpression;
 }
 
 export interface ClassProperty extends BaseNode {
@@ -546,6 +540,7 @@ export interface Property extends BaseNode {
     | Identifier
     | Literals
     | ObjectPattern;
+  typeParameters?: TSTypeParameterDeclaration;
   key: Expressions | Identifier | Literals;
 }
 
@@ -684,7 +679,7 @@ export interface TSAbstractClassDeclaration extends BaseNode {
   typeParameters?: TSTypeParameterDeclaration;
   superTypeParameters?: TSTypeParameterInstantiation;
   superClass: null | Identifier;
-  implements?: Array<ClassImplements>;
+  implements?: Array<TSClassImplements>;
   id: null | Identifier;
   body: ClassBody;
 }
@@ -728,6 +723,12 @@ export interface TSCallSignatureDeclaration extends BaseNode {
   typeParameters?: TSTypeParameterDeclaration;
   returnType?: TSTypeAnnotation;
   params: Array<Identifier | ObjectPattern | RestElement>;
+}
+
+export interface TSClassImplements extends BaseNode {
+  type: 'TSClassImplements';
+  typeParameters?: TSTypeParameterInstantiation;
+  expression: Identifier | MemberExpression;
 }
 
 export interface TSConditionalType extends BaseNode {
@@ -857,8 +858,9 @@ export interface TSInterfaceDeclaration extends BaseNode {
   declare?: boolean;
   abstract?: boolean;
   typeParameters?: TSTypeParameterDeclaration;
+  implements?: Array<TSInterfaceHeritage>;
   id: Identifier;
-  heritage: Array<TSInterfaceHeritage>;
+  extends?: Array<TSInterfaceHeritage>;
   decorators?: Array<Decorator>;
   body: TSInterfaceBody;
 }
@@ -866,7 +868,7 @@ export interface TSInterfaceDeclaration extends BaseNode {
 export interface TSInterfaceHeritage extends BaseNode {
   type: 'TSInterfaceHeritage';
   typeParameters?: TSTypeParameterInstantiation;
-  id: Expressions | Identifier;
+  expression: Expressions | Identifier;
 }
 
 export interface TSIntersectionType extends BaseNode {

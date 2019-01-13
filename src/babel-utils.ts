@@ -289,7 +289,7 @@ export function preprocessBabelAST(ast: any): any {
         throw new Error(`Omit TemplateElement`);
       },
       JSXText() {
-        throw new Error(`Omit TemplateElement`);
+        throw new Error(`Omit JSXText`);
       }
     }
   );
@@ -298,17 +298,12 @@ export function preprocessBabelAST(ast: any): any {
 export function omitRange(ast: any): any {
   return omitDeep(ast, [
     {
-      key: 'start',
-      // only remove the "start" number (not the "start" object within loc)
-      predicate: always
-    },
-    {
-      key: 'end',
+      key: 'range',
       // only remove the "end" number (not the "end" object within loc)
       predicate: always
     },
     {
-      key: 'range',
+      key: 'loc',
       // only remove the "end" number (not the "end" object within loc)
       predicate: always
     }
