@@ -304,7 +304,6 @@ export interface BlockStatement extends BaseNode {
     | VariableDeclaration
     | WhileStatement
     | WithStatement
-    | TSAbstractClassDeclaration
     | TSDeclareFunction
     | TSEnumDeclaration
     | TSExportAssignment
@@ -391,6 +390,7 @@ export interface ClassBody extends BaseNode {
 export interface ClassDeclaration extends BaseNode {
   type: 'ClassDeclaration';
   declare?: boolean;
+  abstract?: boolean;
   typeParameters?: TSTypeParameterDeclaration;
   superTypeParameters?: TSTypeParameterInstantiation;
   superClass:
@@ -582,7 +582,6 @@ export interface ExportDefaultDeclaration extends BaseNode {
     | NewExpression
     | ObjectExpression
     | UnaryExpression
-    | TSAbstractClassDeclaration
     | TSAsExpression
     | TSDeclareFunction
     | TSInterfaceDeclaration;
@@ -597,7 +596,6 @@ export interface ExportNamedDeclaration extends BaseNode {
     | ClassDeclaration
     | FunctionDeclaration
     | VariableDeclaration
-    | TSAbstractClassDeclaration
     | TSDeclareFunction
     | TSEnumDeclaration
     | TSInterfaceDeclaration
@@ -1156,7 +1154,6 @@ export interface Program extends BaseNode {
     | VariableDeclaration
     | WhileStatement
     | WithStatement
-    | TSAbstractClassDeclaration
     | TSDeclareFunction
     | TSEnumDeclaration
     | TSExportAssignment
@@ -1543,17 +1540,6 @@ export interface YieldExpression extends BaseNode {
     | YieldExpression;
 }
 
-export interface TSAbstractClassDeclaration extends BaseNode {
-  type: 'TSAbstractClassDeclaration';
-  declare?: boolean;
-  typeParameters?: TSTypeParameterDeclaration;
-  superTypeParameters?: TSTypeParameterInstantiation;
-  superClass: null | Identifier;
-  implements?: Array<TSClassImplements>;
-  id: null | Identifier;
-  body: ClassBody;
-}
-
 export interface TSAbstractClassProperty extends BaseNode {
   type: 'TSAbstractClassProperty';
   static: boolean;
@@ -1815,7 +1801,7 @@ export interface TSIndexSignature extends BaseNode {
   readonly?: boolean;
   export?: boolean;
   accessibility?: 'private' | 'public';
-  typeAnnotation: null | TSTypeAnnotation;
+  typeAnnotation?: TSTypeAnnotation;
   parameters: Array<
     AssignmentPattern | Identifier | RestElement | TSParameterProperty
   >;

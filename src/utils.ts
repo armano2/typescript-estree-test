@@ -1,4 +1,4 @@
-import { ESTreeNode } from 'typescript-estree/dist/temp-types-based-on-js-source';
+import { ESTreeNode } from '@typescript-eslint/typescript-estree/dist/temp-types-based-on-js-source';
 
 export function isPlainObject(obj: any) {
   return Object.prototype.toString.call(obj) === '[object Object]';

@@ -23,7 +23,7 @@
     "prettier": "^1.15.3",
     "tiny-glob": "^0.2.6",
     "ts-node": "^7.0.1",
-    "typescript": "~3.2.1",
-    "typescript-estree": "18.1.0"
+    "typescript": "~3.2.4",
+    "@typescript-eslint/typescript-estree": "0.2.1"
   }
 }

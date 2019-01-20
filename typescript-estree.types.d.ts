@@ -164,6 +164,7 @@ export interface ClassBody extends BaseNode {
 export interface ClassDeclaration extends BaseNode {
   type: 'ClassDeclaration';
   declare?: boolean;
+  abstract?: boolean;
   typeParameters?: TSTypeParameterDeclaration;
   superTypeParameters?: TSTypeParameterInstantiation;
   superClass: null | Expressions | Identifier | Literal;
@@ -673,17 +674,6 @@ export interface YieldExpression extends BaseNode {
   argument: null | Expressions | Identifier | Literals;
 }
 
-export interface TSAbstractClassDeclaration extends BaseNode {
-  type: 'TSAbstractClassDeclaration';
-  declare?: boolean;
-  typeParameters?: TSTypeParameterDeclaration;
-  superTypeParameters?: TSTypeParameterInstantiation;
-  superClass: null | Identifier;
-  implements?: Array<TSClassImplements>;
-  id: null | Identifier;
-  body: ClassBody;
-}
-
 export interface TSAbstractClassProperty extends BaseNode {
   type: 'TSAbstractClassProperty';
   static: boolean;
@@ -831,7 +821,7 @@ export interface TSIndexSignature extends BaseNode {
   readonly?: boolean;
   export?: boolean;
   accessibility?: 'private' | 'public';
-  typeAnnotation: null | TSTypeAnnotation;
+  typeAnnotation?: TSTypeAnnotation;
   parameters: Array<
     AssignmentPattern | Identifier | RestElement | TSParameterProperty
   >;
@@ -1132,7 +1122,6 @@ export type Declarations =
   | FunctionDeclaration
   | ImportDeclaration
   | VariableDeclaration
-  | TSAbstractClassDeclaration
   | TSDeclareFunction
   | TSEnumDeclaration
   | TSExportAssignment

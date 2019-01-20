@@ -1,4 +1,4 @@
-import { parse as tsEstreeParse } from 'typescript-estree/dist/parser';
+import { parse as tsEstreeParse } from '@typescript-eslint/typescript-estree';
 import { parse as babelParse, ParserPlugin } from '@babel/parser';
 
 export function normalizeNodeTypes(ast: any): any {
