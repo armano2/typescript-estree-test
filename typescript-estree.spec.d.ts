@@ -437,7 +437,6 @@ export interface ClassProperty extends BaseNode {
     | null
     | ArrayExpression
     | ArrowFunctionExpression
-    | AssignmentExpression
     | BinaryExpression
     | CallExpression
     | ClassExpression
@@ -450,7 +449,6 @@ export interface ClassProperty extends BaseNode {
     | ObjectExpression
     | ThisExpression
     | UnaryExpression
-    | UpdateExpression
     | YieldExpression
     | TSTypeAssertion;
   typeAnnotation?: TSTypeAnnotation;
@@ -1732,7 +1730,6 @@ export interface TSEnumMember extends BaseNode {
   type: 'TSEnumMember';
   initializer?:
     | ArrowFunctionExpression
-    | AssignmentExpression
     | BinaryExpression
     | CallExpression
     | Identifier
@@ -1741,8 +1738,7 @@ export interface TSEnumMember extends BaseNode {
     | NewExpression
     | ObjectExpression
     | ThisExpression
-    | UnaryExpression
-    | UpdateExpression;
+    | UnaryExpression;
   id: Identifier | Literal;
 }
 

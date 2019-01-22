@@ -41,10 +41,10 @@
   resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-1.15.2.tgz#91594ea7cb6f3b1f7ea69f32621246654c7cc231"
   integrity sha512-XIB0ZCaFZmWUHAa9dBqP5UKXXHwuukmVlP+XcyU94dui2k+l2lG+CHAbt2ffenHPUqoIs5Beh8Pdf2YEq/CZ7A==
 
-"@typescript-eslint/typescript-estree@0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-0.2.1.tgz#980e81467adedbdba8873c9d8e567b1008480c6c"
-  integrity sha512-+9O1L+ApcOxmGSALa7jyDVVRx8vlbIDTMmRCND7sC4XqFUvpfVspSh+0XJrQuljLVBwrPCjWN4cKDNrGqT6xOw==
+"@typescript-eslint/typescript-estree@1.0.1-alpha.6":
+  version "1.0.1-alpha.6"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-1.0.1-alpha.6.tgz#2d0ffb68146e07c1dada6a55a79e22df06c95c01"
+  integrity sha512-2UkspD5UqI3My0mWsOuFfvcZ4sAw6I4JX9LaNOzJPWvvsotAcY4TYMB7TgDZ3aSBIQPEcrPmivZDPfOTZC/ecg==
   dependencies:
     lodash.unescape "4.0.1"
     semver "5.5.0"
