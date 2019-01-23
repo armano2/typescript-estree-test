@@ -265,22 +265,12 @@ export function preprocessBabelAST(ast: any): any {
           node.type = 'TSClassImplements';
         }
       },
-      TSTypeAssertion(node: any) {
-        node.range[0] -= 1;
-        node.loc.start.column -= 1;
-      },
-      TSParameterProperty(node: any) {
-        if (node.accessibility) {
-          node.range[0] -= node.accessibility.length + 1;
-          node.loc.start.column -= node.accessibility.length + 1;
-        }
-      },
-      TemplateElement() {
-        throw new Error(`Omit TemplateElement`);
-      },
-      JSXText() {
-        throw new Error(`Omit JSXText`);
-      }
+      // TemplateElement() {
+      //   throw new Error(`Omit TemplateElement`);
+      // },
+      // JSXText() {
+      //   throw new Error(`Omit JSXText`);
+      // }
     }
   );
 }
