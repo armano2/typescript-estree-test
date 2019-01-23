@@ -265,9 +265,6 @@ export function preprocessBabelAST(ast: any): any {
           node.type = 'TSClassImplements';
         }
       },
-      // TemplateElement() {
-      //   throw new Error(`Omit TemplateElement`);
-      // },
       // JSXText() {
       //   throw new Error(`Omit JSXText`);
       // }
@@ -288,4 +285,14 @@ export function omitRange(ast: any): any {
       predicate: always
     }
   ]);
+}
+
+export function omitCommon(ast: any): any {
+  return omitDeep(ast, [], {
+    TemplateElement(node: any) {
+      node.range = [0, 0];
+      node.loc = {};
+      node.value.raw = '';
+    }
+  });
 }

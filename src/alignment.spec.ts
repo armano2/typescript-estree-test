@@ -3,7 +3,7 @@ import { parseBabel, parseTsEstree } from './parser';
 import * as path from 'path';
 import { removeFromProgramNode } from './utils';
 import assert from 'assert';
-import { preprocessBabelAST } from "./babel-utils";
+import { omitCommon, preprocessBabelAST } from "./babel-utils";
 
 describe('alignment', () => {
   const files = readFixtures();
@@ -31,8 +31,8 @@ describe('alignment', () => {
         }
 
         assert.deepStrictEqual(
-          removeFromProgramNode(tsCode),
-          removeFromProgramNode(bCode)
+          removeFromProgramNode(omitCommon(tsCode)),
+          removeFromProgramNode(omitCommon(bCode))
         );
       });
     });
