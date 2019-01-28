@@ -265,9 +265,13 @@ export function preprocessBabelAST(ast: any): any {
           node.type = 'TSClassImplements';
         }
       },
-      // JSXText() {
-      //   throw new Error(`Omit JSXText`);
-      // }
+      // https://github.com/babel/babel/pull/9406
+      ExportNamedDeclaration(node: any) {
+        if (node.declaration && node.declaration.declare) {
+          node.declaration.range[0] -= 8;
+          node.declaration.loc.start.column -= 8;
+        }
+      }
     }
   );
 }
