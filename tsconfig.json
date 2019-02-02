@@ -8,5 +8,9 @@
     "esModuleInterop": true,
     "lib": ["esnext", "es5", "es2015.iterable"]
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": [
+    "node_modules",
+    "projects"
+  ]
 }

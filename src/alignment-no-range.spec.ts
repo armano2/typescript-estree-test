@@ -2,7 +2,6 @@ import { readFixture, readFixtures } from './read-fixtures';
 import { parseBabel, parseTsEstree } from './parser';
 import * as path from 'path';
 import { removeFromProgramNode } from './utils';
-import assert from 'assert';
 import { omitRange, preprocessBabelAST } from "./babel-utils";
 
 describe('alignment', () => {
@@ -30,8 +29,7 @@ describe('alignment', () => {
           return;
         }
 
-        assert.deepStrictEqual(
-          removeFromProgramNode(omitRange(tsCode)),
+        expect(removeFromProgramNode(omitRange(tsCode))).toEqual(
           removeFromProgramNode(omitRange(bCode))
         );
       });
