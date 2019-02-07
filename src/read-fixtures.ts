@@ -5,9 +5,7 @@ import glob = require('tiny-glob/sync');
 
 const rootDir = path.join(__dirname, '..', 'projects');
 
-const directories = [
-  'TypeScript/tests/cases'
-];
+const directories = ['TypeScript/tests/cases'];
 
 interface Fixture {
   file: string;
@@ -16,13 +14,15 @@ interface Fixture {
 }
 
 export function readFixtures(): string[] {
-  return directories.map(directory =>
-    glob('**/*.{ts,tsx,js,jsx}', {
-      cwd: path.join(rootDir, directory),
-      absolute: true,
-      filesOnly: true
-    })
-  ).reduce((acc, x) => acc.concat(x), []);
+  return directories
+    .map(directory =>
+      glob('**/*.{ts,tsx,js,jsx}', {
+        cwd: path.join(rootDir, directory),
+        absolute: true,
+        filesOnly: true
+      })
+    )
+    .reduce((acc, x) => acc.concat(x), []);
 }
 
 export async function readFixture(file: string): Promise<Fixture> {

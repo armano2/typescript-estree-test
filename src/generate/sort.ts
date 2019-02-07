@@ -1,4 +1,4 @@
-import { PropOptions } from "./types";
+import { PropOptions } from './types';
 
 export function sortNodes(a: string, b: string) {
   if (a === 'null') {
@@ -16,7 +16,10 @@ export function sortNodes(a: string, b: string) {
   return a.startsWith('TS') ? 1 : -1;
 }
 
-export function sortProps(a: [string, PropOptions], b: [string, PropOptions]): number {
+export function sortProps(
+  a: [string, PropOptions],
+  b: [string, PropOptions]
+): number {
   if (a[0] === 'type') {
     return -1;
   }

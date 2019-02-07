@@ -18,10 +18,10 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@babel/parser@^7.3.1":
-  version "7.3.1"
-  resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.3.1.tgz#8f4ffd45f779e6132780835ffa7a215fa0b2d181"
-  integrity sha512-ATz6yX/L8LEnC3dtLQnIx4ydcPxhLcoy9Vl6re00zb2w5lG6itY6Vhnr1KFRPq/FHNsgl/gh2mjNN20f9iJTTA==
+"@babel/parser@^7.3.2":
+  version "7.3.2"
+  resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.3.2.tgz#95cdeddfc3992a6ca2a1315191c1679ca32c55cd"
+  integrity sha512-QzNUC2RO1gadg+fs21fi0Uu0OuGNzRKEmgCxoLNzbCdoprLwjfmZwzUrpUNfJPaVRwBpDY47A17yYEGWyRelnQ==
 
 "@babel/types@^7.3.0":
   version "7.3.0"
@@ -57,10 +57,10 @@
   resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-1.15.2.tgz#91594ea7cb6f3b1f7ea69f32621246654c7cc231"
   integrity sha512-XIB0ZCaFZmWUHAa9dBqP5UKXXHwuukmVlP+XcyU94dui2k+l2lG+CHAbt2ffenHPUqoIs5Beh8Pdf2YEq/CZ7A==
 
-"@typescript-eslint/typescript-estree@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-1.2.0.tgz#d9043a407d5e0f07db2b4a80d86852f7826c34f0"
-  integrity sha512-YGh4egbiCfUObvi6fnQNzJAMmScMGCjG5cRHaapW7GpwujWYQymLlids88imnhcTbOx8Mlz1OXFIuxyPBXK6Ig==
+"@typescript-eslint/typescript-estree@^1.2.1-alpha.15":
+  version "1.2.1-alpha.15"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-1.2.1-alpha.15.tgz#70cdc7e92c4127333730a42c8c0ed69a6d78e5aa"
+  integrity sha512-dxCGD3vYVgPFXYdSEtKo/JOdIeitjTGN6jartqzomsvgJ3Mo/M/P3VkBUGU4b+0MPMWxjY/IkMfs7jVV71cU2Q==
   dependencies:
     lodash.unescape "4.0.1"
     semver "5.5.0"

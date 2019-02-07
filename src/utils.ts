@@ -1,4 +1,4 @@
-import { ESTreeNode } from '@typescript-eslint/typescript-estree/dist/temp-types-based-on-js-source';
+import { Node } from '@typescript-eslint/typescript-estree/dist/typedefs';
 
 export function isPlainObject(obj: any) {
   return Object.prototype.toString.call(obj) === '[object Object]';
@@ -21,11 +21,8 @@ export function removeFromProgramNode(ast: any) {
   return ast;
 }
 
-export function traverse(
-  root: any,
-  cb: (node: ESTreeNode, parent?: ESTreeNode) => void
-) {
-  function visit(node: ESTreeNode, parent?: ESTreeNode) {
+export function traverse(root: any, cb: (node: Node, parent?: Node) => void) {
+  function visit(node: Node, parent?: Node) {
     if (!node || typeof node.type !== 'string') {
       return;
     }

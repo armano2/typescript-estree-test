@@ -425,7 +425,7 @@ export interface JSXIdentifier extends BaseNode {
 export interface JSXMemberExpression extends BaseNode {
   type: 'JSXMemberExpression';
   property: JSXIdentifier;
-  object: JSXIdentifier | JSXMemberExpression | MemberExpression;
+  object: JSXIdentifier | JSXMemberExpression;
 }
 
 export interface JSXOpeningElement extends BaseNode {
@@ -541,7 +541,6 @@ export interface Property extends BaseNode {
     | Identifier
     | Literals
     | ObjectPattern;
-  typeParameters?: TSTypeParameterDeclaration;
   key: Expressions | Identifier | Literals;
 }
 

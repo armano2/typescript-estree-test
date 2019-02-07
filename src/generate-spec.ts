@@ -2,7 +2,7 @@ import { readFixtures, readFixture } from './read-fixtures';
 import { parseTsEstree } from './parser';
 import { isPlainObject, traverse } from './utils';
 import { PropOptions } from './generate/types';
-import Generator from "./generate/generator";
+import Generator from './generate/generator';
 
 const files = readFixtures();
 
@@ -112,7 +112,6 @@ for (const file of files) {
     })
   );
 }
-
 
 Promise.all(promises).then(() => {
   const generator = new Generator(nodes);
