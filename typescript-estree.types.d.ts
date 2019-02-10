@@ -307,6 +307,7 @@ export interface FunctionDeclaration extends BaseNode {
     | TSParameterProperty
   >;
   id: null | Identifier;
+  decorators?: Array<Decorator>;
   body: BlockStatement;
 }
 
@@ -645,6 +646,7 @@ export interface VariableDeclaration extends BaseNode {
   type: 'VariableDeclaration';
   kind: 'const' | 'let' | 'var';
   declare?: boolean;
+  decorators?: Array<Decorator>;
   declarations: Array<VariableDeclarator>;
 }
 
