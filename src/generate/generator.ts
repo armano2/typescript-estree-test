@@ -20,8 +20,9 @@ export default class Generator {
   }
 
   public generateKeys(filename: string) {
-    const data = Array.from(this.nodes).reduce<Record<string, any>>(
-      (prev, [key, value]) => {
+    const data = Array.from(this.nodes)
+      .sort((a, b) => sortNodes(a[0], b[0]))
+      .reduce<Record<string, any>>((prev, [key, value]) => {
         prev[key] = Array.from(value)
           .filter(
             ([_key, value]) =>
@@ -31,9 +32,7 @@ export default class Generator {
           )
           .flatMap(([key]) => key);
         return prev;
-      },
-      {}
-    );
+      }, {});
     const formatted = format(JSON.stringify(data), {
       parser: 'json'
     });
