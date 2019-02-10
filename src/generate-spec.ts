@@ -115,6 +115,7 @@ for (const file of files) {
 
 Promise.all(promises).then(() => {
   const generator = new Generator(nodes);
+  generator.generateKeys('visitor-keys');
   generator.generate(true, 'typescript-estree.types');
   generator.generate(false, 'typescript-estree.spec');
   console.log('files saved.');

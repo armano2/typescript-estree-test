@@ -19,6 +19,27 @@ export default class Generator {
     this.nodes = nodes;
   }
 
+  public generateKeys(filename: string) {
+    const data = Array.from(this.nodes).reduce<Record<string, any>>(
+      (prev, [key, value]) => {
+        prev[key] = Array.from(value)
+          .filter(
+            ([_key, value]) =>
+              value.containTypes.size > 0 ||
+              value.objectTypes.size > 0 ||
+              value.containArrayOfTypes.size > 0
+          )
+          .flatMap(([key]) => key);
+        return prev;
+      },
+      {}
+    );
+    const formatted = format(JSON.stringify(data), {
+      parser: 'json'
+    });
+    fs.writeFileSync(`./${filename}.json`, formatted);
+  }
+
   public generate(useAliases: boolean, filename: string) {
     this.useAliases = useAliases;
 
