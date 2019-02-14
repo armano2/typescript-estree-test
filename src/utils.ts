@@ -1,4 +1,4 @@
-import { Node } from '@typescript-eslint/typescript-estree/dist/typedefs';
+import { TSESTree } from '@typescript-eslint/typescript-estree';
 
 export function isPlainObject(obj: any) {
   return Object.prototype.toString.call(obj) === '[object Object]';
@@ -21,8 +21,11 @@ export function removeFromProgramNode(ast: any) {
   return ast;
 }
 
-export function traverse(root: any, cb: (node: Node, parent?: Node) => void) {
-  function visit(node: Node, parent?: Node) {
+export function traverse(
+  root: any,
+  cb: (node: TSESTree.Node, parent?: TSESTree.Node) => void
+) {
+  function visit(node: TSESTree.Node, parent?: TSESTree.Node) {
     if (!node || typeof node.type !== 'string') {
       return;
     }

@@ -44,6 +44,7 @@ export interface ArrayExpression extends BaseNode {
     | ThisExpression
     | UnaryExpression
     | UpdateExpression
+    | TSAsExpression
     | TSTypeAssertion
     | null
   >;
@@ -442,6 +443,7 @@ export interface ClassProperty extends BaseNode {
     | ClassExpression
     | FunctionExpression
     | Identifier
+    | JSXElement
     | Literal
     | LogicalExpression
     | MemberExpression
@@ -1290,6 +1292,7 @@ export interface SpreadElement extends BaseNode {
     | ConditionalExpression
     | Identifier
     | LogicalExpression
+    | MemberExpression
     | NewExpression
     | ObjectExpression
     | TSAsExpression;
@@ -1604,6 +1607,7 @@ export interface TSAsExpression extends BaseNode {
   expression:
     | ArrayExpression
     | ArrowFunctionExpression
+    | BigIntLiteral
     | BinaryExpression
     | CallExpression
     | ClassExpression
@@ -1617,6 +1621,7 @@ export interface TSAsExpression extends BaseNode {
     | TaggedTemplateExpression
     | TemplateLiteral
     | ThisExpression
+    | UnaryExpression
     | TSAsExpression;
 }
 
@@ -1648,6 +1653,7 @@ export interface TSConditionalType extends BaseNode {
     | TSNumberKeyword;
   falseType:
     | TSConditionalType
+    | TSFunctionType
     | TSIntersectionType
     | TSLiteralType
     | TSMappedType

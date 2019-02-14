@@ -192,7 +192,7 @@ export interface ClassProperty extends BaseNode {
   definite?: boolean;
   computed: boolean;
   accessibility?: 'private' | 'protected' | 'public';
-  value: null | Expressions | Identifier | Literal;
+  value: null | Expressions | Identifier | JSXElement | Literal;
   typeAnnotation?: TSTypeAnnotation;
   key: Expressions | Identifier | Literals;
   decorators?: Array<Decorator>;
