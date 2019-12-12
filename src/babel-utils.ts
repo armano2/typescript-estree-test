@@ -85,6 +85,8 @@ export function omitDeep(
  */
 const always = () => true;
 const ifNumber = (val: any) => typeof val === 'number';
+const ifFalse = (val: any) => typeof val === 'boolean' && !val;
+const ifNull = (val: any) => val === null;
 
 /**
  * - Babylon wraps the "Program" node in an extra "File" node, normalize this for simplicity for now...
@@ -138,25 +140,6 @@ export function preprocessBabelAST(ast: any): any {
       }
     ],
     {
-      /**
-       * Not yet supported in Babel https://github.com/babel/babel/issues/9228
-       */
-      StringLiteral(node: any) {
-        node.type = 'Literal';
-      },
-      /**
-       * Not yet supported in Babel https://github.com/babel/babel/issues/9228
-       */
-      NumericLiteral(node: any) {
-        node.type = 'Literal';
-      },
-      /**
-       * Not yet supported in Babel https://github.com/babel/babel/issues/9228
-       */
-      BooleanLiteral(node: any) {
-        node.type = 'Literal';
-        node.raw = String(node.value);
-      },
       /**
        * Awaiting feedback on Babel issue https://github.com/babel/babel/issues/9231
        */
@@ -285,6 +268,31 @@ export function preprocessBabelAST(ast: any): any {
       }
     }
   );
+}
+
+
+export function preprocessESTSTreeAST(ast: any): any {
+  return omitDeep(
+    ast,
+    [
+      {
+        key: 'optional',
+        predicate: ifFalse
+      },
+      {
+        key: 'declare',
+        predicate: ifFalse
+      },
+      {
+        key: 'asserts',
+        predicate: ifFalse
+      },
+      {
+        key: 'body',
+        predicate: ifNull
+      }
+    ]
+  )
 }
 
 export function omitRange(ast: any): any {

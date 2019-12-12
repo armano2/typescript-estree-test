@@ -6,7 +6,8 @@ module.exports = {
   testMatch: [
     '<rootDir>/src/alignment.spec.ts',
     '<rootDir>/src/alignment-no-range.spec.ts',
-    '<rootDir>/src/snapshot.spec.ts'
+    '<rootDir>/src/snapshot.spec.ts',
+    '<rootDir>/src/visitor-keys.spec.ts'
   ],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   modulePathIgnorePatterns: [
