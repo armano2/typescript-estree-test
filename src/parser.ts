@@ -36,7 +36,9 @@ export function parseBabel(text: string, jsx: boolean = true) {
       'dynamicImport',
       'estree',
       'bigInt',
-      'importMeta'
+      'importMeta',
+      'optionalChaining',
+      'nullishCoalescingOperator',
     ];
     if (jsx) {
       plugins.push('jsx');

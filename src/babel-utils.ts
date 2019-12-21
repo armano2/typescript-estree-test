@@ -25,6 +25,7 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 // THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 import { isPlainObject } from './utils';
+import { AST_NODE_TYPES } from '@typescript-eslint/typescript-estree';
 
 /**
  * Removes the given keys from the given AST object recursively
@@ -85,8 +86,6 @@ export function omitDeep(
  */
 const always = () => true;
 const ifNumber = (val: any) => typeof val === 'number';
-const ifFalse = (val: any) => typeof val === 'boolean' && !val;
-const ifNull = (val: any) => val === null;
 
 /**
  * - Babylon wraps the "Program" node in an extra "File" node, normalize this for simplicity for now...
@@ -151,6 +150,12 @@ export function preprocessBabelAST(ast: any): any {
         if (node.parameters) {
           node.params = node.parameters;
           delete node.parameters;
+        }
+      },
+      MethodDefinition(node: any) {
+        if (node.abstract) {
+          delete node.abstract;
+          node.type = AST_NODE_TYPES.TSAbstractMethodDefinition
         }
       },
       /**
@@ -224,18 +229,26 @@ export function preprocessBabelAST(ast: any): any {
             },
             name: node.name,
             range: [node.range[0], node.range[0] + node.name.length],
-            type: 'Identifier'
+            type: AST_NODE_TYPES.Identifier
           };
         }
       },
-      /**
-       * Babel: ClassProperty + abstract: true
-       * ts-estree: TSAbstractClassProperty
-       */
       ClassProperty(node: any) {
+        /**
+         * Babel: ClassProperty + abstract: true
+         * ts-estree: TSAbstractClassProperty
+         */
         if (node.abstract) {
           node.type = 'TSAbstractClassProperty';
           delete node.abstract;
+        }
+        /**
+         * TS 3.7: declare class properties
+         * babel: sets declare property as true/undefined
+         * ts-estree: sets declare property as true/false
+         */
+        if (!node.declare) {
+          node.declare = false;
         }
       },
       TSExpressionWithTypeArguments(node: any, parent: any) {
@@ -265,34 +278,39 @@ export function preprocessBabelAST(ast: any): any {
           node.range[0] = node.typeParameters.range[0];
           node.loc.start = Object.assign({}, node.typeParameters.loc.start);
         }
+      },
+      /**
+       * TS 3.7: optional chaining
+       * babel: sets optional property as true/undefined
+       * ts-estree: sets optional property as true/false
+       */
+      MemberExpression(node: any) {
+        if (!node.optional) {
+          node.optional = false;
+        }
+      },
+      CallExpression(node: any) {
+        if (!node.optional) {
+          node.optional = false;
+        }
+      },
+      OptionalCallExpression(node: any) {
+        if (!node.optional) {
+          node.optional = false;
+        }
+      },
+      /**
+       * TS 3.7: type assertion function
+       * babel: sets asserts property as true/undefined
+       * ts-estree: sets asserts property as true/false
+       */
+      TSTypePredicate(node: any) {
+        if (!node.asserts) {
+          node.asserts = false;
+        }
       }
     }
   );
-}
-
-
-export function preprocessESTSTreeAST(ast: any): any {
-  return omitDeep(
-    ast,
-    [
-      {
-        key: 'optional',
-        predicate: ifFalse
-      },
-      {
-        key: 'declare',
-        predicate: ifFalse
-      },
-      {
-        key: 'asserts',
-        predicate: ifFalse
-      },
-      {
-        key: 'body',
-        predicate: ifNull
-      }
-    ]
-  )
 }
 
 export function omitRange(ast: any): any {

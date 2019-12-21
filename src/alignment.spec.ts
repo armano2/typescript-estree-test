@@ -2,7 +2,7 @@ import { readFixture, readFixtures } from './read-fixtures';
 import { parseBabel, parseTsEstree } from './parser';
 import * as path from 'path';
 import { removeFromProgramNode } from './utils';
-import { omitCommon, preprocessBabelAST, preprocessESTSTreeAST } from "./babel-utils";
+import { omitCommon, preprocessBabelAST } from "./babel-utils";
 
 describe('alignment', () => {
   const files = readFixtures();
@@ -24,7 +24,7 @@ describe('alignment', () => {
           return;
         }
 
-        const tsCode = preprocessESTSTreeAST(parseTsEstree(content, isTsx));
+        const tsCode = parseTsEstree(content, isTsx);
         if (!tsCode || tsCode.parseError) {
           return;
         }
