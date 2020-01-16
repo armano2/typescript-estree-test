@@ -1836,6 +1836,7 @@ export interface TSEnumDeclaration extends BaseNode {
 
 export interface TSEnumMember extends BaseNode {
   type: 'TSEnumMember';
+  computed?: boolean;
   initializer?:
     | ArrowFunctionExpression
     | AwaitExpression

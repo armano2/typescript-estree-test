@@ -1,6 +1,6 @@
 import { readFixtures, readFixture } from './read-fixtures';
 import { parseTsEstree } from './parser';
-import { isPlainObject, traverse } from './utils';
+import { isPlainObject, traverse } from './utils/utils';
 import { PropOptions } from './generate/types';
 import Generator from './generate/generator';
 

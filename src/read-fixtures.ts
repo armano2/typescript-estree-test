@@ -13,6 +13,18 @@ interface Fixture {
   isTsx: boolean;
 }
 
+/**
+ * Check if file extension is one used for jsx
+ * @param fileType
+ */
+export function isJSXFileType(fileType: string): boolean {
+  if (fileType.startsWith('.')) {
+    fileType = fileType.slice(1);
+  }
+  return fileType === 'js' || fileType === 'jsx' || fileType === 'tsx';
+}
+
+
 export function readFixtures(): string[] {
   return directories
     .map(directory =>
@@ -36,7 +48,7 @@ export async function readFixture(file: string): Promise<Fixture> {
         resolve({
           file: file.replace(/\\/g, '/'),
           content,
-          isTsx: path.extname(file) === '.tsx'
+          isTsx: isJSXFileType(path.extname(file))
         });
       }
     );

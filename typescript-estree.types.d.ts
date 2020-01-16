@@ -853,6 +853,7 @@ export interface TSEnumDeclaration extends BaseNode {
 
 export interface TSEnumMember extends BaseNode {
   type: 'TSEnumMember';
+  computed?: boolean;
   initializer?: Expressions | Identifier | Literals;
   id: Identifier | Literal;
 }

@@ -1,8 +1,8 @@
-import { readFixture, readFixtures } from './read-fixtures';
-import { parseBabel, parseTsEstree } from './parser';
-import * as path from 'path';
-import { removeFromProgramNode } from './utils';
-import { omitRange, preprocessBabelAST } from "./babel-utils";
+import path from 'path';
+
+import { readFixture, readFixtures } from '../src/read-fixtures';
+import { parseBabel, parseTsEstree } from '../src/parser';
+import { omitRange, preprocessBabylonAST, removeFromProgramNode } from "../src/utils";
 
 describe('alignment', () => {
   const files = readFixtures();
@@ -16,7 +16,7 @@ describe('alignment', () => {
       return readFixture(file).then(({ content, isTsx }) => {
         let bCode;
         try {
-          bCode = preprocessBabelAST(parseBabel(content, isTsx));
+          bCode = preprocessBabylonAST(parseBabel(content, isTsx));
           if (!bCode || bCode.parseError) {
             return;
           }

@@ -5,6 +5,6 @@ describe('visitor-keys', () => {
   it(`compare`, function() {
     const newKeys = require('../visitor-keys.json');
 
-    expect(newKeys).toEqual(visitorKeys);
+    expect(newKeys).toMatchObject(visitorKeys);
   })
 });
