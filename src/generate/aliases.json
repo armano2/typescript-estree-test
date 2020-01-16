@@ -41,14 +41,7 @@
       "ForOfStatement"
     ]
   ],
-  [
-    "Literals",
-    [
-      "TemplateLiteral",
-      "Literal",
-      "BigIntLiteral"
-    ]
-  ],
+  ["Literals", ["TemplateLiteral", "Literal", "BigIntLiteral"]],
   [
     "Expressions",
     [

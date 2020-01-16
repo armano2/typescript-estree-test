@@ -1,3 +1,4 @@
 [submodule "projects/TypeScript"]
 	path = projects/TypeScript
 	url = https://github.com/Microsoft/TypeScript.git
+	branch = master

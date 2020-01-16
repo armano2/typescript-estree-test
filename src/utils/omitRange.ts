@@ -1,4 +1,4 @@
-import { always, omitDeep } from "./omitDeep";
+import { always, omitDeep } from './omitDeep';
 
 export function omitRange(ast: any): any {
   return omitDeep(ast, [

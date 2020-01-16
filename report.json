@@ -1,7 +1,5 @@
 {
-  "messages": [
-    "Unknown AST_NODE_TYPE: \"TSJSDocNullableType\""
-  ],
+  "messages": ["Unknown AST_NODE_TYPE: \"TSJSDocNullableType\""],
   "details": [
     {
       "message": "Unknown AST_NODE_TYPE: \"TSJSDocNullableType\"",

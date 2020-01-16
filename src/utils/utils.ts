@@ -40,13 +40,10 @@ function standardizeEl(value: any) {
   } else if (value instanceof Set) {
     return Array.from(value);
   } else if (isPlainObject(value)) {
-    return Object.entries(value as Record<string, any>).reduce(
-      (p, x) => {
-        p[x[0]] = standardizeEl(x[1]);
-        return p;
-      },
-      {} as Record<string, any>
-    );
+    return Object.entries(value as Record<string, any>).reduce((p, x) => {
+      p[x[0]] = standardizeEl(x[1]);
+      return p;
+    }, {} as Record<string, any>);
   } else {
     return value;
   }

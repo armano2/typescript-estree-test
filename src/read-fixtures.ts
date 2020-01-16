@@ -1,11 +1,11 @@
-import * as fs from 'fs';
-import * as path from 'path';
+import fs from 'fs';
+import path from 'path';
 // @ts-ignore
 import glob = require('tiny-glob/sync');
 
 const rootDir = path.join(__dirname, '..', 'projects');
 
-const directories = ['TypeScript/tests/cases'];
+const directories = ['TypeScript/'];
 
 interface Fixture {
   file: string;
@@ -24,11 +24,10 @@ export function isJSXFileType(fileType: string): boolean {
   return fileType === 'js' || fileType === 'jsx' || fileType === 'tsx';
 }
 
-
 export function readFixtures(): string[] {
   return directories
     .map(directory =>
-      glob('**/*.{ts,tsx,js,jsx}', {
+      glob('**/*.{ts,tsx,js,jsx,json}', {
         cwd: path.join(rootDir, directory),
         absolute: true,
         filesOnly: true

@@ -1,8 +1,13 @@
 import path from 'path';
 
 import { readFixture, readFixtures } from '../src/read-fixtures';
-import { parseBabel, parseTsEstree } from '../src/parser';
-import { deeplyCopy, preprocessBabylonAST, removeFromProgramNode } from "../src/utils";
+import {
+  deeplyCopy,
+  parseBabel,
+  parseTsEstree,
+  preprocessBabylonAST,
+  removeFromProgramNode
+} from '../src/utils';
 
 describe('alignment', () => {
   const files = readFixtures();
@@ -14,23 +19,16 @@ describe('alignment', () => {
 
     it(`${filePath}`, function() {
       return readFixture(file).then(({ content, isTsx }) => {
-        let bCode;
+        let bCode, tsCode;
         try {
           bCode = preprocessBabylonAST(parseBabel(content, isTsx));
-          if (!bCode || bCode.parseError) {
-            return;
-          }
+          tsCode = deeplyCopy(parseTsEstree(content, isTsx));
         } catch (e) {
           return;
         }
 
-        const tsCode = parseTsEstree(content, isTsx);
-        if (!tsCode || tsCode.parseError) {
-          return;
-        }
-
         expect(removeFromProgramNode(bCode)).toEqual(
-          removeFromProgramNode(deeplyCopy(tsCode))
+          removeFromProgramNode(tsCode)
         );
       });
     });

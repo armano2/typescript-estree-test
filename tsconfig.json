@@ -9,8 +9,5 @@
     "lib": ["esnext", "es5", "es2015.iterable"]
   },
   "include": ["./**/*"],
-  "exclude": [
-    "node_modules",
-    "projects"
-  ]
+  "exclude": ["node_modules", "projects"]
 }

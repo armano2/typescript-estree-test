@@ -25,12 +25,12 @@ export function omitDeep<T = UnknownObject>(
   selectors: Record<
     string,
     (node: UnknownObject, parent: UnknownObject | null) => void
-    > = {},
+  > = {}
 ): UnknownObject {
   function shouldOmit(keyName: string, val: unknown): boolean {
     if (keysToOmit.length) {
       return keysToOmit.some(
-        keyConfig => keyConfig.key === keyName && keyConfig.predicate(val),
+        keyConfig => keyConfig.key === keyName && keyConfig.predicate(val)
       );
     }
     return false;
@@ -38,7 +38,7 @@ export function omitDeep<T = UnknownObject>(
 
   function visit(
     oNode: UnknownObject,
-    parent: UnknownObject | null,
+    parent: UnknownObject | null
   ): UnknownObject {
     if (!Array.isArray(oNode) && !isObjectLike(oNode)) {
       return oNode;

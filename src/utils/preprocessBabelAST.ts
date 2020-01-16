@@ -70,7 +70,7 @@ export function preprocessBabylonAST(ast: BabelTypes.File): any {
       MethodDefinition(node: any) {
         if (node.abstract) {
           delete node.abstract;
-          node.type = AST_NODE_TYPES.TSAbstractMethodDefinition
+          node.type = AST_NODE_TYPES.TSAbstractMethodDefinition;
         }
       },
       /**

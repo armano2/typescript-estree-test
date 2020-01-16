@@ -1,8 +1,8 @@
 import { readFixtures, readFixture } from './read-fixtures';
-import { parseTsEstree } from './parser';
 import { isPlainObject, traverse } from './utils/utils';
 import { PropOptions } from './generate/types';
 import Generator from './generate/generator';
+import { parseTsEstree } from './utils';
 
 const files = readFixtures();
 
@@ -98,8 +98,8 @@ const promises = [];
 for (const file of files) {
   promises.push(
     readFixture(file).then(({ file, content, isTsx }) => {
-      const tsCode = parseTsEstree(content, isTsx);
-      if (!tsCode.parseError) {
+      try {
+        const tsCode = parseTsEstree(content, isTsx);
         traverse(tsCode, node => {
           delete node.range;
           delete node.loc;
@@ -108,13 +108,14 @@ for (const file of files) {
           parseType(def, node);
           nodes.set(node.type, def);
         });
-      }
+      } catch {}
     })
   );
 }
 
 Promise.all(promises).then(() => {
   const generator = new Generator(nodes);
+  // generator.saveDebugObject('debug');
   generator.generateKeys('visitor-keys');
   generator.generate(true, 'typescript-estree.types');
   generator.generate(false, 'typescript-estree.spec');

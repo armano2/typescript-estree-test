@@ -1,6 +1,6 @@
 import { sortNodes, sortProps } from './sort';
 import { format } from 'prettier';
-import * as fs from 'fs';
+import fs from 'fs';
 import rawTemplate from './template';
 import { PropOptions } from './types';
 
@@ -17,6 +17,19 @@ export default class Generator {
 
   constructor(nodes: Map<string, Map<string, PropOptions>>) {
     this.nodes = nodes;
+  }
+
+  public saveDebugObject(filename: string) {
+    const formatted = format(
+      JSON.stringify([...this.nodes].map(a => [a[0], [...a[1]]])),
+      {
+        parser: 'json',
+        singleQuote: true,
+        // @ts-ignore
+        editorconfig: true
+      }
+    );
+    fs.writeFileSync(`./${filename}.json`, formatted);
   }
 
   public generateKeys(filename: string) {
@@ -112,6 +125,10 @@ export default class Generator {
         }
         if (propValue.objectTypes.size > 0) {
           values.push(this.prepareProp(propValue.objectTypes));
+        }
+
+        if (values.length === 0) {
+          values.push('unknown');
         }
 
         typesDTS += `${propName}: ${values.join(' | ')};\n`;
