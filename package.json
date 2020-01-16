@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
     "format": "prettier --write \"./**/*.{ts,js,json,md}\"",
-    "update": "node -r ts-node/register ./src/run-tests.ts",
-    "generate-spec": "node -r ts-node/register ./src/generate-spec.ts",
+    "validate-errors": "ts-node ./src/validate-errors.ts",
+    "generate-spec": "ts-node ./src/generate-spec.ts",
     "test": "jest"
   },
   "author": "",

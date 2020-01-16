@@ -29,7 +29,7 @@ export default class Generator {
         editorconfig: true
       }
     );
-    fs.writeFileSync(`./${filename}.json`, formatted);
+    fs.writeFileSync(`./gen/${filename}.json`, formatted);
   }
 
   public generateKeys(filename: string) {
@@ -49,7 +49,7 @@ export default class Generator {
     const formatted = format(JSON.stringify(data), {
       parser: 'json'
     });
-    fs.writeFileSync(`./${filename}.json`, formatted);
+    fs.writeFileSync(`./gen/${filename}.json`, formatted);
   }
 
   public generate(useAliases: boolean, filename: string) {
@@ -80,7 +80,7 @@ export default class Generator {
       // @ts-ignore
       editorconfig: true
     });
-    fs.writeFileSync(`./${filename}.d.ts`, formatted);
+    fs.writeFileSync(`./gen/${filename}.d.ts`, formatted);
   }
 
   protected prepareProp(props: Map<string, PropOptions>) {

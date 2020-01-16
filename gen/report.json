@@ -1,0 +1,1183 @@
+{
+  "nodes": {
+    "messages": [
+      "Unknown AST_NODE_TYPE: \"TSJSDocNullableType\""
+    ],
+    "details": [
+      {
+        "message": "Unknown AST_NODE_TYPE: \"TSJSDocNullableType\"",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/jsdocDisallowedInTypescript.js"
+        ]
+      }
+    ]
+  },
+  "parse": {
+    "messages": [
+      "';' expected.",
+      "Identifier expected.",
+      "'}' expected.",
+      "Expression expected.",
+      "An AMD module cannot have multiple name assignments.",
+      "',' expected.",
+      "Type expected.",
+      "'=>' expected.",
+      "JSX element 'any' has no corresponding closing tag.",
+      "'>' expected.",
+      "Declaration or statement expected.",
+      "'(' expected.",
+      "Parameter declaration expected.",
+      "An element access expression should take an argument.",
+      "JSX element 'number' has no corresponding closing tag.",
+      "Property assignment expected.",
+      "'{' expected.",
+      "JSX element 'Foo' has no corresponding closing tag.",
+      "Unexpected token. A constructor, method, accessor, or property was expected.",
+      "Classes can only extend a single class.",
+      "Declaration expected.",
+      "Merge conflict marker encountered.",
+      "An enum member name must be followed by a ',', '=', or '}'.",
+      "'...' expected.",
+      "'=' expected.",
+      "Identifier expected. 'this' is a reserved word that cannot be used here.",
+      "Enum member expected.",
+      "':' expected.",
+      "'{' or ';' expected.",
+      "Type parameter declaration expected.",
+      "Invalid character.",
+      "')' expected.",
+      "'super' may not use type arguments.",
+      "An unary expression with the 'typeof' operator is not allowed in the left-hand side of an exponentiation expression. Consider enclosing the expression in parentheses.",
+      "An unary expression with the '-' operator is not allowed in the left-hand side of an exponentiation expression. Consider enclosing the expression in parentheses.",
+      "An unary expression with the 'delete' operator is not allowed in the left-hand side of an exponentiation expression. Consider enclosing the expression in parentheses.",
+      "An identifier or keyword cannot immediately follow a numeric literal.",
+      "JSX element 'IDirectChildrenMap' has no corresponding closing tag.",
+      "Property or signature expected.",
+      "Binary digit expected.",
+      "Invalid 'reference' directive syntax.",
+      "'as' expected.",
+      "'try' expected.",
+      "JSX expressions must have one parent element.",
+      "Expected corresponding JSX closing tag for 'span'.",
+      "JSX element 'boolean' has no corresponding closing tag.",
+      "Argument expression expected.",
+      "Identifier expected. 'while' is a reserved word that cannot be used here.",
+      "Numeric separators are not allowed here.",
+      "Unterminated Unicode escape sequence.",
+      "Expression or comma expected.",
+      "Identifier expected. 'void' is a reserved word that cannot be used here.",
+      "'case' or 'default' expected.",
+      "Variable declaration expected.",
+      "'*/' expected.",
+      "Unterminated regular expression literal.",
+      "']' expected.",
+      "JSX element 'T' has no corresponding closing tag."
+    ],
+    "details": [
+      {
+        "message": "';' expected.",
+        "files": [
+          "../projects/TypeScript/.eslintrc.json",
+          "../projects/TypeScript/.vscode/launch.template.json",
+          "../projects/TypeScript/.vscode/tasks.json",
+          "../projects/TypeScript/lib/cs/diagnosticMessages.generated.json",
+          "../projects/TypeScript/lib/diagnosticMessages.generated.json",
+          "../projects/TypeScript/lib/de/diagnosticMessages.generated.json",
+          "../projects/TypeScript/lib/fr/diagnosticMessages.generated.json",
+          "../projects/TypeScript/lib/es/diagnosticMessages.generated.json",
+          "../projects/TypeScript/lib/ja/diagnosticMessages.generated.json",
+          "../projects/TypeScript/lib/it/diagnosticMessages.generated.json",
+          "../projects/TypeScript/lib/ko/diagnosticMessages.generated.json",
+          "../projects/TypeScript/lib/pl/diagnosticMessages.generated.json",
+          "../projects/TypeScript/lib/pt-br/diagnosticMessages.generated.json",
+          "../projects/TypeScript/lib/tr/diagnosticMessages.generated.json",
+          "../projects/TypeScript/lib/ru/diagnosticMessages.generated.json",
+          "../projects/TypeScript/lib/typesMap.json",
+          "../projects/TypeScript/package.json",
+          "../projects/TypeScript/lib/zh-cn/diagnosticMessages.generated.json",
+          "../projects/TypeScript/lib/zh-tw/diagnosticMessages.generated.json",
+          "../projects/TypeScript/scripts/eslint/tsconfig.json",
+          "../projects/TypeScript/scripts/importDefinitelyTypedTests/tsconfig.json",
+          "../projects/TypeScript/scripts/tsconfig.eslint.json",
+          "../projects/TypeScript/src/.eslintrc.json",
+          "../projects/TypeScript/scripts/tsconfig.json",
+          "../projects/TypeScript/src/cancellationToken/tsconfig.json",
+          "../projects/TypeScript/src/compiler/diagnosticMessages.json",
+          "../projects/TypeScript/src/compiler/tsconfig.json",
+          "../projects/TypeScript/src/compiler/tsconfig.release.json",
+          "../projects/TypeScript/src/debug/tsconfig.json",
+          "../projects/TypeScript/src/executeCommandLine/tsconfig.release.json",
+          "../projects/TypeScript/src/executeCommandLine/tsconfig.json",
+          "../projects/TypeScript/src/harness/tsconfig.json",
+          "../projects/TypeScript/src/instrumenter/tsconfig.json",
+          "../projects/TypeScript/src/jsTyping/tsconfig.json",
+          "../projects/TypeScript/src/lib/libs.json",
+          "../projects/TypeScript/src/server/tsconfig.json",
+          "../projects/TypeScript/src/server/typesMap.json",
+          "../projects/TypeScript/src/services/tsconfig.json",
+          "../projects/TypeScript/src/shims/tsconfig.json",
+          "../projects/TypeScript/src/testRunner/tsconfig.json",
+          "../projects/TypeScript/src/tsc/tsconfig.json",
+          "../projects/TypeScript/src/tsconfig-base.json",
+          "../projects/TypeScript/src/tsconfig-noncomposite-base.json",
+          "../projects/TypeScript/src/tsconfig-library-base.json",
+          "../projects/TypeScript/src/tsconfig.json",
+          "../projects/TypeScript/src/tsc/tsconfig.release.json",
+          "../projects/TypeScript/src/tsserverlibrary/tsconfig.json",
+          "../projects/TypeScript/src/tsserver/tsconfig.json",
+          "../projects/TypeScript/src/typescriptServices/tsconfig.json",
+          "../projects/TypeScript/src/typingsInstaller/tsconfig.json",
+          "../projects/TypeScript/src/typingsInstallerCore/tsconfig.json",
+          "../projects/TypeScript/src/watchGuard/tsconfig.json",
+          "../projects/TypeScript/tests/baselines/reference/anonymousModules.js",
+          "../projects/TypeScript/tests/baselines/reference/autoLift2.js",
+          "../projects/TypeScript/tests/baselines/reference/bases.js",
+          "../projects/TypeScript/tests/baselines/reference/ClassDeclaration26.js",
+          "../projects/TypeScript/tests/baselines/reference/constructorWithIncompleteTypeAnnotation.js",
+          "../projects/TypeScript/tests/baselines/reference/customTransforms/sourceMapExternalSourceFiles.js",
+          "../projects/TypeScript/tests/baselines/reference/customTransforms/skipTriviaExternalSourceFiles.js",
+          "../projects/TypeScript/tests/baselines/reference/declarationEmitForGlobalishSpecifierSymlink2.js",
+          "../projects/TypeScript/tests/baselines/reference/declarationEmitForGlobalishSpecifierSymlink.js",
+          "../projects/TypeScript/tests/baselines/reference/declarationEmitHasTypesRefOnNamespaceUse.js",
+          "../projects/TypeScript/tests/baselines/reference/declarationEmitReexportedSymlinkReference.js",
+          "../projects/TypeScript/tests/baselines/reference/declarationEmitReexportedSymlinkReference2.js",
+          "../projects/TypeScript/tests/baselines/reference/declarationEmitReexportedSymlinkReference3.js",
+          "../projects/TypeScript/tests/baselines/reference/declarationEmitUnnessesaryTypeReferenceNotAdded.js",
+          "../projects/TypeScript/tests/baselines/reference/declarationFilesGeneratingTypeReferences.js",
+          "../projects/TypeScript/tests/baselines/reference/decoratorOnClassAccessor3.js",
+          "../projects/TypeScript/tests/baselines/reference/decoratorOnClassAccessor6.js",
+          "../projects/TypeScript/tests/baselines/reference/decoratorOnClassMethod3.js",
+          "../projects/TypeScript/tests/baselines/reference/decoratorOnClassProperty3.js",
+          "../projects/TypeScript/tests/baselines/reference/decrementOperatorWithAnyOtherTypeInvalidOperations.js",
+          "../projects/TypeScript/tests/baselines/reference/derivedClassSuperCallsInNonConstructorMembers.js",
+          "../projects/TypeScript/tests/baselines/reference/duplicateLocalVariable1.js",
+          "../projects/TypeScript/tests/baselines/reference/duplicatePackage.js",
+          "../projects/TypeScript/tests/baselines/reference/duplicatePackage_globalMerge.js",
+          "../projects/TypeScript/tests/baselines/reference/duplicatePackage_packageIdIncludesSubModule.js",
+          "../projects/TypeScript/tests/baselines/reference/duplicatePackage_referenceTypes.js",
+          "../projects/TypeScript/tests/baselines/reference/duplicatePackage_relativeImportWithinPackage.js",
+          "../projects/TypeScript/tests/baselines/reference/duplicatePackage_relativeImportWithinPackage_scoped.js",
+          "../projects/TypeScript/tests/baselines/reference/duplicatePackage_subModule.js",
+          "../projects/TypeScript/tests/baselines/reference/duplicatePackage_withErrors.js",
+          "../projects/TypeScript/tests/baselines/reference/emitBOM.js",
+          "../projects/TypeScript/tests/baselines/reference/extendsUntypedModule.js",
+          "../projects/TypeScript/tests/baselines/reference/externModule.js",
+          "../projects/TypeScript/tests/baselines/reference/fatarrowfunctionsOptionalArgs.js",
+          "../projects/TypeScript/tests/baselines/reference/fatarrowfunctionsOptionalArgsErrors2.js",
+          "../projects/TypeScript/tests/baselines/reference/incrementAndDecrement.js",
+          "../projects/TypeScript/tests/baselines/reference/incrementOperatorWithAnyOtherTypeInvalidOperations.js",
+          "../projects/TypeScript/tests/baselines/reference/innerModExport1.js",
+          "../projects/TypeScript/tests/baselines/reference/innerModExport2.js",
+          "../projects/TypeScript/tests/baselines/reference/interfaceNaming1.js",
+          "../projects/TypeScript/tests/baselines/reference/interfacesWithPredefinedTypesAsNames.js",
+          "../projects/TypeScript/tests/baselines/reference/jsDeclarationsJson.js",
+          "../projects/TypeScript/tests/baselines/reference/jsDeclarationsNonIdentifierInferredNames.js",
+          "../projects/TypeScript/tests/baselines/reference/jsDeclarationsPackageJson.js",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.argumentSynonymForParamTag.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.@link tags.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.asteriskAfterPreamble.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.authorTag.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.emptyComment.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.argSynonymForParamTag.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.leadingAsterisk.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.Nested @param tags.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.less-than and greater-than characters.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.noReturnType.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.noLeadingAsterisk.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.paramTag1.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.paramTagBracketedName1.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.oneParamTag.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.paramTagNameThenType2.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.paramTagNameThenType1.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.paramWithoutType.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.returnsTag1.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.paramTagBracketedName2.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.returnTag1.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.returnTag2.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.templateTag.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.templateTag2.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.templateTag4.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.templateTag5.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.templateTag3.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.templateTag6.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.threeAsterisks.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.twoParamTag2.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.twoParamTagOnSameLine.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.typedefTagWithChildrenTags.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.allType.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/DocComments.parsesCorrectly.typeTag.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.arrayType1.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.arrayType2.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.arrayType3.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.functionReturnType1.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.callSignatureInRecordType.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.functionType1.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.functionType2.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.functionTypeWithTrailingComma.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.keyword1.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.keyword2.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.methodInRecordType.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.keyword3.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.nonNullableType2.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.nonNullableType.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.newType1.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.nullableType2.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.optionalNullable.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.nullableType.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.optionalType.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.recordType4.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.recordType1.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.recordType5.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.recordType3.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.recordType6.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.recordType2.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.recordType7.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.recordType8.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.thisType1.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.topLevelNoParenUnionType.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.trailingCommaInRecordType.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.tsConstructorType.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.tsFunctionType.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.tupleType0.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.tupleType3.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.tupleType1.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.tupleTypeWithTrailingComma.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.tupleType2.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.typeArgumentsNotFollowingDot.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.typeOfType.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.typeReference2.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.typeReference1.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.typeReference3.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.unionType.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.unionTypeWithLeadingOperator.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.unknownType.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.unionTypeWithOneElementAndLeadingOperator.json",
+          "../projects/TypeScript/tests/baselines/reference/JSDocParsing/TypeExpressions.parsesCorrectly.variadicType.json",
+          "../projects/TypeScript/tests/baselines/reference/jsFileCompilationDuplicateVariable.js",
+          "../projects/TypeScript/tests/baselines/reference/jsonFileImportChecksCallCorrectlyTwice.js",
+          "../projects/TypeScript/tests/baselines/reference/library-reference-10.js",
+          "../projects/TypeScript/tests/baselines/reference/library-reference-11.js",
+          "../projects/TypeScript/tests/baselines/reference/library-reference-12.js",
+          "../projects/TypeScript/tests/baselines/reference/library-reference-2.js",
+          "../projects/TypeScript/tests/baselines/reference/moduleKeywordRepeatError.js",
+          "../projects/TypeScript/tests/baselines/reference/moduleLocalImportNotIncorrectlyRedirected.js",
+          "../projects/TypeScript/tests/baselines/reference/moduleResolutionPackageIdWithRelativeAndAbsolutePath.js",
+          "../projects/TypeScript/tests/baselines/reference/moduleResolutionWithExtensions_unexpected.js",
+          "../projects/TypeScript/tests/baselines/reference/moduleResolutionWithExtensions_unexpected2.js",
+          "../projects/TypeScript/tests/baselines/reference/moduleResolution_noLeadingDot.js",
+          "../projects/TypeScript/tests/baselines/reference/moduleResolution_packageJson_notAtPackageRoot.js",
+          "../projects/TypeScript/tests/baselines/reference/moduleResolution_packageJson_notAtPackageRoot_fakeScopedPackage.js",
+          "../projects/TypeScript/tests/baselines/reference/moduleResolution_packageJson_yesAtPackageRoot.js",
+          "../projects/TypeScript/tests/baselines/reference/moduleResolution_packageJson_scopedPackage.js",
+          "../projects/TypeScript/tests/baselines/reference/moduleResolution_packageJson_yesAtPackageRoot_mainFieldInSubDirectory.js",
+          "../projects/TypeScript/tests/baselines/reference/moduleResolution_packageJson_yesAtPackageRoot_fakeScopedPackage.js",
+          "../projects/TypeScript/tests/baselines/reference/objectTypeLiteralSyntax2.js",
+          "../projects/TypeScript/tests/baselines/reference/objectTypesWithOptionalProperties2.js",
+          "../projects/TypeScript/tests/baselines/reference/optionalPropertiesSyntax.js",
+          "../projects/TypeScript/tests/baselines/reference/packageJsonMain.js",
+          "../projects/TypeScript/tests/baselines/reference/packageJsonMain_isNonRecursive.js",
+          "../projects/TypeScript/tests/baselines/reference/parser519458.js",
+          "../projects/TypeScript/tests/baselines/reference/parser512325.js",
+          "../projects/TypeScript/tests/baselines/reference/parser521128.js",
+          "../projects/TypeScript/tests/baselines/reference/parserArrowFunctionExpression2.js",
+          "../projects/TypeScript/tests/baselines/reference/parserComputedPropertyName27.js",
+          "../projects/TypeScript/tests/baselines/reference/parserComputedPropertyName33.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecoveryIfStatement5.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_IncompleteMemberVariable2.js",
+          "../projects/TypeScript/tests/baselines/reference/parserFuzz1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserIndexMemberDeclaration5.js",
+          "../projects/TypeScript/tests/baselines/reference/parserMemberAccessAfterPostfixExpression1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserPostfixPostfixExpression1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserPostfixUnaryExpression1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserRegularExpressionDivideAmbiguity7.js",
+          "../projects/TypeScript/tests/baselines/reference/parserSkippedTokens16.js",
+          "../projects/TypeScript/tests/baselines/reference/parserUnterminatedGeneric2.js",
+          "../projects/TypeScript/tests/baselines/reference/privateInstanceMemberAccessibility.js",
+          "../projects/TypeScript/tests/baselines/reference/project/baseline/amd/baseline.json",
+          "../projects/TypeScript/tests/baselines/reference/project/baseline/node/baseline.json",
+          "../projects/TypeScript/tests/baselines/reference/project/baseline2/amd/baseline2.json",
+          "../projects/TypeScript/tests/baselines/reference/project/baseline2/node/baseline2.json",
+          "../projects/TypeScript/tests/baselines/reference/project/baseline3/node/baseline3.json",
+          "../projects/TypeScript/tests/baselines/reference/project/baseline3/amd/baseline3.json",
+          "../projects/TypeScript/tests/baselines/reference/project/cantFindTheModule/amd/cantFindTheModule.json",
+          "../projects/TypeScript/tests/baselines/reference/project/circularReferencing/node/circularReferencing.json",
+          "../projects/TypeScript/tests/baselines/reference/project/circularReferencing/amd/circularReferencing.json",
+          "../projects/TypeScript/tests/baselines/reference/project/cantFindTheModule/node/cantFindTheModule.json",
+          "../projects/TypeScript/tests/baselines/reference/project/circularReferencing2/amd/circularReferencing2.json",
+          "../projects/TypeScript/tests/baselines/reference/project/circularReferencing2/node/circularReferencing2.json",
+          "../projects/TypeScript/tests/baselines/reference/project/declarationDir/amd/declarationDir.json",
+          "../projects/TypeScript/tests/baselines/reference/project/declarationDir/node/declarationDir.json",
+          "../projects/TypeScript/tests/baselines/reference/project/declarationDir2/amd/declarationDir2.json",
+          "../projects/TypeScript/tests/baselines/reference/project/declarationDir2/node/declarationDir2.json",
+          "../projects/TypeScript/tests/baselines/reference/project/declarationDir3/amd/declarationDir3.json",
+          "../projects/TypeScript/tests/baselines/reference/project/declarationDir3/node/declarationDir3.json",
+          "../projects/TypeScript/tests/baselines/reference/project/declarationsCascadingImports/amd/declarationsCascadingImports.json",
+          "../projects/TypeScript/tests/baselines/reference/project/declarationsCascadingImports/node/declarationsCascadingImports.json",
+          "../projects/TypeScript/tests/baselines/reference/project/declarationsExportNamespace/amd/declarationsExportNamespace.json",
+          "../projects/TypeScript/tests/baselines/reference/project/declarationsExportNamespace/node/declarationsExportNamespace.json",
+          "../projects/TypeScript/tests/baselines/reference/project/declarationsGlobalImport/amd/declarationsGlobalImport.json",
+          "../projects/TypeScript/tests/baselines/reference/project/declarationsGlobalImport/node/declarationsGlobalImport.json",
+          "../projects/TypeScript/tests/baselines/reference/project/declarationsImportedInPrivate/amd/declarationsImportedInPrivate.json",
+          "../projects/TypeScript/tests/baselines/reference/project/declarationsImportedInPrivate/node/declarationsImportedInPrivate.json",
+          "../projects/TypeScript/tests/baselines/reference/project/declarationsImportedUseInFunction/amd/declarationsImportedUseInFunction.json",
+          "../projects/TypeScript/tests/baselines/reference/project/declarationsImportedUseInFunction/node/declarationsImportedUseInFunction.json",
+          "../projects/TypeScript/tests/baselines/reference/project/declarationsIndirectImportShouldResultInError/amd/declarationsIndirectImportShouldResultInError.json"
+        ]
+      },
+      {
+        "message": "Identifier expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/aliasErrors.js",
+          "../projects/TypeScript/tests/baselines/reference/ambiguousGenericAssertion1.js",
+          "../projects/TypeScript/tests/baselines/reference/assignmentCompatability16.js",
+          "../projects/TypeScript/tests/baselines/reference/assignmentCompatability17.js",
+          "../projects/TypeScript/tests/baselines/reference/castTest.js",
+          "../projects/TypeScript/tests/baselines/reference/classAbstractCrashedOnce.js",
+          "../projects/TypeScript/tests/baselines/reference/conditionalTypesSimplifyWhenTrivial.js",
+          "../projects/TypeScript/tests/baselines/reference/declarationEmitPromise.js",
+          "../projects/TypeScript/tests/baselines/reference/enumConflictsWithGlobalIdentifier.js",
+          "../projects/TypeScript/tests/baselines/reference/enumMemberResolution.js",
+          "../projects/TypeScript/tests/baselines/reference/errorForUsingPropertyOfTypeAsType01.js",
+          "../projects/TypeScript/tests/baselines/reference/errorRecoveryWithDotFollowedByNamespaceKeyword.js",
+          "../projects/TypeScript/tests/baselines/reference/es6ImportNamedImportIdentifiersParsing.js",
+          "../projects/TypeScript/tests/baselines/reference/es6ImportNamedImportParsingError.js",
+          "../projects/TypeScript/tests/baselines/reference/fatarrowfunctionsOptionalArgsErrors3.js",
+          "../projects/TypeScript/tests/baselines/reference/functionConstraintSatisfaction2.js",
+          "../projects/TypeScript/tests/baselines/reference/FunctionPropertyAssignments2_es6.js",
+          "../projects/TypeScript/tests/baselines/reference/FunctionPropertyAssignments3_es6.js",
+          "../projects/TypeScript/tests/baselines/reference/FunctionPropertyAssignments4_es6.js",
+          "../projects/TypeScript/tests/baselines/reference/FunctionPropertyAssignments6_es6.js",
+          "../projects/TypeScript/tests/baselines/reference/functionsMissingReturnStatementsAndExpressions.js",
+          "../projects/TypeScript/tests/baselines/reference/genericCallWithFunctionTypedArguments.js",
+          "../projects/TypeScript/tests/baselines/reference/genericContextualTypes1.js",
+          "../projects/TypeScript/tests/baselines/reference/genericDefaults.js",
+          "../projects/TypeScript/tests/baselines/reference/genericsAndHigherOrderFunctions.js",
+          "../projects/TypeScript/tests/baselines/reference/genericTypeAssertions6.js",
+          "../projects/TypeScript/tests/baselines/reference/implicitAnyWidenToAny.js",
+          "../projects/TypeScript/tests/baselines/reference/incompleteDottedExpressionAtEOF.js",
+          "../projects/TypeScript/tests/baselines/reference/invalidTypeOfTarget.js",
+          "../projects/TypeScript/tests/baselines/reference/jsFileCompilationTypeAssertions.js",
+          "../projects/TypeScript/tests/baselines/reference/MemberFunctionDeclaration4_es6.js",
+          "../projects/TypeScript/tests/baselines/reference/MemberFunctionDeclaration5_es6.js",
+          "../projects/TypeScript/tests/baselines/reference/objectSpread.js",
+          "../projects/TypeScript/tests/baselines/reference/parse1.js",
+          "../projects/TypeScript/tests/baselines/reference/parser509667.js",
+          "../projects/TypeScript/tests/baselines/reference/parserEqualsGreaterThanAfterFunction1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserEqualsGreaterThanAfterFunction2.js",
+          "../projects/TypeScript/tests/baselines/reference/parserTypeQuery3.js",
+          "../projects/TypeScript/tests/baselines/reference/parserTypeQuery4.js",
+          "../projects/TypeScript/tests/baselines/reference/parserUnfinishedTypeNameBeforeKeyword1.js"
+        ]
+      },
+      {
+        "message": "'}' expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/aliasUsageInGenericFunction.js",
+          "../projects/TypeScript/tests/baselines/reference/APISample_linter.js",
+          "../projects/TypeScript/tests/baselines/reference/arrayBestCommonTypes.js",
+          "../projects/TypeScript/tests/baselines/reference/arrowFunctionWithObjectLiteralBody5.js",
+          "../projects/TypeScript/tests/baselines/reference/arrowFunctionWithObjectLiteralBody6.js",
+          "../projects/TypeScript/tests/baselines/reference/assignmentCompatWithCallSignatures2.js",
+          "../projects/TypeScript/tests/baselines/reference/callSignaturesWithDuplicateParameters.js",
+          "../projects/TypeScript/tests/baselines/reference/capturedParametersInInitializers1.js",
+          "../projects/TypeScript/tests/baselines/reference/castExpressionParentheses.js",
+          "../projects/TypeScript/tests/baselines/reference/castParentheses.js",
+          "../projects/TypeScript/tests/baselines/reference/castOfAwait.js",
+          "../projects/TypeScript/tests/baselines/reference/computedPropertyNames12_ES5.js",
+          "../projects/TypeScript/tests/baselines/reference/computedPropertyNames12_ES6.js",
+          "../projects/TypeScript/tests/baselines/reference/computedPropertyNames10_ES6.js",
+          "../projects/TypeScript/tests/baselines/reference/computedPropertyNames13_ES5.js",
+          "../projects/TypeScript/tests/baselines/reference/computedPropertyNames13_ES6.js",
+          "../projects/TypeScript/tests/baselines/reference/computedPropertyNames3_ES5.js",
+          "../projects/TypeScript/tests/baselines/reference/computedPropertyNames3_ES6.js",
+          "../projects/TypeScript/tests/baselines/reference/computedPropertyNames4_ES6.js",
+          "../projects/TypeScript/tests/baselines/reference/conditionalTypeDoesntSpinForever.js",
+          "../projects/TypeScript/tests/baselines/reference/conditionalTypes2.js",
+          "../projects/TypeScript/tests/baselines/reference/conditionalTypes1.js",
+          "../projects/TypeScript/tests/baselines/reference/constAssertions.js",
+          "../projects/TypeScript/tests/baselines/reference/constructorWithAssignableReturnExpression.js",
+          "../projects/TypeScript/tests/baselines/reference/contextualTyping11.js",
+          "../projects/TypeScript/tests/baselines/reference/contextualTyping.js",
+          "../projects/TypeScript/tests/baselines/reference/controlFlowBinaryOrExpression.js",
+          "../projects/TypeScript/tests/baselines/reference/declInput.js",
+          "../projects/TypeScript/tests/baselines/reference/declInput3.js",
+          "../projects/TypeScript/tests/baselines/reference/enumAssignabilityInInheritance.js",
+          "../projects/TypeScript/tests/baselines/reference/escapedIdentifiers.js",
+          "../projects/TypeScript/tests/baselines/reference/everyTypeWithInitializer.js",
+          "../projects/TypeScript/tests/baselines/reference/exportInFunction.js",
+          "../projects/TypeScript/tests/baselines/reference/functionDeclarationWithResolutionOfTypeOfSameName01.js",
+          "../projects/TypeScript/tests/baselines/reference/functionDeclarationWithResolutionOfTypeNamedArguments01.js",
+          "../projects/TypeScript/tests/baselines/reference/functionExpressionWithResolutionOfTypeNamedArguments01.js",
+          "../projects/TypeScript/tests/baselines/reference/functionExpressionWithResolutionOfTypeOfSameName01.js",
+          "../projects/TypeScript/tests/baselines/reference/fuzzy.js",
+          "../projects/TypeScript/tests/baselines/reference/genericAssignmentCompatWithInterfaces1.js",
+          "../projects/TypeScript/tests/baselines/reference/genericCallWithFunctionTypedArguments5.js",
+          "../projects/TypeScript/tests/baselines/reference/genericCallWithOverloadedFunctionTypedArguments.js",
+          "../projects/TypeScript/tests/baselines/reference/genericIndexedAccessMethodIntersectionCanBeAccessed.js",
+          "../projects/TypeScript/tests/baselines/reference/genericMergedDeclarationUsingTypeParameter2.js",
+          "../projects/TypeScript/tests/baselines/reference/genericTypeAssertions1.js",
+          "../projects/TypeScript/tests/baselines/reference/genericWithCallSignatures1.js",
+          "../projects/TypeScript/tests/baselines/reference/getterSetterNonAccessor.js",
+          "../projects/TypeScript/tests/baselines/reference/indexer2A.js",
+          "../projects/TypeScript/tests/baselines/reference/indexTypeCheck.js",
+          "../projects/TypeScript/tests/baselines/reference/indirectTypeParameterReferences.js",
+          "../projects/TypeScript/tests/baselines/reference/inferentialTypingWithFunctionTypeSyntacticScenarios.js",
+          "../projects/TypeScript/tests/baselines/reference/interfaceWithPropertyOfEveryType.js",
+          "../projects/TypeScript/tests/baselines/reference/intersectionTypeInference1.js",
+          "../projects/TypeScript/tests/baselines/reference/invalidEnumAssignments.js",
+          "../projects/TypeScript/tests/baselines/reference/isomorphicMappedTypeInference.js",
+          "../projects/TypeScript/tests/baselines/reference/jsxAndTypeAssertion.js",
+          "../projects/TypeScript/tests/baselines/reference/m7Bugs.js",
+          "../projects/TypeScript/tests/baselines/reference/mappedTypes4.js",
+          "../projects/TypeScript/tests/baselines/reference/missingCloseBrace.js",
+          "../projects/TypeScript/tests/baselines/reference/moduleAugmentationCollidingNamesInAugmentation1.js",
+          "../projects/TypeScript/tests/baselines/reference/moduleAugmentationDeclarationEmit1.js",
+          "../projects/TypeScript/tests/baselines/reference/moduleAugmentationDeclarationEmit2.js",
+          "../projects/TypeScript/tests/baselines/reference/moduleAugmentationExtendAmbientModule1.js",
+          "../projects/TypeScript/tests/baselines/reference/moduleAugmentationExtendAmbientModule2.js",
+          "../projects/TypeScript/tests/baselines/reference/moduleAugmentationExtendFileModule1.js",
+          "../projects/TypeScript/tests/baselines/reference/moduleAugmentationExtendFileModule2.js",
+          "../projects/TypeScript/tests/baselines/reference/moduleAugmentationNoNewNames.js",
+          "../projects/TypeScript/tests/baselines/reference/moduleVisibilityTest2.js",
+          "../projects/TypeScript/tests/baselines/reference/moduleVisibilityTest1.js",
+          "../projects/TypeScript/tests/baselines/reference/noImplicitAnyDestructuringVarDeclaration2.js",
+          "../projects/TypeScript/tests/baselines/reference/noImplicitAnyInCastExpression.js",
+          "../projects/TypeScript/tests/baselines/reference/objectCreate2.js",
+          "../projects/TypeScript/tests/baselines/reference/objectCreate.js",
+          "../projects/TypeScript/tests/baselines/reference/objectLitGetterSetter.js",
+          "../projects/TypeScript/tests/baselines/reference/objectTypesIdentityWithCallSignaturesWithOverloads.js",
+          "../projects/TypeScript/tests/baselines/reference/objectTypesIdentityWithPrivates3.js",
+          "../projects/TypeScript/tests/baselines/reference/objectTypeWithStringNamedNumericProperty.js",
+          "../projects/TypeScript/tests/baselines/reference/optionalProperties02.js",
+          "../projects/TypeScript/tests/baselines/reference/overloadResolutionOverNonCTObjectLit.js",
+          "../projects/TypeScript/tests/baselines/reference/parametersWithNoAnnotationAreAny.js",
+          "../projects/TypeScript/tests/baselines/reference/parserharness.js",
+          "../projects/TypeScript/tests/baselines/reference/parserRealSource11.js",
+          "../projects/TypeScript/tests/baselines/reference/parserRealSource8.js",
+          "../projects/TypeScript/tests/baselines/reference/prettyContextNotDebugAssertion.js"
+        ]
+      },
+      {
+        "message": "Expression expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/aliasUsageInOrExpression.js",
+          "../projects/TypeScript/tests/baselines/reference/amdImportNotAsPrimaryExpression.js",
+          "../projects/TypeScript/tests/baselines/reference/argumentsObjectIterator01_ES5.js",
+          "../projects/TypeScript/tests/baselines/reference/argumentsObjectIterator01_ES6.js",
+          "../projects/TypeScript/tests/baselines/reference/argumentsObjectIterator02_ES5.js",
+          "../projects/TypeScript/tests/baselines/reference/argumentsObjectIterator02_ES6.js",
+          "../projects/TypeScript/tests/baselines/reference/arrayCast.js",
+          "../projects/TypeScript/tests/baselines/reference/arrowFunctionContexts.js",
+          "../projects/TypeScript/tests/baselines/reference/arrowFunctionMissingCurlyWithSemicolon.js",
+          "../projects/TypeScript/tests/baselines/reference/arrowFunctionWithObjectLiteralBody1.js",
+          "../projects/TypeScript/tests/baselines/reference/arrowFunctionWithObjectLiteralBody2.js",
+          "../projects/TypeScript/tests/baselines/reference/assignmentCompatWithCallSignatures.js",
+          "../projects/TypeScript/tests/baselines/reference/assignmentCompatWithGenericCallSignaturesWithOptionalParameters.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncArrowFunction6_es2017.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncArrowFunction6_es5.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncArrowFunction7_es2017.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncArrowFunction6_es6.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncArrowFunction7_es5.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncArrowFunction8_es2017.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncArrowFunction8_es5.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncArrowFunction7_es6.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncArrowFunction8_es6.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncFunctionDeclaration10_es2017.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncFunctionDeclaration10_es5.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncFunctionDeclaration10_es6.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncFunctionDeclaration6_es2017.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncFunctionDeclaration6_es6.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncFunctionDeclaration6_es5.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncFunctionDeclaration7_es5.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncFunctionDeclaration7_es2017.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncFunctionDeclaration7_es6.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncFunctionDeclaration9_es6.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncFunctionDeclaration9_es2017.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncFunctionDeclaration9_es5.js",
+          "../projects/TypeScript/tests/baselines/reference/await_unaryExpression_es2017_3.js",
+          "../projects/TypeScript/tests/baselines/reference/await_unaryExpression_es6_3.js",
+          "../projects/TypeScript/tests/baselines/reference/badOverloadError.js",
+          "../projects/TypeScript/tests/baselines/reference/baseExpressionTypeParameters.js",
+          "../projects/TypeScript/tests/baselines/reference/callGenericFunctionWithZeroTypeArguments.js",
+          "../projects/TypeScript/tests/baselines/reference/castingTuple.js",
+          "../projects/TypeScript/tests/baselines/reference/castOfYield.js",
+          "../projects/TypeScript/tests/baselines/reference/classExpressionWithDecorator1.js",
+          "../projects/TypeScript/tests/baselines/reference/classExtendingPrimitive.js",
+          "../projects/TypeScript/tests/baselines/reference/classExtendingPrimitive2.js",
+          "../projects/TypeScript/tests/baselines/reference/commaOperatorWithoutOperand.js",
+          "../projects/TypeScript/tests/baselines/reference/commonJSImportNotAsPrimaryExpression.js",
+          "../projects/TypeScript/tests/baselines/reference/computedPropertyNames11_ES6.js",
+          "../projects/TypeScript/tests/baselines/reference/computedPropertyNames11_ES5.js",
+          "../projects/TypeScript/tests/baselines/reference/computedPropertyNames16_ES5.js",
+          "../projects/TypeScript/tests/baselines/reference/computedPropertyNames16_ES6.js",
+          "../projects/TypeScript/tests/baselines/reference/contextualSignatureInstantiation2.js",
+          "../projects/TypeScript/tests/baselines/reference/contextualTyping18.js",
+          "../projects/TypeScript/tests/baselines/reference/contextualTyping25.js",
+          "../projects/TypeScript/tests/baselines/reference/contextualTyping26.js",
+          "../projects/TypeScript/tests/baselines/reference/contextualTyping27.js",
+          "../projects/TypeScript/tests/baselines/reference/contextualTyping34.js",
+          "../projects/TypeScript/tests/baselines/reference/contextualTyping37.js",
+          "../projects/TypeScript/tests/baselines/reference/contextualTyping36.js",
+          "../projects/TypeScript/tests/baselines/reference/contextualTyping39.js",
+          "../projects/TypeScript/tests/baselines/reference/contextualTyping38.js",
+          "../projects/TypeScript/tests/baselines/reference/contextualTyping35.js",
+          "../projects/TypeScript/tests/baselines/reference/contextualTyping40.js",
+          "../projects/TypeScript/tests/baselines/reference/contextualTyping41.js",
+          "../projects/TypeScript/tests/baselines/reference/contextualTyping7.js",
+          "../projects/TypeScript/tests/baselines/reference/contextualTyping8.js",
+          "../projects/TypeScript/tests/baselines/reference/declarationsWithRecursiveInternalTypesProduceUniqueTypeParams.js",
+          "../projects/TypeScript/tests/baselines/reference/declFileRestParametersOfFunctionAndFunctionType.js",
+          "../projects/TypeScript/tests/baselines/reference/decoratorOnArrowFunction.js",
+          "../projects/TypeScript/tests/baselines/reference/decoratorOnFunctionExpression.js",
+          "../projects/TypeScript/tests/baselines/reference/defaultArgsInFunctionExpressions.js",
+          "../projects/TypeScript/tests/baselines/reference/defaultValueInFunctionTypes.js",
+          "../projects/TypeScript/tests/baselines/reference/destructuringArrayBindingPatternAndAssignment2.js",
+          "../projects/TypeScript/tests/baselines/reference/duplicatePropertiesInTypeAssertions01.js",
+          "../projects/TypeScript/tests/baselines/reference/emptyExpr.js",
+          "../projects/TypeScript/tests/baselines/reference/emptyMemberAccess.js",
+          "../projects/TypeScript/tests/baselines/reference/emptyTuplesTypeAssertion01.js",
+          "../projects/TypeScript/tests/baselines/reference/exportAssignNonIdentifier.js",
+          "../projects/TypeScript/tests/baselines/reference/extendArray.js",
+          "../projects/TypeScript/tests/baselines/reference/for-inStatements.js",
+          "../projects/TypeScript/tests/baselines/reference/for-inStatementsInvalid.js",
+          "../projects/TypeScript/tests/baselines/reference/for.js",
+          "../projects/TypeScript/tests/baselines/reference/forStatementsMultipleValidDecl.js",
+          "../projects/TypeScript/tests/baselines/reference/functionConstraintSatisfaction.js",
+          "../projects/TypeScript/tests/baselines/reference/generatedContextualTyping.js",
+          "../projects/TypeScript/tests/baselines/reference/genericConstructExpressionWithoutArgs.js",
+          "../projects/TypeScript/tests/baselines/reference/genericMergedDeclarationUsingTypeParameter.js",
+          "../projects/TypeScript/tests/baselines/reference/genericParameterAssignability1.js",
+          "../projects/TypeScript/tests/baselines/reference/genericTypeAssertions2.js",
+          "../projects/TypeScript/tests/baselines/reference/genericTypeAssertions3.js",
+          "../projects/TypeScript/tests/baselines/reference/genericTypeAssertions4.js",
+          "../projects/TypeScript/tests/baselines/reference/genericTypeAssertions5.js",
+          "../projects/TypeScript/tests/baselines/reference/genericTypeReferenceWithoutTypeArgument.js",
+          "../projects/TypeScript/tests/baselines/reference/genericTypeReferenceWithoutTypeArgument2.js",
+          "../projects/TypeScript/tests/baselines/reference/genericWithIndexerOfTypeParameterType1.js",
+          "../projects/TypeScript/tests/baselines/reference/genericWithOpenTypeParameters1.js",
+          "../projects/TypeScript/tests/baselines/reference/implicitAnyAnyReturningFunction.js",
+          "../projects/TypeScript/tests/baselines/reference/implicitAnyCastedValue.js",
+          "../projects/TypeScript/tests/baselines/reference/implicitAnyGenerics.js",
+          "../projects/TypeScript/tests/baselines/reference/importCallExpressionIncorrect1.js",
+          "../projects/TypeScript/tests/baselines/reference/importCallExpressionIncorrect2.js",
+          "../projects/TypeScript/tests/baselines/reference/importTypeGenericArrowTypeParenthesized.js",
+          "../projects/TypeScript/tests/baselines/reference/intTypeCheck.js",
+          "../projects/TypeScript/tests/baselines/reference/invalidThrowStatement.js",
+          "../projects/TypeScript/tests/baselines/reference/jsdocParseErrorsInTypescript.js",
+          "../projects/TypeScript/tests/baselines/reference/labeledStatementWithLabel_strict.js",
+          "../projects/TypeScript/tests/baselines/reference/labeledStatementWithLabel_es2015.js",
+          "../projects/TypeScript/tests/baselines/reference/labeledStatementWithLabel.js",
+          "../projects/TypeScript/tests/baselines/reference/literalTypes1.js",
+          "../projects/TypeScript/tests/baselines/reference/literalTypesAndTypeAssertions.js",
+          "../projects/TypeScript/tests/baselines/reference/literalTypeWidening.js",
+          "../projects/TypeScript/tests/baselines/reference/logicalNotOperatorInvalidOperations.js",
+          "../projects/TypeScript/tests/baselines/reference/moduleAugmentationsBundledOutput1.js",
+          "../projects/TypeScript/tests/baselines/reference/narrowedConstInMethod.js",
+          "../projects/TypeScript/tests/baselines/reference/nearbyIdenticalGenericLambdasAssignable.js",
+          "../projects/TypeScript/tests/baselines/reference/negateOperatorInvalidOperations.js",
+          "../projects/TypeScript/tests/baselines/reference/newExpressionWithCast.js",
+          "../projects/TypeScript/tests/baselines/reference/newMissingIdentifier.js",
+          "../projects/TypeScript/tests/baselines/reference/nullIsSubtypeOfEverythingButUndefined.js",
+          "../projects/TypeScript/tests/baselines/reference/numericIndexerConstrainsPropertyDeclarations.js",
+          "../projects/TypeScript/tests/baselines/reference/objectSpreadNegativeParse.js",
+          "../projects/TypeScript/tests/baselines/reference/objectTypesIdentityWithNumericIndexers2.js",
+          "../projects/TypeScript/tests/baselines/reference/objectTypesIdentityWithStringIndexers2.js",
+          "../projects/TypeScript/tests/baselines/reference/organizeImports/JsxPragmaTsx.ts",
+          "../projects/TypeScript/tests/baselines/reference/parseArrowFunctionWithFunctionReturnType.js",
+          "../projects/TypeScript/tests/baselines/reference/parseCommaSeparatedNewlineNew.js",
+          "../projects/TypeScript/tests/baselines/reference/parseIncompleteBinaryExpression1.js",
+          "../projects/TypeScript/tests/baselines/reference/parser566700.js",
+          "../projects/TypeScript/tests/baselines/reference/parserCastVersusArrowFunction1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserEmptyParenthesizedExpression1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecoveryIfStatement1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecoveryIfStatement4.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_Block1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_Expression1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_LeftShift1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_ObjectLiteral3.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_SwitchStatement1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserExportAssignment3.js",
+          "../projects/TypeScript/tests/baselines/reference/parserExportAssignment4.js",
+          "../projects/TypeScript/tests/baselines/reference/parserGreaterThanTokenAmbiguity12.js",
+          "../projects/TypeScript/tests/baselines/reference/parserGreaterThanTokenAmbiguity13.js",
+          "../projects/TypeScript/tests/baselines/reference/parserGreaterThanTokenAmbiguity14.js",
+          "../projects/TypeScript/tests/baselines/reference/parserGreaterThanTokenAmbiguity18.js",
+          "../projects/TypeScript/tests/baselines/reference/parserGreaterThanTokenAmbiguity19.js",
+          "../projects/TypeScript/tests/baselines/reference/parserGreaterThanTokenAmbiguity17.js",
+          "../projects/TypeScript/tests/baselines/reference/parserGreaterThanTokenAmbiguity2.js",
+          "../projects/TypeScript/tests/baselines/reference/parserGreaterThanTokenAmbiguity3.js",
+          "../projects/TypeScript/tests/baselines/reference/parserGreaterThanTokenAmbiguity4.js",
+          "../projects/TypeScript/tests/baselines/reference/parserGreaterThanTokenAmbiguity7.js",
+          "../projects/TypeScript/tests/baselines/reference/parserGreaterThanTokenAmbiguity8.js",
+          "../projects/TypeScript/tests/baselines/reference/parserGreaterThanTokenAmbiguity9.js",
+          "../projects/TypeScript/tests/baselines/reference/parserMissingToken1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserRealSource13.js",
+          "../projects/TypeScript/tests/baselines/reference/parserRealSource12.js",
+          "../projects/TypeScript/tests/baselines/reference/parserRealSource14.js",
+          "../projects/TypeScript/tests/baselines/reference/parserRealSource2.js",
+          "../projects/TypeScript/tests/baselines/reference/parserRealSource4.js",
+          "../projects/TypeScript/tests/baselines/reference/parserRealSource5.js",
+          "../projects/TypeScript/tests/baselines/reference/parserRealSource6.js",
+          "../projects/TypeScript/tests/baselines/reference/parserS12.11_A3_T4.js",
+          "../projects/TypeScript/tests/baselines/reference/parserS7.9_A5.7_T1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserTypeAssertionInObjectCreationExpression1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserUnaryExpression5.js",
+          "../projects/TypeScript/tests/baselines/reference/parserVariableDeclaration3.js",
+          "../projects/TypeScript/tests/baselines/reference/parseTypes.js",
+          "../projects/TypeScript/tests/baselines/reference/partiallyDiscriminantedUnions.js",
+          "../projects/TypeScript/tests/baselines/reference/plusOperatorInvalidOperations.js"
+        ]
+      },
+      {
+        "message": "An AMD module cannot have multiple name assignments.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/amdModuleName2.js"
+        ]
+      },
+      {
+        "message": "',' expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/arrayTypeOfTypeOf.js",
+          "../projects/TypeScript/tests/baselines/reference/ArrowFunction3.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncArrowFunction5_es2017.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncArrowFunction5_es6.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncArrowFunction5_es5.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncArrowFunction9_es2017.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncArrowFunction9_es5.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncArrowFunction9_es6.js",
+          "../projects/TypeScript/tests/baselines/reference/binaryIntegerLiteralError.js",
+          "../projects/TypeScript/tests/baselines/reference/bitwiseNotOperatorInvalidOperations.js",
+          "../projects/TypeScript/tests/baselines/reference/callSignaturesWithAccessibilityModifiersOnParameters.js",
+          "../projects/TypeScript/tests/baselines/reference/callWithSpread.js",
+          "../projects/TypeScript/tests/baselines/reference/callWithSpreadES6.js",
+          "../projects/TypeScript/tests/baselines/reference/classExtendsEveryObjectType.js",
+          "../projects/TypeScript/tests/baselines/reference/classExtendsEveryObjectType2.js",
+          "../projects/TypeScript/tests/baselines/reference/decoratorOnClassConstructorParameter4.js",
+          "../projects/TypeScript/tests/baselines/reference/deleteOperatorInvalidOperations.js",
+          "../projects/TypeScript/tests/baselines/reference/destructuringObjectBindingPatternAndAssignment3.js",
+          "../projects/TypeScript/tests/baselines/reference/destructuringParameterDeclaration2.js",
+          "../projects/TypeScript/tests/baselines/reference/errorRecoveryInClassDeclaration.js",
+          "../projects/TypeScript/tests/baselines/reference/es6ClassTest2.js",
+          "../projects/TypeScript/tests/baselines/reference/exportsAndImportsWithUnderscores1.js",
+          "../projects/TypeScript/tests/baselines/reference/expressionTypeNodeShouldError.js",
+          "../projects/TypeScript/tests/baselines/reference/fatarrowfunctionsErrors.js",
+          "../projects/TypeScript/tests/baselines/reference/FunctionDeclaration10_es6.js",
+          "../projects/TypeScript/tests/baselines/reference/genericClassWithFunctionTypedMemberArguments.js",
+          "../projects/TypeScript/tests/baselines/reference/implicitAnyFunctionInvocationWithAnyArguements.js",
+          "../projects/TypeScript/tests/baselines/reference/incompleteObjectLiteral1.js",
+          "../projects/TypeScript/tests/baselines/reference/invalidLetInForOfAndForIn_ES5.js",
+          "../projects/TypeScript/tests/baselines/reference/invalidLetInForOfAndForIn_ES6.js",
+          "../projects/TypeScript/tests/baselines/reference/newOperatorErrorCases.js",
+          "../projects/TypeScript/tests/baselines/reference/noImplicitAnyIndexing.js",
+          "../projects/TypeScript/tests/baselines/reference/noImplicitAnyIndexingSuppressed.js",
+          "../projects/TypeScript/tests/baselines/reference/numericNamedPropertyDuplicates.js",
+          "../projects/TypeScript/tests/baselines/reference/objectLiteralShorthandPropertiesErrorWithModule.js",
+          "../projects/TypeScript/tests/baselines/reference/objectLiteralWithSemicolons2.js",
+          "../projects/TypeScript/tests/baselines/reference/objectLiteralWithSemicolons1.js",
+          "../projects/TypeScript/tests/baselines/reference/objectLiteralWithSemicolons4.js",
+          "../projects/TypeScript/tests/baselines/reference/objectLiteralWithSemicolons5.js",
+          "../projects/TypeScript/tests/baselines/reference/objectLiteralWithSemicolons3.js",
+          "../projects/TypeScript/tests/baselines/reference/octalIntegerLiteralError.js",
+          "../projects/TypeScript/tests/baselines/reference/parseBigInt.js",
+          "../projects/TypeScript/tests/baselines/reference/parser512097.js",
+          "../projects/TypeScript/tests/baselines/reference/parser645086_1.js",
+          "../projects/TypeScript/tests/baselines/reference/parser645086_2.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecoveryArrayLiteralExpression1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecoveryArrayLiteralExpression3.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecoveryArrayLiteralExpression2.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_ArgumentList4.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_ObjectLiteral2.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_ObjectLiteral1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_ObjectLiteral4.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_ParameterList1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_ParameterList5.js",
+          "../projects/TypeScript/tests/baselines/reference/parserTypeQuery8.js",
+          "../projects/TypeScript/tests/baselines/reference/parservoidInQualifiedName1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserX_ArrowFunction3.js"
+        ]
+      },
+      {
+        "message": "Type expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/ArrowFunction1.js",
+          "../projects/TypeScript/tests/baselines/reference/callExpressionWithMissingTypeArgument1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserX_ArrowFunction1.js"
+        ]
+      },
+      {
+        "message": "'=>' expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/arrowFunctionsMissingTokens.js",
+          "../projects/TypeScript/tests/baselines/reference/functionTypesLackingReturnTypes.js",
+          "../projects/TypeScript/tests/baselines/reference/genericCallWithOverloadedFunctionTypedArguments2.js",
+          "../projects/TypeScript/tests/baselines/reference/methodContainingLocalFunction.js",
+          "../projects/TypeScript/tests/baselines/reference/parser509669.js"
+        ]
+      },
+      {
+        "message": "JSX element 'any' has no corresponding closing tag.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/arrowFunctionWithObjectLiteralBody3.js",
+          "../projects/TypeScript/tests/baselines/reference/arrowFunctionWithObjectLiteralBody4.js",
+          "../projects/TypeScript/tests/baselines/reference/asOperator4.js",
+          "../projects/TypeScript/tests/baselines/reference/commentOnParenthesizedExpressionOpenParen1.js",
+          "../projects/TypeScript/tests/baselines/reference/computedPropertyNames10_ES5.js",
+          "../projects/TypeScript/tests/baselines/reference/computedPropertyNames4_ES5.js",
+          "../projects/TypeScript/tests/baselines/reference/destructuringTypeAssertionsES5_3.js",
+          "../projects/TypeScript/tests/baselines/reference/destructuringTypeAssertionsES5_1.js",
+          "../projects/TypeScript/tests/baselines/reference/destructuringTypeAssertionsES5_2.js",
+          "../projects/TypeScript/tests/baselines/reference/destructuringTypeAssertionsES5_4.js",
+          "../projects/TypeScript/tests/baselines/reference/destructuringTypeAssertionsES5_5.js",
+          "../projects/TypeScript/tests/baselines/reference/destructuringTypeAssertionsES5_6.js",
+          "../projects/TypeScript/tests/baselines/reference/destructuringTypeAssertionsES5_7.js",
+          "../projects/TypeScript/tests/baselines/reference/genericTypeArgumentInference1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserNoASIOnCallAfterFunctionExpression1.js"
+        ]
+      },
+      {
+        "message": "'>' expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/assertInWrapSomeTypeParameter.js",
+          "../projects/TypeScript/tests/baselines/reference/comparisonOperatorWithNumericLiteral.js",
+          "../projects/TypeScript/tests/baselines/reference/organizeImports/JsxFactoryUsedJs.ts",
+          "../projects/TypeScript/tests/baselines/reference/organizeImports/JsxFactoryUsedJsx.ts",
+          "../projects/TypeScript/tests/baselines/reference/organizeImports/JsxFactoryUsedTsx.ts",
+          "../projects/TypeScript/tests/baselines/reference/organizeImports/JsxFactoryUsedTs.ts",
+          "../projects/TypeScript/tests/baselines/reference/parserUnterminatedGeneric1.js"
+        ]
+      },
+      {
+        "message": "Declaration or statement expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/assignmentLHSIsValue.js",
+          "../projects/TypeScript/tests/baselines/reference/class2.js",
+          "../projects/TypeScript/tests/baselines/reference/classAbstractManyKeywords.js",
+          "../projects/TypeScript/tests/baselines/reference/classUpdateTests.js",
+          "../projects/TypeScript/tests/baselines/reference/compoundAssignmentLHSIsValue.js",
+          "../projects/TypeScript/tests/baselines/reference/compoundExponentiationAssignmentLHSIsValue.js",
+          "../projects/TypeScript/tests/baselines/reference/declarationEmitInvalidExport.js",
+          "../projects/TypeScript/tests/baselines/reference/decoratorOnClass3.js",
+          "../projects/TypeScript/tests/baselines/reference/es6ImportParseErrors.js",
+          "../projects/TypeScript/tests/baselines/reference/exportDefaultFunctionInNamespace.js",
+          "../projects/TypeScript/tests/baselines/reference/extension.js",
+          "../projects/TypeScript/tests/baselines/reference/jsxInvalidEsprimaTestSuite.js",
+          "../projects/TypeScript/tests/baselines/reference/moduleProperty1.js",
+          "../projects/TypeScript/tests/baselines/reference/objectCreationExpressionInFunctionParameter.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrantAccessibilityModifierInModule1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecoveryIfStatement6.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_Block3.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_ModuleElement1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_ModuleElement2.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_SourceUnit1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserPublicBreak1.js"
+        ]
+      },
+      {
+        "message": "'(' expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/asyncFunctionDeclaration12_es2017.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncFunctionDeclaration12_es5.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncFunctionDeclaration12_es6.js",
+          "../projects/TypeScript/tests/baselines/reference/FunctionDeclaration12_es6.js",
+          "../projects/TypeScript/tests/baselines/reference/genericCallsWithoutParens.js",
+          "../projects/TypeScript/tests/baselines/reference/genericCallWithoutArgs.js",
+          "../projects/TypeScript/tests/baselines/reference/genericObjectCreationWithoutTypeArgs.js",
+          "../projects/TypeScript/tests/baselines/reference/MemberFunctionDeclaration6_es6.js",
+          "../projects/TypeScript/tests/baselines/reference/overloadingStaticFunctionsInFunctions.js",
+          "../projects/TypeScript/tests/baselines/reference/parserConstructorDeclaration8.js",
+          "../projects/TypeScript/tests/baselines/reference/parserMemberAccessExpression1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserMemberAccessOffOfGenericType1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserObjectType5.js"
+        ]
+      },
+      {
+        "message": "Parameter declaration expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/asyncFunctionDeclaration5_es6.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncFunctionDeclaration5_es2017.js",
+          "../projects/TypeScript/tests/baselines/reference/asyncFunctionDeclaration5_es5.js",
+          "../projects/TypeScript/tests/baselines/reference/FunctionDeclaration5_es6.js"
+        ]
+      },
+      {
+        "message": "An element access expression should take an argument.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/badArraySyntax.js",
+          "../projects/TypeScript/tests/baselines/reference/badArrayIndex.js",
+          "../projects/TypeScript/tests/baselines/reference/cannotInvokeNewOnErrorExpression.js",
+          "../projects/TypeScript/tests/baselines/reference/createArray.js",
+          "../projects/TypeScript/tests/baselines/reference/libMembers.js",
+          "../projects/TypeScript/tests/baselines/reference/newOperator.js",
+          "../projects/TypeScript/tests/baselines/reference/objectLitArrayDeclNoNew.js",
+          "../projects/TypeScript/tests/baselines/reference/parserObjectCreationArrayLiteral1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserObjectCreationArrayLiteral3.js",
+          "../projects/TypeScript/tests/baselines/reference/parserRealSource10.js",
+          "../projects/TypeScript/tests/baselines/reference/parserRealSource7.js",
+          "../projects/TypeScript/tests/baselines/reference/parserRealSource9.js"
+        ]
+      },
+      {
+        "message": "JSX element 'number' has no corresponding closing tag.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/betterErrorForAccidentalCall.js",
+          "../projects/TypeScript/tests/baselines/reference/emitExponentiationOperator4.js"
+        ]
+      },
+      {
+        "message": "Property assignment expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/bigintIndex.js",
+          "../projects/TypeScript/tests/baselines/reference/parseErrorDoubleCommaInCall.js"
+        ]
+      },
+      {
+        "message": "'{' expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/callSignaturesWithParameterInitializers2.js",
+          "../projects/TypeScript/tests/baselines/reference/classWithPredefinedTypesAsNames2.js",
+          "../projects/TypeScript/tests/baselines/reference/es6ClassTest9.js",
+          "../projects/TypeScript/tests/baselines/reference/interfaceDeclaration4.js",
+          "../projects/TypeScript/tests/baselines/reference/jsxAttributeMissingInitializer.js",
+          "../projects/TypeScript/tests/baselines/reference/jsxEsprimaFbTestSuite.js",
+          "../projects/TypeScript/tests/baselines/reference/objectTypesWithPredefinedTypesAsName2.js",
+          "../projects/TypeScript/tests/baselines/reference/parserMissingLambdaOpenBrace1.js"
+        ]
+      },
+      {
+        "message": "JSX element 'Foo' has no corresponding closing tag.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/castNewObjectBug.js"
+        ]
+      },
+      {
+        "message": "Unexpected token. A constructor, method, accessor, or property was expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/classBodyWithStatements.js",
+          "../projects/TypeScript/tests/baselines/reference/nestedClassDeclaration.js",
+          "../projects/TypeScript/tests/baselines/reference/parser512084.js",
+          "../projects/TypeScript/tests/baselines/reference/parser585151.js",
+          "../projects/TypeScript/tests/baselines/reference/parserAccessibilityAfterStatic6.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_ClassElement1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_ClassElement2.js"
+        ]
+      },
+      {
+        "message": "Classes can only extend a single class.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/classExtendsMultipleBaseClasses.js",
+          "../projects/TypeScript/tests/baselines/reference/multipleInheritance.js",
+          "../projects/TypeScript/tests/baselines/reference/parserClassDeclaration6.js"
+        ]
+      },
+      {
+        "message": "Declaration expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/classMemberWithMissingIdentifier.js",
+          "../projects/TypeScript/tests/baselines/reference/classMemberWithMissingIdentifier2.js"
+        ]
+      },
+      {
+        "message": "Merge conflict marker encountered.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/conflictMarkerDiff3Trivia2.js",
+          "../projects/TypeScript/tests/baselines/reference/conflictMarkerDiff3Trivia1.js",
+          "../projects/TypeScript/tests/baselines/reference/conflictMarkerTrivia1.js",
+          "../projects/TypeScript/tests/baselines/reference/conflictMarkerTrivia2.js",
+          "../projects/TypeScript/tests/baselines/reference/conflictMarkerTrivia3.js",
+          "../projects/TypeScript/tests/baselines/reference/conflictMarkerTrivia4.js"
+        ]
+      },
+      {
+        "message": "An enum member name must be followed by a ',', '=', or '}'.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/constEnum2.js",
+          "../projects/TypeScript/tests/baselines/reference/enumErrors.js",
+          "../projects/TypeScript/tests/baselines/reference/parserComputedPropertyName30.js",
+          "../projects/TypeScript/tests/baselines/reference/parserEnum5.js"
+        ]
+      },
+      {
+        "message": "'...' expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/contextualSignatureInstantiation1.js"
+        ]
+      },
+      {
+        "message": "'=' expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/declarationEmitUnknownImport2.js"
+        ]
+      },
+      {
+        "message": "Identifier expected. 'this' is a reserved word that cannot be used here.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/decoratorOnClassMethodThisParameter.js"
+        ]
+      },
+      {
+        "message": "Enum member expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/decoratorOnEnum2.js",
+          "../projects/TypeScript/tests/baselines/reference/parserEnum4.js"
+        ]
+      },
+      {
+        "message": "':' expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/destructuringParameterDeclaration6.js",
+          "../projects/TypeScript/tests/baselines/reference/objectBindingPatternKeywordIdentifiers01.js",
+          "../projects/TypeScript/tests/baselines/reference/objectBindingPatternKeywordIdentifiers03.js",
+          "../projects/TypeScript/tests/baselines/reference/objectLiteralShorthandPropertiesErrorFromNotUsingIdentifier.js",
+          "../projects/TypeScript/tests/baselines/reference/parseErrorIncorrectReturnToken.js",
+          "../projects/TypeScript/tests/baselines/reference/parserComputedPropertyName1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_ObjectLiteral5.js",
+          "../projects/TypeScript/tests/baselines/reference/parserShorthandPropertyAssignment2.js",
+          "../projects/TypeScript/tests/baselines/reference/parserShorthandPropertyAssignment3.js",
+          "../projects/TypeScript/tests/baselines/reference/parserShorthandPropertyAssignment4.js"
+        ]
+      },
+      {
+        "message": "'{' or ';' expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/dottedModuleName.js",
+          "../projects/TypeScript/tests/baselines/reference/overloadConsecutiveness.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrantEqualsGreaterThanAfterFunction1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrantEqualsGreaterThanAfterFunction2.js"
+        ]
+      },
+      {
+        "message": "Type parameter declaration expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/dontShowCompilerGeneratedMembers.js"
+        ]
+      },
+      {
+        "message": "Invalid character.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/emitBundleWithShebang1.js",
+          "../projects/TypeScript/tests/baselines/reference/emitBundleWithShebang2.js",
+          "../projects/TypeScript/tests/baselines/reference/emitBundleWithShebangAndPrologueDirectives2.js",
+          "../projects/TypeScript/tests/baselines/reference/emitBundleWithShebangAndPrologueDirectives1.js",
+          "../projects/TypeScript/tests/baselines/reference/invalidUnicodeEscapeSequance2.js",
+          "../projects/TypeScript/tests/baselines/reference/invalidUnicodeEscapeSequance.js",
+          "../projects/TypeScript/tests/baselines/reference/invalidUnicodeEscapeSequance3.js",
+          "../projects/TypeScript/tests/baselines/reference/invalidUnicodeEscapeSequance4.js",
+          "../projects/TypeScript/tests/baselines/reference/MemberFunctionDeclaration8_es6.js",
+          "../projects/TypeScript/tests/baselines/reference/parseErrorInHeritageClause1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_Block2.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_ClassElement3.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_ParameterList4.js",
+          "../projects/TypeScript/tests/baselines/reference/parserSkippedTokens1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserSkippedTokens10.js",
+          "../projects/TypeScript/tests/baselines/reference/parserSkippedTokens11.js",
+          "../projects/TypeScript/tests/baselines/reference/parserSkippedTokens12.js",
+          "../projects/TypeScript/tests/baselines/reference/parserSkippedTokens13.js",
+          "../projects/TypeScript/tests/baselines/reference/parserSkippedTokens15.js",
+          "../projects/TypeScript/tests/baselines/reference/parserSkippedTokens14.js",
+          "../projects/TypeScript/tests/baselines/reference/parserSkippedTokens17.js",
+          "../projects/TypeScript/tests/baselines/reference/parserSkippedTokens19.js",
+          "../projects/TypeScript/tests/baselines/reference/parserSkippedTokens18.js",
+          "../projects/TypeScript/tests/baselines/reference/parserSkippedTokens2.js",
+          "../projects/TypeScript/tests/baselines/reference/parserSkippedTokens3.js",
+          "../projects/TypeScript/tests/baselines/reference/parserSkippedTokens20.js",
+          "../projects/TypeScript/tests/baselines/reference/parserSkippedTokens5.js",
+          "../projects/TypeScript/tests/baselines/reference/parserSkippedTokens4.js",
+          "../projects/TypeScript/tests/baselines/reference/parserSkippedTokens6.js",
+          "../projects/TypeScript/tests/baselines/reference/parserSkippedTokens7.js",
+          "../projects/TypeScript/tests/baselines/reference/parserSkippedTokens8.js",
+          "../projects/TypeScript/tests/baselines/reference/parserSkippedTokens9.js",
+          "../projects/TypeScript/tests/baselines/reference/parserX_TypeArgumentList1.js"
+        ]
+      },
+      {
+        "message": "')' expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/enumWithParenthesizedInitializer1.js",
+          "../projects/TypeScript/tests/baselines/reference/functionLiteral.js",
+          "../projects/TypeScript/tests/baselines/reference/objectRestNegative.js",
+          "../projects/TypeScript/tests/baselines/reference/parserArrowFunctionExpression3.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecoveryIfStatement2.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecoveryIfStatement3.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_ArgumentList2.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_ParameterList2.js"
+        ]
+      },
+      {
+        "message": "'super' may not use type arguments.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/errorSuperCalls.js",
+          "../projects/TypeScript/tests/baselines/reference/parserSuperExpression2.js"
+        ]
+      },
+      {
+        "message": "An unary expression with the 'typeof' operator is not allowed in the left-hand side of an exponentiation expression. Consider enclosing the expression in parentheses.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/exponentiationOperatorInTemplateStringWithSyntaxError1.js"
+        ]
+      },
+      {
+        "message": "An unary expression with the '-' operator is not allowed in the left-hand side of an exponentiation expression. Consider enclosing the expression in parentheses.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/exponentiationOperatorInTemplateStringWithSyntaxError2.js",
+          "../projects/TypeScript/tests/baselines/reference/exponentiationOperatorSyntaxError1.js",
+          "../projects/TypeScript/tests/baselines/reference/exponentiationOperatorInTemplateStringWithSyntaxError3.js"
+        ]
+      },
+      {
+        "message": "An unary expression with the 'delete' operator is not allowed in the left-hand side of an exponentiation expression. Consider enclosing the expression in parentheses.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/exponentiationOperatorSyntaxError2.js"
+        ]
+      },
+      {
+        "message": "An identifier or keyword cannot immediately follow a numeric literal.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/identifierStartAfterNumericLiteral.js",
+          "../projects/TypeScript/tests/baselines/reference/numericLiteralsWithTrailingDecimalPoints01.js",
+          "../projects/TypeScript/tests/baselines/reference/numericLiteralsWithTrailingDecimalPoints02.js"
+        ]
+      },
+      {
+        "message": "JSX element 'IDirectChildrenMap' has no corresponding closing tag.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/indexer2.js"
+        ]
+      },
+      {
+        "message": "Property or signature expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/instantiateTypeParameter.js",
+          "../projects/TypeScript/tests/baselines/reference/interfaceExtendingClass2.js"
+        ]
+      },
+      {
+        "message": "Binary digit expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/invalidBinaryIntegerLiteralAndOctalIntegerLiteral.js"
+        ]
+      },
+      {
+        "message": "Invalid 'reference' directive syntax.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/invalidReferenceSyntax1.js"
+        ]
+      },
+      {
+        "message": "'as' expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/invalidSyntaxNamespaceImportWithAMD.js",
+          "../projects/TypeScript/tests/baselines/reference/invalidSyntaxNamespaceImportWithCommonjs.js",
+          "../projects/TypeScript/tests/baselines/reference/invalidSyntaxNamespaceImportWithSystem.js"
+        ]
+      },
+      {
+        "message": "'try' expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/invalidTryStatements2.js"
+        ]
+      },
+      {
+        "message": "JSX expressions must have one parent element.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/jsxEmitAttributeWithPreserve.js"
+        ]
+      },
+      {
+        "message": "Expected corresponding JSX closing tag for 'span'.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/jsxParsingError2.js"
+        ]
+      },
+      {
+        "message": "JSX element 'boolean' has no corresponding closing tag.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/literals-negative.js"
+        ]
+      },
+      {
+        "message": "Argument expression expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/missingArgument1.js",
+          "../projects/TypeScript/tests/baselines/reference/parse2.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_ArgumentList3.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_ArgumentList1.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_ArgumentList6.js",
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_ArgumentList7.js"
+        ]
+      },
+      {
+        "message": "Identifier expected. 'while' is a reserved word that cannot be used here.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/objectBindingPatternKeywordIdentifiers02.js",
+          "../projects/TypeScript/tests/baselines/reference/objectBindingPatternKeywordIdentifiers04.js"
+        ]
+      },
+      {
+        "message": "Numeric separators are not allowed here.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/parser.numericSeparators.binaryNegative.js",
+          "../projects/TypeScript/tests/baselines/reference/parser.numericSeparators.decmialNegative.js",
+          "../projects/TypeScript/tests/baselines/reference/parser.numericSeparators.octalNegative.js",
+          "../projects/TypeScript/tests/baselines/reference/parser.numericSeparators.hexNegative.js"
+        ]
+      },
+      {
+        "message": "Unterminated Unicode escape sequence.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/parser.numericSeparators.unicodeEscape.js"
+        ]
+      },
+      {
+        "message": "Expression or comma expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/parser0_004152.js",
+          "../projects/TypeScript/tests/baselines/reference/parser509630.js"
+        ]
+      },
+      {
+        "message": "Identifier expected. 'void' is a reserved word that cannot be used here.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/parserEnumDeclaration4.js"
+        ]
+      },
+      {
+        "message": "'case' or 'default' expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/parserErrorRecovery_SwitchStatement2.js"
+        ]
+      },
+      {
+        "message": "Variable declaration expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/parserInvalidIdentifiersInVariableStatements1.js"
+        ]
+      },
+      {
+        "message": "'*/' expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/parserKeywordsAsIdentifierName2.js"
+        ]
+      },
+      {
+        "message": "Unterminated regular expression literal.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/parserMissingToken2.js",
+          "../projects/TypeScript/tests/baselines/reference/parserRegularExpressionDivideAmbiguity4.js"
+        ]
+      },
+      {
+        "message": "']' expected.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/parserSymbolIndexer5.js",
+          "../projects/TypeScript/tests/baselines/reference/privateIndexer2.js"
+        ]
+      },
+      {
+        "message": "JSX element 'T' has no corresponding closing tag.",
+        "files": [
+          "../projects/TypeScript/tests/baselines/reference/printerApi/printsNodeCorrectly.functionTypes.js"
+        ]
+      }
+    ]
+  }
+}

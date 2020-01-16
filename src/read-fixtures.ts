@@ -33,23 +33,17 @@ export function readFixtures(): string[] {
         filesOnly: true
       })
     )
-    .reduce((acc, x) => acc.concat(x), []);
+    .flat();
 }
 
 export async function readFixture(file: string): Promise<Fixture> {
   return new Promise(resolve => {
-    fs.readFile(
-      file,
-      {
-        encoding: 'utf-8'
-      },
-      (err, content) => {
-        resolve({
-          file: file.replace(/\\/g, '/'),
-          content,
-          isTsx: isJSXFileType(path.extname(file))
-        });
-      }
-    );
+    fs.readFile(file, 'utf-8', (err, content) => {
+      resolve({
+        file: file.replace(/\\/g, '/'),
+        content,
+        isTsx: isJSXFileType(path.extname(file))
+      });
+    });
   });
 }
