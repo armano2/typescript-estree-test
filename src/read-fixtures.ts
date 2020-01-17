@@ -27,7 +27,7 @@ export function isJSXFileType(fileType: string): boolean {
 export function readFixtures(): string[] {
   return directories
     .map(directory =>
-      glob('**/*.{ts,tsx,js,jsx,json}', {
+      glob('**/*.{ts,tsx,js,jsx}', {
         cwd: path.join(rootDir, directory),
         absolute: true,
         filesOnly: true
