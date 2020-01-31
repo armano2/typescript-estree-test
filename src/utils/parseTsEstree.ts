@@ -8,7 +8,7 @@ export function parseTsEstree(code: string, jsx: boolean) {
     comment: false,
     useJSXTextNode: true,
     errorOnUnknownASTType: true,
-    jsx
+    jsx,
   });
   if ('parseError' in result) {
     throw new Error(result);

@@ -12,7 +12,7 @@ export function parseBabel(text: string, jsx: boolean = true) {
     'bigInt',
     'importMeta',
     'optionalChaining',
-    'nullishCoalescingOperator'
+    'nullishCoalescingOperator',
   ];
   if (jsx) {
     plugins.push('jsx');
@@ -23,6 +23,6 @@ export function parseBabel(text: string, jsx: boolean = true) {
     allowImportExportEverywhere: true,
     allowReturnOutsideFunction: true,
     ranges: true,
-    plugins
+    plugins,
   });
 }

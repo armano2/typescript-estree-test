@@ -1,7 +1,5 @@
 {
-  "nodes": [
-    "Unknown AST_NODE_TYPE: \"TSJSDocNullableType\""
-  ],
+  "nodes": ["Unknown AST_NODE_TYPE: \"TSJSDocNullableType\""],
   "parse": [
     "Identifier expected.",
     "Expression expected.",

@@ -5,3 +5,4 @@ export * from './omitRange';
 export * from './removeFromProgramNode';
 export * from './parseTsEstree';
 export * from './parseBabel';
+export * from './testName';

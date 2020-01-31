@@ -6,9 +6,6 @@ module.exports = {
   modulePathIgnorePatterns: [
     '<rootDir>/projects/.*',
     '<rootDir>/node_modules/.*',
-    '<rootDir>/dist/.*'
-  ],
-  transform: {
-    '^.+\\.(ts|tsx)$': 'ts-jest'
-  }
+    '<rootDir>/dist/.*',
+  ]
 };

@@ -4,27 +4,33 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "format": "prettier --write \"./**/*.{ts,js,json,md}\"",
+    "format": "prettier --write \"./src/**/*.{ts,js,json,md}\" \"./test/**/*.{ts,js,json,md}\"  \"./gen/**/*.{ts,js,json,md}\"",
     "validate-errors": "ts-node ./src/validate-errors.ts",
     "generate-spec": "ts-node ./src/generate-spec.ts",
-    "test": "jest"
+    "test": "jest",
+    "eslint-test": "eslint ./projects/ --ext .js,.ts,.tsx,.jsx"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@babel/parser": "^7.8.3",
+    "@babel/parser": "^7.8.4",
     "@babel/types": "^7.8.3",
     "@types/eslint-visitor-keys": "^1.0.0",
     "@types/estree": "^0.0.42",
-    "@types/jest": "^24.9.0",
-    "@types/node": "^13.1.7",
+    "@types/jest": "^25.1.1",
+    "@types/node": "^13.5.3",
     "@types/prettier": "^1.19.0",
-    "@typescript-eslint/typescript-estree": "^2.16.1-alpha.12",
-    "jest": "^24.9.0",
+    "@typescript-eslint/typescript-estree": "^2.18.1-alpha.5",
+    "jest": "^25.1.0",
     "prettier": "^1.19.1",
     "tiny-glob": "^0.2.6",
-    "ts-jest": "^24.3.0",
+    "ts-jest": "^25.1.0",
     "ts-node": "^8.6.2",
-    "typescript": "beta"
+    "typescript": "3.7.5"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.18.1-alpha.5",
+    "@typescript-eslint/parser": "^2.18.1-alpha.5",
+    "eslint": "^6.8.0"
   }
 }

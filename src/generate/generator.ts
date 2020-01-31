@@ -26,8 +26,8 @@ export default class Generator {
         parser: 'json',
         singleQuote: true,
         // @ts-ignore
-        editorconfig: true
-      }
+        editorconfig: true,
+      },
     );
     fs.writeFileSync(`./gen/${filename}.json`, formatted);
   }
@@ -41,13 +41,13 @@ export default class Generator {
             ([_key, value]) =>
               value.containTypes.size > 0 ||
               value.objectTypes.size > 0 ||
-              value.containArrayOfTypes.size > 0
+              value.containArrayOfTypes.size > 0,
           )
           .flatMap(([key]) => key);
         return prev;
       }, {});
     const formatted = format(JSON.stringify(data), {
-      parser: 'json'
+      parser: 'json',
     });
     fs.writeFileSync(`./gen/${filename}.json`, formatted);
   }
@@ -60,12 +60,12 @@ export default class Generator {
       .map(
         node =>
           `export interface ${node[0]} extends BaseNode ${this.prepareProp(
-            node[1]
-          )}`
+            node[1],
+          )}`,
       );
 
     const aliases = Array.from(this.typeAliases).map(
-      e => `export type ${e[0]} = ${Array.from(e[1]).join(' | ')};`
+      e => `export type ${e[0]} = ${Array.from(e[1]).join(' | ')};`,
     );
 
     const code = `${rawTemplate}
@@ -78,7 +78,7 @@ export default class Generator {
       parser: 'typescript',
       singleQuote: true,
       // @ts-ignore
-      editorconfig: true
+      editorconfig: true,
     });
     fs.writeFileSync(`./gen/${filename}.d.ts`, formatted);
   }
@@ -109,15 +109,15 @@ export default class Generator {
             values.push(
               ...Array.from(propValue.stringValues)
                 .sort()
-                .map(e => `'${e}'`)
+                .map(e => `'${e}'`),
             );
           }
         }
         if (propValue.containArrayOfTypes.size > 0) {
           values.push(
             `Array<${this.prepareTypes(propValue.containArrayOfTypes).join(
-              ' | '
-            )}>`
+              ' | ',
+            )}>`,
           );
         }
         if (propValue.containTypes.size > 0) {

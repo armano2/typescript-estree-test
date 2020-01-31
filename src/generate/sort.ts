@@ -18,7 +18,7 @@ export function sortNodes(a: string, b: string) {
 
 export function sortProps(
   a: [string, PropOptions],
-  b: [string, PropOptions]
+  b: [string, PropOptions],
 ): number {
   if (a[0] === 'type') {
     return -1;

@@ -15,9 +15,9 @@ function createReport(errors: Map<string, string[]>) {
     details: err.map(item => {
       return {
         message: item[0],
-        files: item[1]
+        files: item[1],
       };
-    })
+    }),
   };
 }
 
@@ -48,7 +48,7 @@ for (const file of files) {
           }
         }
       }
-    })
+    }),
   );
 }
 
@@ -62,11 +62,11 @@ Promise.all(promises).then(() => {
 
   saveFile('messages', {
     nodes: toReport.messages,
-    parse: parseToReport.messages
+    parse: parseToReport.messages,
   });
   saveFile('report', {
     nodes: toReport,
-    parse: parseToReport
+    parse: parseToReport,
   });
   console.log('reports saved.');
 });

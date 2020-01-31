@@ -13,7 +13,7 @@ const disabledStringFields = [
   'pattern',
   'flags',
   'cooked',
-  'directive'
+  'directive',
 ];
 
 const nodes = new Map<string, Map<string, PropOptions>>();
@@ -39,7 +39,7 @@ function getProp(def: Map<string, PropOptions>, type: string) {
       isNumber: false,
       containTypes: new Set(),
       objectTypes: new Map(),
-      containArrayOfTypes: new Set()
+      containArrayOfTypes: new Set(),
     };
     def.set(type, node);
   }
@@ -109,7 +109,7 @@ for (const file of files) {
           nodes.set(node.type, def);
         });
       } catch {}
-    })
+    }),
   );
 }
 

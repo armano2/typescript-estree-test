@@ -5,12 +5,12 @@ export function omitRange(ast: any): any {
     {
       key: 'range',
       // only remove the "end" number (not the "end" object within loc)
-      predicate: always
+      predicate: always,
     },
     {
       key: 'loc',
       // only remove the "end" number (not the "end" object within loc)
-      predicate: always
-    }
+      predicate: always,
+    },
   ]);
 }

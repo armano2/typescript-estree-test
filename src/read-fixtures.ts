@@ -30,8 +30,8 @@ export function readFixtures(): string[] {
       glob('**/*.{ts,tsx,js,jsx}', {
         cwd: path.join(rootDir, directory),
         absolute: true,
-        filesOnly: true
-      })
+        filesOnly: true,
+      }),
     )
     .flat();
 }
@@ -42,7 +42,7 @@ export async function readFixture(file: string): Promise<Fixture> {
       resolve({
         file: file.replace(/\\/g, '/'),
         content,
-        isTsx: isJSXFileType(path.extname(file))
+        isTsx: isJSXFileType(path.extname(file)),
       });
     });
   });

@@ -6,7 +6,7 @@ export function isPlainObject(obj: any) {
 
 export function traverse(
   root: any,
-  cb: (node: TSESTree.Node, parent?: TSESTree.Node) => void
+  cb: (node: TSESTree.Node, parent?: TSESTree.Node) => void,
 ) {
   function visit(node: TSESTree.Node, parent?: TSESTree.Node) {
     if (!node || typeof node.type !== 'string') {

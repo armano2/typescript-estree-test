@@ -1,23 +1,18 @@
-import path from 'path';
-
 import { readFixture, readFixtures } from '../src/read-fixtures';
 import {
   omitRange,
   parseBabel,
   parseTsEstree,
   preprocessBabylonAST,
-  removeFromProgramNode
+  removeFromProgramNode,
+  testName,
 } from '../src/utils';
 
 describe('alignment', () => {
   const files = readFixtures();
 
   for (const file of files) {
-    const filePath = path
-      .normalize(path.relative(__dirname, file))
-      .replace(/\\/g, '/');
-
-    it(`${filePath}`, function() {
+    it(`${testName(file)}`, function() {
       return readFixture(file).then(({ content, isTsx }) => {
         let bCode, tsCode;
         try {
@@ -28,7 +23,7 @@ describe('alignment', () => {
         }
 
         expect(removeFromProgramNode(omitRange(tsCode))).toEqual(
-          removeFromProgramNode(omitRange(bCode))
+          removeFromProgramNode(omitRange(bCode)),
         );
       });
     });

@@ -17,41 +17,41 @@ export function preprocessBabylonAST(ast: BabelTypes.File): any {
       {
         key: 'start',
         // only remove the "start" number (not the "start" object within loc)
-        predicate: ifNumber
+        predicate: ifNumber,
       },
       {
         key: 'end',
         // only remove the "end" number (not the "end" object within loc)
-        predicate: ifNumber
+        predicate: ifNumber,
       },
       {
         key: 'identifierName',
-        predicate: always
+        predicate: always,
       },
       {
         key: 'extra',
-        predicate: always
+        predicate: always,
       },
       {
         key: 'innerComments',
-        predicate: always
+        predicate: always,
       },
       {
         key: 'leadingComments',
-        predicate: always
+        predicate: always,
       },
       {
         key: 'trailingComments',
-        predicate: always
+        predicate: always,
       },
       {
         key: 'guardedHandlers',
-        predicate: always
+        predicate: always,
       },
       {
         key: 'interpreter',
-        predicate: always
-      }
+        predicate: always,
+      },
     ],
     {
       /**
@@ -136,16 +136,16 @@ export function preprocessBabylonAST(ast: BabelTypes.File): any {
             loc: {
               start: {
                 column: node.loc.start.column,
-                line: node.loc.start.line
+                line: node.loc.start.line,
               },
               end: {
                 column: node.loc.start.column + node.name.length,
-                line: node.loc.start.line
-              }
+                line: node.loc.start.line,
+              },
             },
             name: node.name,
             range: [node.range[0], node.range[0] + node.name.length],
-            type: AST_NODE_TYPES.Identifier
+            type: AST_NODE_TYPES.Identifier,
           };
         }
       },
@@ -155,7 +155,7 @@ export function preprocessBabylonAST(ast: BabelTypes.File): any {
          * ts-estree: TSAbstractClassProperty
          */
         if (node.abstract) {
-          node.type = 'TSAbstractClassProperty';
+          node.type = AST_NODE_TYPES.TSAbstractClassProperty;
           delete node.abstract;
         }
         /**
@@ -168,20 +168,20 @@ export function preprocessBabylonAST(ast: BabelTypes.File): any {
         }
       },
       TSExpressionWithTypeArguments(node, parent: any) {
-        if (parent.type === 'TSInterfaceDeclaration') {
-          node.type = 'TSInterfaceHeritage';
+        if (parent.type === AST_NODE_TYPES.TSInterfaceDeclaration) {
+          node.type = AST_NODE_TYPES.TSInterfaceHeritage;
         } else if (
-          parent.type === 'ClassExpression' ||
-          parent.type === 'ClassDeclaration'
+          parent.type === AST_NODE_TYPES.ClassExpression ||
+          parent.type === AST_NODE_TYPES.ClassDeclaration
         ) {
-          node.type = 'TSClassImplements';
+          node.type = AST_NODE_TYPES.TSClassImplements;
         }
       },
       /**
        * @see https://github.com/prettier/prettier/issues/5817
        */
       FunctionExpression(node: any, parent: any) {
-        if (parent.typeParameters && parent.type === 'Property') {
+        if (parent.typeParameters && parent.type === AST_NODE_TYPES.Property) {
           node.typeParameters = parent.typeParameters;
           delete parent.typeParameters;
         }
@@ -249,7 +249,7 @@ export function preprocessBabylonAST(ast: BabelTypes.File): any {
         if (!node.asserts) {
           node.asserts = false;
         }
-      }
-    }
+      },
+    },
   );
 }
