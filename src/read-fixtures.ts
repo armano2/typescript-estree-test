@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-// @ts-ignore
-import glob = require('tiny-glob/sync');
+import glob from 'tiny-glob/sync';
 
 const rootDir = path.join(__dirname, '..', 'projects');
 
@@ -26,7 +25,7 @@ export function isJSXFileType(fileType: string): boolean {
 
 export function readFixtures(): string[] {
   return directories
-    .map(directory =>
+    .map((directory) =>
       glob('**/*.{ts,tsx,js,jsx}', {
         cwd: path.join(rootDir, directory),
         absolute: true,
@@ -37,11 +36,11 @@ export function readFixtures(): string[] {
 }
 
 export async function readFixture(file: string): Promise<Fixture> {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     fs.readFile(file, 'utf-8', (err, content) => {
       resolve({
         file: file.replace(/\\/g, '/'),
-        content,
+        content: content.replace(/\r\n/g, '\n'), // normalize new line
         isTsx: isJSXFileType(path.extname(file)),
       });
     });

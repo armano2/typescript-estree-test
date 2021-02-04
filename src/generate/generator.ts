@@ -21,12 +21,10 @@ export default class Generator {
 
   public saveDebugObject(filename: string) {
     const formatted = format(
-      JSON.stringify([...this.nodes].map(a => [a[0], [...a[1]]])),
+      JSON.stringify([...this.nodes].map((a) => [a[0], [...a[1]]])),
       {
         parser: 'json',
         singleQuote: true,
-        // @ts-ignore
-        editorconfig: true,
       },
     );
     fs.writeFileSync(`./gen/${filename}.json`, formatted);
@@ -58,14 +56,14 @@ export default class Generator {
     const interfaces = Array.from(this.nodes)
       .sort((a, b) => sortNodes(a[0], b[0]))
       .map(
-        node =>
+        (node) =>
           `export interface ${node[0]} extends BaseNode ${this.prepareProp(
             node[1],
           )}`,
       );
 
     const aliases = Array.from(this.typeAliases).map(
-      e => `export type ${e[0]} = ${Array.from(e[1]).join(' | ')};`,
+      (e) => `export type ${e[0]} = ${Array.from(e[1]).join(' | ')};`,
     );
 
     const code = `${rawTemplate}
@@ -77,8 +75,6 @@ export default class Generator {
     const formatted = format(code, {
       parser: 'typescript',
       singleQuote: true,
-      // @ts-ignore
-      editorconfig: true,
     });
     fs.writeFileSync(`./gen/${filename}.d.ts`, formatted);
   }
@@ -109,7 +105,7 @@ export default class Generator {
             values.push(
               ...Array.from(propValue.stringValues)
                 .sort()
-                .map(e => `'${e}'`),
+                .map((e) => `'${e}'`),
             );
           }
         }
@@ -138,11 +134,11 @@ export default class Generator {
   }
 
   protected prepareTypes(types: Set<string>): string[] {
-    let result = Array.from(types).map(e => String(e));
+    let result = Array.from(types).map((e) => String(e));
 
     for (const aliases of this.typeAliases) {
-      if (aliases[1].filter(alias => result.includes(alias)).length > 1) {
-        result = result.filter(e => !aliases[1].includes(e));
+      if (aliases[1].filter((alias) => result.includes(alias)).length > 1) {
+        result = result.filter((e) => !aliases[1].includes(e));
         result.push(aliases[0]);
       }
     }

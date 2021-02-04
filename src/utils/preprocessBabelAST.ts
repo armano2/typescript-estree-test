@@ -1,6 +1,8 @@
-import * as BabelTypes from '@babel/types';
+// babel types are something we don't really care about
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AST_NODE_TYPES } from '@typescript-eslint/typescript-estree';
 import { always, ifNumber, omitDeep } from './omitDeep';
+import * as BabelTypes from '@babel/types';
 
 /**
  * - Babylon wraps the "Program" node in an extra "File" node, normalize this for simplicity for now...
@@ -65,12 +67,6 @@ export function preprocessBabylonAST(ast: BabelTypes.File): any {
         if (node.parameters) {
           node.params = node.parameters;
           delete node.parameters;
-        }
-      },
-      MethodDefinition(node: any) {
-        if (node.abstract) {
-          delete node.abstract;
-          node.type = AST_NODE_TYPES.TSAbstractMethodDefinition;
         }
       },
       /**
@@ -149,6 +145,16 @@ export function preprocessBabylonAST(ast: BabelTypes.File): any {
           };
         }
       },
+      MethodDefinition(node) {
+        /**
+         * Babel: MethodDefinition + abstract: true
+         * ts-estree: TSAbstractClassProperty
+         */
+        if (node.abstract) {
+          node.type = AST_NODE_TYPES.TSAbstractMethodDefinition;
+          delete node.abstract;
+        }
+      },
       ClassProperty(node) {
         /**
          * Babel: ClassProperty + abstract: true
@@ -197,7 +203,11 @@ export function preprocessBabylonAST(ast: BabelTypes.File): any {
           node.loc.start = Object.assign({}, node.typeParameters.loc.start);
         }
 
+        /**
+         * ts-estree: if there's no body, it becomes a TSEmptyBodyFunctionExpression
+         */
         if (!node.body) {
+          node.type = AST_NODE_TYPES.TSEmptyBodyFunctionExpression;
           node.body = null;
         }
       },
@@ -238,16 +248,6 @@ export function preprocessBabylonAST(ast: BabelTypes.File): any {
       OptionalCallExpression(node) {
         if (!node.optional) {
           node.optional = false;
-        }
-      },
-      /**
-       * TS 3.7: type assertion function
-       * babel: sets asserts property as true/undefined
-       * ts-estree: sets asserts property as true/false
-       */
-      TSTypePredicate(node) {
-        if (!node.asserts) {
-          node.asserts = false;
         }
       },
     },

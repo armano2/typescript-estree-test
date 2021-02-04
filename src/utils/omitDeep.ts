@@ -1,10 +1,10 @@
 /**
  * Common predicates for Babylon AST preprocessing
  */
-export const always = (): boolean => true;
+export const always = (_val: unknown): boolean => true;
 export const ifNumber = (val: unknown): boolean => typeof val === 'number';
 
-type UnknownObject = Record<string, unknown>;
+export type UnknownObject = Record<string, unknown>;
 
 function isObjectLike(value: unknown | null): value is UnknownObject {
   return (
@@ -28,9 +28,9 @@ export function omitDeep<T = UnknownObject>(
   > = {},
 ): UnknownObject {
   function shouldOmit(keyName: string, val: unknown): boolean {
-    if (keysToOmit.length) {
+    if (keysToOmit?.length) {
       return keysToOmit.some(
-        keyConfig => keyConfig.key === keyName && keyConfig.predicate(val),
+        (keyConfig) => keyConfig.key === keyName && keyConfig.predicate(val),
       );
     }
     return false;

@@ -1,7 +1,7 @@
-import { always, omitDeep } from './omitDeep';
+import { always, omitDeep, UnknownObject } from './omitDeep';
 
-export function omitRange(ast: any): any {
-  return omitDeep(ast, [
+export function omitRange<T = UnknownObject>(ast: T): UnknownObject {
+  return omitDeep<T>(ast, [
     {
       key: 'range',
       // only remove the "end" number (not the "end" object within loc)

@@ -1,23 +1,23 @@
 import { readFixtures, readFixture } from './read-fixtures';
 import path from 'path';
 import fs from 'fs';
-import { parseTsEstree } from './utils';
+import { parseWithTypeScriptESTree } from './utils';
 
 const missingNodes = new Map<string, string[]>();
 const parseErrors = new Map<string, string[]>();
 
 const files = readFixtures();
 
-function createReport(errors: Map<string, string[]>) {
+function createReport(
+  errors: Map<string, string[]>,
+): { messages: string[]; details: { message: string; files: string[] }[] } {
   const err = Array.from(errors);
   return {
-    messages: err.map(item => item[0]),
-    details: err.map(item => {
-      return {
-        message: item[0],
-        files: item[1],
-      };
-    }),
+    messages: err.map((item) => item[0]),
+    details: err.map((item) => ({
+      message: item[0],
+      files: item[1],
+    })),
   };
 }
 
@@ -26,7 +26,7 @@ for (const file of files) {
   promises.push(
     readFixture(file).then(({ file, content, isTsx }) => {
       try {
-        parseTsEstree(content, isTsx);
+        parseWithTypeScriptESTree(content, isTsx);
       } catch (e) {
         const filePath = path
           .normalize(path.relative(__dirname, file))
@@ -52,7 +52,7 @@ for (const file of files) {
   );
 }
 
-function saveFile(name: string, data: unknown) {
+function saveFile(name: string, data: unknown): void {
   fs.writeFileSync(`./gen/${name}.json`, JSON.stringify(data, null, 2));
 }
 

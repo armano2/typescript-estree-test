@@ -1,8 +1,8 @@
 import { readFixture, readFixtures } from '../src/read-fixtures';
 import {
   omitRange,
-  parseBabel,
-  parseTsEstree,
+  parseWithBabelParser,
+  parseWithTypeScriptESTree,
   preprocessBabylonAST,
   removeFromProgramNode,
   testName,
@@ -12,12 +12,12 @@ describe('alignment', () => {
   const files = readFixtures();
 
   for (const file of files) {
-    it(`${testName(file)}`, function() {
+    it(`${testName(file)}`, function () {
       return readFixture(file).then(({ content, isTsx }) => {
         let bCode, tsCode;
         try {
-          bCode = preprocessBabylonAST(parseBabel(content, isTsx));
-          tsCode = parseTsEstree(content, isTsx);
+          bCode = preprocessBabylonAST(parseWithBabelParser(content, isTsx));
+          tsCode = parseWithTypeScriptESTree(content, isTsx);
         } catch (e) {
           return;
         }

@@ -2,7 +2,7 @@ import { readFixtures, readFixture } from './read-fixtures';
 import { isPlainObject, traverse } from './utils/utils';
 import { PropOptions } from './generate/types';
 import Generator from './generate/generator';
-import { parseTsEstree } from './utils';
+import { parseWithTypeScriptESTree } from './utils';
 
 const files = readFixtures();
 
@@ -27,7 +27,7 @@ function getNode(type: string): Map<string, PropOptions> {
   return node;
 }
 
-function getProp(def: Map<string, PropOptions>, type: string) {
+function getProp(def: Map<string, PropOptions>, type: string): PropOptions {
   let node = def.get(type);
   if (!node) {
     node = {
@@ -46,7 +46,7 @@ function getProp(def: Map<string, PropOptions>, type: string) {
   return node;
 }
 
-function parseType(def: Map<string, any>, node: Record<string, any>) {
+function parseType(def: Map<string, any>, node: Record<string, any>): void {
   const keys = Object.keys(node);
   for (const key of keys) {
     const value = node[key];
@@ -97,14 +97,11 @@ function parseType(def: Map<string, any>, node: Record<string, any>) {
 const promises = [];
 for (const file of files) {
   promises.push(
-    readFixture(file).then(({ file, content, isTsx }) => {
+    readFixture(file).then(({ content, isTsx }) => {
       try {
-        const tsCode = parseTsEstree(content, isTsx);
-        traverse(tsCode, node => {
-          delete node.range;
-          delete node.loc;
+        const tsCode = parseWithTypeScriptESTree(content, isTsx);
+        traverse(tsCode, ({ range: _r, loc: _l, ...node }) => {
           const def = getNode(node.type);
-
           parseType(def, node);
           nodes.set(node.type, def);
         });
